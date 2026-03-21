@@ -12,7 +12,7 @@ Header.prototype.View = function () {
 	} = this;
 	return (
 		<div className="Header">
-			<Progress min={1} max={counters.count} value={counters.index}></Progress>
+			<Progress max={counters.count} value={counters.index}></Progress>
 			<h1>{ this.title }</h1>
 			<FooterView />
 		</div>

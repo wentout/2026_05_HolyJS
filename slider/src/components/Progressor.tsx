@@ -9,7 +9,7 @@ Progressor.prototype.View = function () {
 		counters
 	} = me;
 	return (
-		<Progress min={1} max={counters.amount} value={counters.current}></Progress>
+		<Progress max={counters.amount} value={counters.current}></Progress>
 	);
 };
 

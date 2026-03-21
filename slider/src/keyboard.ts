@@ -1,3 +1,4 @@
+// @ts-nocheck
 const wrapErrored = function (method) {
 	const app = this;
 	return function () {

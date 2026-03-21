@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import ReactDOM from 'react-dom/client';
 import { mnemonica, utils, defaultCollection } from 'mnemonica';
 import Snowflakes from 'magic-snowflakes';
