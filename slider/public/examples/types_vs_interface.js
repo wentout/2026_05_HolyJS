@@ -1,10 +1,11 @@
-// types vs interface - If you look at the code for a long time, then the code starts to peer at you
+// if you look at the code for a long time, then the code starts to peer at you
+
+// types vs interface - 
 
 // In TypeScript, there's a subtle difference between types and interfaces
-// This example shows nominal typing vs structural typing
 
+// they look the same structurally, but are different ideologically
 
-// They look the same structurally, but are different nominally
 const myType = {
     name: 'myType',
     createdAt: new Date()
@@ -31,3 +32,6 @@ console.log(myType.describe());
 console.log(myInterface.describe());
 
 debugger;
+
+// Interface describes Algorythm,
+// Type describes Structure
