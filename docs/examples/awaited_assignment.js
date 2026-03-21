@@ -1,5 +1,7 @@
 'use strict';
 
+debugger;
+
 const myObj = {};
 let field = 123;
 

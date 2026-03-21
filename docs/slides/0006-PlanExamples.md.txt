@@ -1,9 +1,32 @@
+-----
+
+<h1 style={{fontSize:'15vh', color: 'orange'}}>C.O.D.E.</h1>
+
+<h1 className="borderline">Ø</h1>
+
+-----
 
 # 1. types vs interface
 
 <h2 style={{color: 'aqua', marginTop: '10vh'}}>If you look at the code for a long time,<br/>then the code starts to peer at you</h2>
 
 <Button variant="red" onClick={() => { runExample('types_vs_interface')}}>Run Example</Button>
+
+-----
+
+# 1. types vs interface : discuss
+
+```javascript
+
+interface A { a: 1 }
+
+type MyFnA = (this: A) => void  // { a: 1 }
+
+type ThisA = ThisType<MyFnA>    // { a: 1 }
+
+```
+
+</div>
 
 -----
 
@@ -48,14 +71,6 @@
 
 -----
 
-# 7. self reconstruct
-
-<h2 style={{color: 'cyan', marginTop: '10vh'}}>Self reconstruction pattern</h2>
-
-<Button variant="red" onClick={() => { runExample('self_reconstruct')}}>Run Example</Button>
-
------
-
 # 8. awaited assignment
 
 <h2 style={{color: 'lightblue', marginTop: '10vh'}}>Awaited assignment</h2>
@@ -97,3 +112,10 @@ Object.defineProperty(Forkable.prototype, 'fork', {
 
 <Button variant="red" onClick={() => { runExample('forkable')}}>Run Example</Button>
 
+-----
+
+# 7. self reconstruct
+
+<h2 style={{color: 'cyan', marginTop: '10vh'}}>Self reconstruction pattern</h2>
+
+<Button variant="red" onClick={() => { runExample('self_reconstruct')}}>Run Example</Button>

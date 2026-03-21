@@ -1,3 +1,9 @@
+'use strict';
+
+// so called branding, but not
+
+debugger;
+
 // 1. having strict names for Constructors
 const MyConstructorSymbol = Symbol('My Constructor');
 

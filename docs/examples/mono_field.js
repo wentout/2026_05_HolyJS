@@ -1,4 +1,7 @@
 
+debugger;
+
+
 let value = 123;
 
 const MyGetSetTestClass = class {

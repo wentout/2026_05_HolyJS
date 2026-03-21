@@ -1,10 +1,9 @@
 'use strict';
 
-class MyPromise<T> extends Promise<T> {
-    constructor(handler: (
-        resolve: (value: T) => unknown,
-        reject: () => unknown) => void
-    ) {
+debugger;
+
+class MyPromise extends Promise {
+    constructor(handler) {
         super(handler);
     }
 }

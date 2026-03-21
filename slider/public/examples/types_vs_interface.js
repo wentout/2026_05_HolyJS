@@ -3,15 +3,16 @@
 // types vs interface - 
 
 // In TypeScript, there's a subtle difference between types and interfaces
-
 // they look the same structurally, but are different ideologically
 
-const myType = {
+
+// POJO
+const someObject = {
     name: 'myType',
     createdAt: new Date()
 }
 
-Object.setPrototypeOf(myType, {
+Object.setPrototypeOf(someObject, {
     describe () {
         return `Type ${this.name} created at ${this.createdAt}`;
     }
@@ -26,10 +27,11 @@ Interface.prototype.describe = function() {
     return `Interface ${this.name} created at ${this.createdAt}`;
 };
 
-const myInterface = new Interface('MyInterface');
+// POJO
+const myInstance = new Interface('MyInterface');
 
-console.log(myType.describe());
-console.log(myInterface.describe());
+console.log(someObject.describe());
+console.log(myInstance.describe());
 
 debugger;
 

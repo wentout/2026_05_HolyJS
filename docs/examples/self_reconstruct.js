@@ -1,5 +1,7 @@
 'use strict';
 
+debugger;
+
 const ogp = Object.getPrototypeOf;
 const ohp = Object.prototype.hasOwnProperty;
 

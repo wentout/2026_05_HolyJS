@@ -1,3 +1,5 @@
+debugger;
+
 // Forkable pattern - prototype chain sharing
 
 function Forkable() {

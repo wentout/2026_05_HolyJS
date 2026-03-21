@@ -1,3 +1,10 @@
+-----
+
+<h1 style={{fontSize:'15vh', color: 'orange'}}>C.O.D.E.</h1>
+
+<h1 className="borderline">Ø</h1>
+
+-----
 
 # 1. types vs interface
 
@@ -7,7 +14,70 @@
 
 -----
 
-# 2. const destructuring
+# 1. types vs interface : discuss
+
+этот пример Специально оставлен "неправильно"
+нужен пример в котором "правильно"
+
+
+```typescript
+
+interface A { a: number }
+
+type MyFnA = (this: A) => void  // { a: number }
+
+type ThisA = ThisType<MyFnA>    // { a: number }
+
+```
+
+-----
+
+# 1. types vs interface : discuss
+
+вот правильный пример
+
+```typescript
+
+type A = { a: number };
+
+interface MyFnA {
+    <A>(this: A) => A              // { a: number }
+}
+
+type ThisA = ThisType<MyFnA>    // { a: number }
+
+```
+
+-----
+
+
+# 1. types vs interface : discuss
+
+вот правильный пример
+
+```typescript
+
+const MyFnA = function (this: A): A {
+    this.a = 1;
+}
+
+```
+-----
+
+# 1. types vs interface : discuss
+
+```typescript
+
+type MyFn = () => A
+type MyNewFn = new (this: A) => {}
+
+type TRAB = ReturnType<MyFn>        // A
+type TIAB = InstanceType<MyNewFn>   // this A
+
+```
+-----
+
+# 2. константы "не" константы
 
 <h2 style={{color: 'lightgreen', marginTop: '10vh'}}>Destructuring patterns with const</h2>
 
@@ -15,7 +85,7 @@
 
 -----
 
-# 3. mono field
+# 3. mono-поля
 
 <h2 style={{color: 'orange', marginTop: '10vh'}}>What about mono field?</h2>
 
@@ -23,7 +93,7 @@
 
 -----
 
-# 4. common fields
+# 4. общие поля
 
 <h2 style={{color: 'pink', marginTop: '10vh'}}>Or common fields then?</h2>
 
@@ -31,7 +101,7 @@
 
 -----
 
-# 5. instanceof lie
+# 5. instanceof лжёт
 
 <h2 style={{color: 'red', marginTop: '10vh'}}>The instanceof lie</h2>
 
@@ -39,7 +109,7 @@
 
 -----
 
-# 6. nominal types
+# 6. "типа" nominal types
 
 <h2 style={{color: 'yellow', marginTop: '10vh'}}>Nominal types</h2>
 <p style={{color: 'lightgray'}}>with both constructor and name frozen</p>
@@ -48,15 +118,7 @@
 
 -----
 
-# 7. self reconstruct
-
-<h2 style={{color: 'cyan', marginTop: '10vh'}}>Self reconstruction pattern</h2>
-
-<Button variant="red" onClick={() => { runExample('self_reconstruct')}}>Run Example</Button>
-
------
-
-# 8. awaited assignment
+# 7. awaited assignment
 
 <h2 style={{color: 'lightblue', marginTop: '10vh'}}>Awaited assignment</h2>
 <p style={{color: 'lightgray'}}>so you are not Engineering but Inventing!</p>
@@ -65,7 +127,7 @@
 
 -----
 
-# 9. await new problems
+# 8. await new problems
 
 <h2 style={{color: 'violet', marginTop: '10vh'}}>await new problems</h2>
 
@@ -73,7 +135,7 @@
 
 -----
 
-# 10. forkable
+# 9. forkable
 
 <h2 style={{color: 'gold', marginTop: '10vh'}}>Forkable pattern</h2>
 
@@ -97,3 +159,10 @@ Object.defineProperty(Forkable.prototype, 'fork', {
 
 <Button variant="red" onClick={() => { runExample('forkable')}}>Run Example</Button>
 
+-----
+
+# 10. self reconstruct
+
+<h2 style={{color: 'cyan', marginTop: '10vh'}}>Self reconstruction pattern</h2>
+
+<Button variant="red" onClick={() => { runExample('self_reconstruct')}}>Run Example</Button>

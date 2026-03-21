@@ -1,5 +1,7 @@
 'use strict';
 
+debugger;
+
 let toBeProp = 5;
 
 const myObject = {};
@@ -32,3 +34,5 @@ console.log(prop1 + 0);			// 7
 console.log(prop2 + 0);			// 3
 
 console.log(myObject.prop + 0);		// 7
+
+debugger;
