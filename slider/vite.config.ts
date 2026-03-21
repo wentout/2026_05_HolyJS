@@ -26,7 +26,14 @@ export default defineConfig({
           transformMixedEsModules: true,
           include: [/mnemonica/]
         })
-      ]
+      ],
+      onwarn(warning, warn) {
+        // Suppress eval warning for exampleRunner.ts
+        if (warning.code === 'EVAL' && warning.id?.includes('exampleRunner.ts')) {
+          return;
+        }
+        warn(warning);
+      }
     }
   },
   resolve: {

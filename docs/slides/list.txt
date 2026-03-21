@@ -10,3 +10,4 @@
 0012-mnemonica-data-flow.md.txt 2
 0013.json 0
 0014-TacticaDemo.md.txt 2
+0015-PlanExamples.md.txt 9
