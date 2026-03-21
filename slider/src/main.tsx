@@ -35,7 +35,12 @@ SlideMDX.define(Progressor as any);
 SlideMDX.define(Footer as any);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const app = new Runner('root');
+const app = new Runner('root') as unknown as {
+	setErrored(...args: unknown[]): void;
+	init(): Promise<unknown>;
+	start(): void;
+	print?: boolean;
+};
 // // const app = new App('root');
 
 window.onerror = function (...args) {
