@@ -1,0 +1,24 @@
+{
+	"version": "1.0.0",
+	"generatedAt": "2026-03-20T22:20:03.053Z",
+	"roots": [
+		{
+			"name": "List",
+			"fullPath": "List",
+			"properties": [],
+			"children": [],
+			"sourceFile": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts",
+			"line": 36,
+			"column": 21
+		},
+		{
+			"name": "Slide",
+			"fullPath": "Slide",
+			"properties": [],
+			"children": [],
+			"sourceFile": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts",
+			"line": 50,
+			"column": 27
+		}
+	]
+}

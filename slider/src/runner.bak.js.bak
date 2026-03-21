@@ -4,247 +4,250 @@ import Snowflakes from 'magic-snowflakes';
 
 const SLIDES_DIR = './slides';
 
-const Main = function (rootId) {
+class Main {
+	constructor(rootId) {
 
-	let slideListIndex = 0;
-	let slideList = [];
 
-	let errorMode = 0;
+		let slideListIndex = 0;
+		let slideList = [];
 
-	const slides = {
-		count: 0,
-		index: 0,
-		list: [],
-		slideListIndex,
-		direction: 'next',
-	};
+		let errorMode = 0;
 
-	const makePrint = /print$/.test(window.location.href);
+		const slides = {
+			count: 0,
+			index: 0,
+			list: [],
+			slideListIndex,
+			direction: 'next',
+		};
 
-	const rootElement = document.getElementById(rootId);
-	const reactRoot = ReactDOM.createRoot(rootElement)
-	
-	Object.assign(this, {
-		reactRoot,
-		rootElement,
-		rootId,
-		makePrint,
-		slides
-	});
+		const makePrint = /print$/.test(window.location.href);
 
-	this.errored = false;
+		const rootElement = document.getElementById(rootId);
+		const reactRoot = ReactDOM.createRoot(rootElement)
 
-	Object.defineProperty(this, 'mnemonica', {
-		get() {
-			return mnemonica;
-		},
-	});
+		Object.assign(this, {
+			reactRoot,
+			rootElement,
+			rootId,
+			makePrint,
+			slides
+		});
 
-	Object.defineProperty(this, 'utils', {
-		get() {
-			return utils;
-		},
-	});
+		this.errored = false;
 
-	Object.defineProperty(this, 'defaultCollection', {
-		get() {
-			return defaultCollection;
-		},
-	});
+		Object.defineProperty(this, 'mnemonica', {
+			get() {
+				return mnemonica;
+			},
+		});
 
-	Object.defineProperty(this.slides, 'count', {
-		get() {
-			return this.list.length;
-		}
-	});
+		Object.defineProperty(this, 'utils', {
+			get() {
+				return utils;
+			},
+		});
 
-	Object.defineProperty(this.slides, 'current', {
-		get() {
-			const result = slideList[slideListIndex];
+		Object.defineProperty(this, 'defaultCollection', {
+			get() {
+				return defaultCollection;
+			},
+		});
 
-			if (result.settings && result.settings.length) {
-				result.settings.forEach(opts => {
-					Object.assign(result, opts);
-				});
+		Object.defineProperty(this.slides, 'count', {
+			get() {
+				return this.list.length;
 			}
+		});
 
-			return result;
-		}
-	});
+		Object.defineProperty(this.slides, 'current', {
+			get() {
+				const result = slideList[slideListIndex];
 
-	Object.defineProperty(this.slides, 'slideListLength', {
-		get() {
-			return slideList.length;
-		}
-	});
-	Object.defineProperty(this.slides, 'slideListIndex', {
-		get() {
-			return slideListIndex;
-		},
-		set(value) {
-			slideListIndex = parseInt(value) || 0;
-			if (window.sessionStorage) {
-				window.sessionStorage.setItem('STARTER_SLIDE_LIST_INDEX', slideListIndex);
-			}
-		}
-	});
-
-	Object.defineProperty(this, 'errorMode', {
-		get() {
-			return errorMode;
-		},
-		set(value) {
-			errorMode = parseInt(value) || 0;
-		}
-	});
-
-	Object.defineProperty(this.slides, 'slideList', {
-		set(value) {
-
-			slideList = value;
-
-			if (this.direction === 'next') {
-				this.slideListIndex = 0;
-			} else {
-				this.slideListIndex = slideList.length - 1;
-			}
-
-		}
-	});
-
-	Object.defineProperty(this, 'counters', {
-		get() {
-			var progressCount = this.slides.count;
-			var progressValue = this.slides.index;
-			var progressIndex = this.slides.slideListIndex;
-			var progressAmong = this.slides.slideListLength;
-
-			var amount = 0;
-			var current = 0;
-
-			this.slides.list.forEach((slideName, idx) => {
-				if (idx === progressValue) {
-					current = amount + progressIndex;
+				if (result.settings && result.settings.length) {
+					result.settings.forEach(opts => {
+						Object.assign(result, opts);
+					});
 				}
-				amount = amount + parseInt(slideName.split(' ')[1]) + 1;
-			});
 
-			if (makePrint) {
-				const split = rootId.split('_');
-				[progressCount, progressValue, progressIndex] = split;
+				return result;
 			}
+		});
 
-			return {
-				count: progressCount,
-				index: progressValue + 1,
-				level: progressIndex + 1,
-				among: progressAmong,
+		Object.defineProperty(this.slides, 'slideListLength', {
+			get() {
+				return slideList.length;
+			}
+		});
+		Object.defineProperty(this.slides, 'slideListIndex', {
+			get() {
+				return slideListIndex;
+			},
+			set(value) {
+				slideListIndex = parseInt(value) || 0;
+				if (window.sessionStorage) {
+					window.sessionStorage.setItem('STARTER_SLIDE_LIST_INDEX', slideListIndex);
+				}
+			}
+		});
 
-				amount: amount - 1,
-				current
-			};
+		Object.defineProperty(this, 'errorMode', {
+			get() {
+				return errorMode;
+			},
+			set(value) {
+				errorMode = parseInt(value) || 0;
+			}
+		});
 
-		}
-	});
+		Object.defineProperty(this.slides, 'slideList', {
+			set(value) {
 
-	Object.defineProperty(this, 'failConstructorItself', {
-		get() {
-			return this.slides.current.failConstructorItself || false;
-		},
-	});
+				slideList = value;
 
-	const snowRoot = document.querySelector('#snowflakes-container');
+				if (this.direction === 'next') {
+					this.slideListIndex = 0;
+				} else {
+					this.slideListIndex = slideList.length - 1;
+				}
 
-	const snowflakesConfig = {
-		// color: 'white', // Default: '#5ECDEF'
-		// Default: document.body
-		container: snowRoot,
-		// 100 snowflakes. Default: 50
-		count: 100,
-		// From 0 to 1. Default: 0.6
-		minOpacity: 0.1,
-		// From 0 to 1. Default: 1
-		maxOpacity: 0.95,
-		// Default: 8
-		minSize: 20,
-		// Default: 18
-		maxSize: 50,
-		// Default: true
-		rotation: true,
-		// The property affects the speed of falling. Default: 1
-		speed: 2,
-		// Without wind. Default: true
-		wind: false,
-		// Default: height of container
-		height: 1050,
-		// Default: 9999
-		zIndex: 100
-	};
+			}
+		});
 
-	const snowflakesConfigWhite = Object.assign({}, snowflakesConfig, {
-		color: 'white'
-	});
-	// const snowflakesConfigRed = Object.assign({}, snowflakesConfig, {
-	// 	color: 'red'
-	// });
+		Object.defineProperty(this, 'counters', {
+			get() {
+				var progressCount = this.slides.count;
+				var progressValue = this.slides.index;
+				var progressIndex = this.slides.slideListIndex;
+				var progressAmong = this.slides.slideListLength;
 
-	let snowflakes = new Snowflakes(snowflakesConfigWhite);
-	snowflakes.stop();
+				var amount = 0;
+				var current = 0;
 
-	// this.snowflakesred = null;
-	// let snowflakesWorking = false;
+				this.slides.list.forEach((slideName, idx) => {
+					if (idx === progressValue) {
+						current = amount + progressIndex;
+					}
+					amount = amount + parseInt(slideName.split(' ')[1]) + 1;
+				});
 
-	Object.defineProperty(this, 'startSnowflakes', {
-		get() {
-			return () => {
-				// if (!snowflakesWorking) {
-				snowflakes.start();
-				snowRoot.style.display = 'block';
-				// snowflakesWorking = true;
-				// }
-			};
-		},
-	});
+				if (makePrint) {
+					const split = rootId.split('_');
+					[progressCount, progressValue, progressIndex] = split;
+				}
 
-	Object.defineProperty(this, 'stopSnowflakes', {
-		get() {
-			return () => {
-				// if (snowflakesWorking) {
-				snowflakes.stop();
-				// snowflakes.destroy();
-				snowRoot.style.display = 'none';
-				// snowflakesWorking = false;	
-				// }
-			};
-		},
-	});
+				return {
+					count: progressCount,
+					index: progressValue + 1,
+					level: progressIndex + 1,
+					among: progressAmong,
 
-	// Object.defineProperty(this, 'startSnowflakesRed', {
-	// 	get () {
-	// 		return () => {
-	// 			// snowflakes.destroy();
-	// 			this.snowflakesred = new Snowflakes(snowflakesConfigRed);
-	// 			this.snowflakesred.start();
-	// 			snowRoot.style.display = 'block';
-	// 		}
-	// 	},
-	// });
+					amount: amount - 1,
+					current
+				};
 
-	// Object.defineProperty(this, 'stopSnowflakesRed', {
-	// 	get () {
-	// 		return () => {
-	// 			if (this.snowflakesred) {
-	// 				// snowflakes.destroy();
-	// 				this.snowflakesred.stop();
-	// 				snowRoot.style.display = 'block';
-	// 			}
-	// 		}
-	// 	},
-	// });
+			}
+		});
+
+		Object.defineProperty(this, 'failConstructorItself', {
+			get() {
+				return this.slides.current.failConstructorItself || false;
+			},
+		});
+
+		const snowRoot = document.querySelector('#snowflakes-container');
+
+		const snowflakesConfig = {
+			// color: 'white', // Default: '#5ECDEF'
+			// Default: document.body
+			container: snowRoot,
+			// 100 snowflakes. Default: 50
+			count: 100,
+			// From 0 to 1. Default: 0.6
+			minOpacity: 0.1,
+			// From 0 to 1. Default: 1
+			maxOpacity: 0.95,
+			// Default: 8
+			minSize: 20,
+			// Default: 18
+			maxSize: 50,
+			// Default: true
+			rotation: true,
+			// The property affects the speed of falling. Default: 1
+			speed: 2,
+			// Without wind. Default: true
+			wind: false,
+			// Default: height of container
+			height: 1050,
+			// Default: 9999
+			zIndex: 100
+		};
+
+		const snowflakesConfigWhite = Object.assign({}, snowflakesConfig, {
+			color: 'white'
+		});
+		// const snowflakesConfigRed = Object.assign({}, snowflakesConfig, {
+		// 	color: 'red'
+		// });
+
+		let snowflakes = new Snowflakes(snowflakesConfigWhite);
+		snowflakes.stop();
+
+		// this.snowflakesred = null;
+		// let snowflakesWorking = false;
+
+		Object.defineProperty(this, 'startSnowflakes', {
+			get() {
+				return () => {
+					// if (!snowflakesWorking) {
+					snowflakes.start();
+					snowRoot.style.display = 'block';
+					// snowflakesWorking = true;
+					// }
+				};
+			},
+		});
+
+		Object.defineProperty(this, 'stopSnowflakes', {
+			get() {
+				return () => {
+					// if (snowflakesWorking) {
+					snowflakes.stop();
+					// snowflakes.destroy();
+					snowRoot.style.display = 'none';
+					// snowflakesWorking = false;	
+					// }
+				};
+			},
+		});
+
+		// Object.defineProperty(this, 'startSnowflakesRed', {
+		// 	get () {
+		// 		return () => {
+		// 			// snowflakes.destroy();
+		// 			this.snowflakesred = new Snowflakes(snowflakesConfigRed);
+		// 			this.snowflakesred.start();
+		// 			snowRoot.style.display = 'block';
+		// 		}
+		// 	},
+		// });
+
+		// Object.defineProperty(this, 'stopSnowflakesRed', {
+		// 	get () {
+		// 		return () => {
+		// 			if (this.snowflakesred) {
+		// 				// snowflakes.destroy();
+		// 				this.snowflakesred.stop();
+		// 				snowRoot.style.display = 'block';
+		// 			}
+		// 		}
+		// 	},
+		// });
+	}
 
 };
 
-Main.prototype = {
+Object.setPrototypeOf(Main.prototype, {
 
 	constructor: Main,
 
@@ -643,6 +646,6 @@ Main.prototype = {
 		this.errored = false;
 	},
 
-};
+});
 
 export default Main;

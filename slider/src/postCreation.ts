@@ -29,12 +29,12 @@ const errorHandler = [
 			// originalError,
 			instance,
 			// stack,
-			exceptionReason: {
-				method,
-				methodName,
-				applyTo
-			}
+			exceptionReason
 		} = error;
+		
+		const method = exceptionReason?.method;
+		const methodName = exceptionReason?.methodName;
+		const applyTo = exceptionReason?.applyTo;
 
 		try {
 

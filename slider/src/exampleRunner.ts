@@ -1,7 +1,7 @@
 import $ from "jquery";
 window.$ = $;
 window.runExample = async function (path) {
-	const fetched = await fetch(`../2024_05_PiterJS/examples/${path}.js`, {
+	const fetched = await fetch(`../2026_05_HolyJS/examples/${path}.js`, {
 		headers: {
 			"Content-Type": "text/plain",
 		},

@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import commonjs from '@rollup/plugin-commonjs'
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/2024_05_PiterJS/',
+  base: '/2026_05_HolyJS/',
   server: {
     port: 3030,
     strictPort: true
@@ -16,7 +18,29 @@ export default defineConfig({
     cssMinify: false,
     outDir: '../docs',
     emptyOutDir: true,
-    chunkSizeWarningLimit: 2048
+    chunkSizeWarningLimit: 2048,
+    rollupOptions: {
+      plugins: [
+        // Handle CommonJS modules properly
+        commonjs({
+          transformMixedEsModules: true,
+          include: [/mnemonica/]
+        })
+      ]
+    }
+  },
+  resolve: {
+    alias: {
+      // Use mnemonica CommonJS build directly
+      'mnemonica': '/code/mnemonica/core/build/index.js'
+    },
+    preserveSymlinks: false
+  },
+  optimizeDeps: {
+    include: ['mnemonica'],
+    esbuildOptions: {
+      mainFields: ['main', 'module']
+    }
   },
   plugins: [
     react(),

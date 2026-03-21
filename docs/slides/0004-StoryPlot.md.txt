@@ -1,30 +1,30 @@
 
-# мы это всё уже показывали
+# что-то подобное мы это всё уже показывали
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'aqua'}}>... но есть ожидание  ...</h1>
+<h1 style={{fontSize: '11vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
 </center>
 </Box>
 
 -----
 
-# мы это всё уже показывали
+# что-то подобное мы это всё уже показывали
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'aqua'}}>... но есть ожидание  ...</h1>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>что можно показать снова</h1>
+<h1 style={{fontSize: '11vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '9vh', color: 'teal'}}>что нужно показать снова</h1>
 </center>
 </Box>
 
 -----
 
-# мы это всё уже показывали
+# что-то подобное мы это всё уже показывали
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'teal'}}>... но есть ожидание  ...</h1>
+<h1 style={{fontSize: '11vh', color: 'teal'}}>... и есть ощущение  ...</h1>
 </center>
 </Box>
 
@@ -59,6 +59,32 @@
 </center>
 </Box>
 
+-----
+
+# не, на самом деле 
+
+-----
+
+# не, на самом деле 
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '11vh', color: 'teal'}}>... есть новые примеры   ...</h1>
+</center>
+</Box>
+
+-----
+
+# не, на самом деле 
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '11vh', color: 'teal'}}>... есть новые примеры   ...</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}> ↑</h1>
+<h1 style={{fontSize: '11vh', color: 'teal'}}> ← ;^)  →</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}> ↓</h1>
+</center>
+</Box>
 
 -----
 
@@ -74,7 +100,7 @@
 
 
 -----
-# вопросы аудитории : 
+# в прошлый раз были вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh'}}>
 <center>
@@ -83,7 +109,7 @@
 </Box>
 
 -----
-# вопросы аудитории : 
+# в прошлый раз были вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh'}}>
 <center>
@@ -93,7 +119,7 @@
 </Box>
 
 -----
-# вопросы аудитории : 
+# в прошлый раз были вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh'}}>
 <center>
@@ -112,7 +138,7 @@
 
 -----
 
-# говорят, что в JS всё объекты
+# мы помним, что в JS всё объекты
 
 <Box>
 <center>
@@ -121,19 +147,10 @@
 </Box>
 
 
------
-
-# но раньше это было слишком сложным
-
-<Box>
-<center>
-<img src="./content/img/CrockMisunderstood.png"  style={{width: '70vw'}} />
-</center>
-</Box>
 
 -----
 
-# потому, что с первой спеки вот это
+# и это всё ещё слишком сложно
 
 <Box>
 <center>
@@ -147,15 +164,17 @@ CF is a constructor (and also an object). Five objects have been created by usin
 
 Unlike most class-based object languages, properties can be added to objects dynamically by assigning values to them. That is, constructors are not required to name or assign values to all or any of the constructed object's properties. In the above diagram, one could add a new shared property for cf1, cf2, cf3, cf4, and cf5 by assigning a new value to the property in CFp.
 
+
 -----
 
-# возможно именно поэтому старина Крок против
+# но так, всё же действительно проще
 
 <Box>
 <center>
-<img src="./content/img/CrockPrototypes.png"  style={{width: '70vw'}} />
+<img src="./content/img/JS_Object_Topology.svg"  style={{width: '70vw'}} />
 </center>
 </Box>
+
 
 
 -----

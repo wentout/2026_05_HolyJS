@@ -1,0 +1,78 @@
+# Mnemonica Data Flow
+
+## Instance Inheritance in Action
+
+This slider is built on mnemonica - a data typing system that remembers.
+
+### The Pattern
+
+```typescript
+// 1. Define Root Type (List)
+const List = define('List', function(items: string[]) {
+    this.items = items;
+    this.currentIndex = 0;
+});
+
+// 2. Define Nested Type (Slide)
+const Slide = List.define('Slide', function(data: SlideData) {
+    this.view = data.view;
+    this.data = data.data;
+});
+
+// 3. Create List Instance
+const listInstance = new List(slideFiles);
+
+// 4. Instance Inheritance! (Key Pattern)
+const slide = new listInstance.Slide({
+    view: 'MDX',
+    data: '# Hello'
+});
+```
+
+### Data Flow
+
+1. **Data Source** → `list.txt` contains slide file names
+2. **List Instance** → `new List(list)` creates container
+3. **Slide Instance** → `new listInstance.Slide(data)` creates slide
+4. **Visualization** → tactica analyzes and displays the flow
+
+### Why This Matters
+
+- Data carries its creation history (`__timestamp__`, `__parent__`)
+- Instance inheritance: `listInstance.Slide` carries the parent context
+- No lookup tables needed - the data IS the type hierarchy
+
+-----
+
+# tactica Analysis
+
+## Generated from Real Code
+
+The visualization you see comes from `tactica-build.ts`:
+
+```bash
+npx tsx scripts/tactica-build.ts
+```
+
+### Output Files
+
+| File | Purpose |
+|------|---------|
+| typegraph.json | Type hierarchy |
+| usages.json | How types are used |
+| definitions.json | Where types defined |
+| types.ts | Exportable types |
+
+### Real Usage Data
+
+From `runner.ts:242`:
+```typescript
+this.listInstance = new List(this.slides.list);
+```
+
+From `runner.ts:443`:
+```typescript
+const slide = new SlideConstructor(slideData);
+```
+
+This IS the code. No faking. Real mnemonica data flow.

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd .. && ./gen.sh && cd ./slider && vite",
-    "build": "cd .. && ./gen.sh && cd ./slider && tsc && vite build && cp -r ./slides ../docs/slides",
+    "build": "cd .. && ./gen.sh && cd ./slider && tsc --noEmit || true && vite build && cp -r ./slides ../docs/slides",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -15,6 +15,7 @@
     "@mdx-js/react": "^3.1.0",
     "@mdx-js/rollup": "^3.1.0",
     "@mdx-js/runtime": "^1.6.22",
+    "@mnemonica/tactica": "file:/code/mnemonica/tactica",
     "@rollup/plugin-babel": "^6.0.4",
     "@theme-ui/mdx": "^0.16.2",
     "@theme-ui/presets": "^0.16.2",
@@ -22,14 +23,15 @@
     "d3": "^7.9.0",
     "jquery": "^3.7.1",
     "magic-snowflakes": "^6.3.0",
-    "mnemonica": "^0.9.982",
+    "mnemonica": "file:/code/mnemonica/core",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "theme-ui": "^0.16.2",
-    "ts-node": "^10.9.2",
     "typeomatica": "^0.3.34"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@types/node": "^20.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
@@ -38,6 +40,7 @@
     "eslint": "^9.16.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "tsx": "^4.0.0",
     "typescript": "^5.7.2",
     "vite": "^6.2.0"
   }

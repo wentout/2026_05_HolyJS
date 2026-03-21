@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-03-21T02:21:05.595Z",
+  "definitions": {
+    "List": {
+      "name": "List",
+      "location": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts:36:21",
+      "kind": "define",
+      "parent": null,
+      "strictChain": true,
+      "blockErrors": false
+    },
+    "List.Slide": {
+      "name": "Slide",
+      "location": "/code/talks/2026_05_HolyJS/slider/src/models/List.ts:50:22",
+      "kind": "define",
+      "parent": "List",
+      "strictChain": true,
+      "blockErrors": false
+    }
+  }
+}

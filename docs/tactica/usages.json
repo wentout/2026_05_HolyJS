@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-03-21T02:21:05.595Z",
+  "usages": {
+    "List.Slide": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:299:7",
+        "kind": "propertyAccess",
+        "code": "this.Slide"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:300:20",
+        "kind": "propertyAccess",
+        "code": "this.Slide"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:588:21",
+        "kind": "propertyAccess",
+        "code": "slide.Slide"
+      }
+    ]
+  }
+}

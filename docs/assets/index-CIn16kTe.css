@@ -80,8 +80,9 @@ progress {
 
 .Slide .Title h1 {
   font-weight: 700;
-  font-size: 15vh;
+  font-size: 12vh;
   margin-top: 25vh;
+  padding: 5vh;
   color: steelblue;
 }
 

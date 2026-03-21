@@ -1,0 +1,70 @@
+# Using Tactica Components
+
+## In MDX Slides
+
+The Tactica visualization components are available in MDX slides:
+
+```mdx
+# My Slide
+
+<TypeFlow />
+
+This renders the type graph from `.tactica/typegraph.json`.
+```
+
+## Available Components
+
+### TypeFlow
+
+Shows the mnemonica type hierarchy and instance inheritance:
+
+```mdx
+<TypeFlow />
+```
+
+Displays:
+- List (root type)
+  - Slide (nested type)
+- Properties for each type
+- Usage counts
+
+### UsagesList
+
+Shows how types are used in the codebase:
+
+```mdx
+<UsagesList />
+```
+
+Groups by:
+- **Instance Inheritance** (key pattern!)
+- Type Definitions
+- Instantiations
+
+## How It Works
+
+1. `gen.sh` runs `tactica-build.ts`
+2. Parser finds all `define()` calls
+3. Generates `.tactica/*.json` files
+4. MDX components load and render the data
+5. Real-time visualization of the actual code!
+
+-----
+
+# Live Demo
+
+Try it yourself:
+
+```mdx
+# Type Hierarchy
+
+<TypeFlow />
+
+-----
+
+# Usage Patterns
+
+<UsagesList />
+```
+
+The data updates automatically when you rebuild!
