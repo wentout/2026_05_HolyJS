@@ -1,30 +1,86 @@
 
-# что-то подобное мы это всё уже показывали
+-----
+
+<h1 style={{fontSize:'15vh', color: 'orange'}}>Type vs Interface</h1>
+
+<h1 className="borderline">Ø</h1>
+
+-----
+
+<h1 style={{fontSize:'15vh', color: 'orange'}}>Type vs Interface</h1>
+<h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>the epic battle of toy things</h2>
+
+<h1 className="borderline">Ø</h1>
+
+-----
+
+# на просторах TypeScript интернетов ...
+
+-----
+
+# на просторах TypeScript интернетов ...
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
 </center>
 </Box>
 
 -----
 
-# что-то подобное мы это всё уже показывали
+# на просторах TypeScript интернетов
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
+</center>
+</Box>
+
+-----
+
+# на просторах TypeScript интернетов
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
+<h1 style={{fontSize: '9vh', color: 'red'}}>Типы или Интерфейсы</h1>
+</center>
+</Box>
+
+-----
+
+# и что-то подобное мы уже показывали
+
+-----
+
+# и что-то подобное мы уже показывали
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+</center>
+</Box>
+
+-----
+
+# и что-то подобное мы уже показывали
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
 <h1 style={{fontSize: '9vh', color: 'teal'}}>что нужно показать снова</h1>
 </center>
 </Box>
 
 -----
 
-# что-то подобное мы это всё уже показывали
+# и что-то подобное мы уже показывали
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'teal'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '9vh', color: 'teal'}}>... и есть ощущение  ...</h1>
 </center>
 </Box>
 
@@ -174,60 +230,6 @@ Unlike most class-based object languages, properties can be added to objects dyn
 <img src="./content/img/JS_Object_Topology.svg"  style={{width: '70vw'}} />
 </center>
 </Box>
-
-
-
------
-
-# вообще объекты начинаются с конструкторов 
-
-```javascript className=codehugeshift
-// back to the 1997 spec release
-var TheConstructor = function () {
-	this;
-	debugger;
-};
-
-var instance = new TheConstructor;
-// we can see constructor definition
-// made like this
-```
-
-<Button onClick={() => { runExample('01_1995')}}>Run Me</Button>
-
------
-
-# можно делать обёртки над Singleton'ами
-
-```javascript className=codehugeshift
-
-const SingletonWrapper = function () { };
-
-SingletonWrapper.prototype =
-		Object.create( jQuery ); // ← !
-
-SingletonWrapper.prototype
-	.constructor = SingletonWrapper;
-
-const instance = new SingletonWrapper;
-
-```
-
-<Button onClick={() => { runExample('03_SingletonWrapper')}}>Run Me</Button>
-
------
-
-# Насколько глубока Кроличья Нора ?
-
-<Box>
-<center>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">
-<img src="./content/img/PrototypeChain.png"  style={{width: '70vw'}} />
-</a>
-</center>
-</Box>
-
-<Button onClick={() => { runExample('PrototypeChainDeepnessTest')}}>Run Me</Button>
 
 -----
 

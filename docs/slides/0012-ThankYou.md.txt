@@ -1,26 +1,14 @@
 
 -----
 
-<h1 style={{fontSize:'25vh', color: 'orange'}}>спасиб</h1>
-
-<h1 className="borderline">ø</h1>
-
-
------
-
-<Box sx={{marginTop: '10vh'}}>
+<Box sx={{marginTop: '25vh'}}>
 <center>
-
-# the team !
-
-<img src="./content/img/team.jpg" style={{width: '55vw'}} />
-
+<h1 style={{fontSize: '25vh', color: 'orange'}}>спасиб</h1>
+<h1 className="borderline">ø</h1>
 </center>
 </Box>
 
-
 -----
-
 
 <Box>
 <center>
@@ -55,40 +43,16 @@
 </tbody>
 </table>
 
-
 </center>
 </Box>
 
-
-
 -----
+
 <Box sx={{marginTop: '15vh'}}>
 <center>
 <h1 style={{fontSize: '11vh', color:'orange'}}>f i n</h1>
 <h1 style={{fontSize:'20vh', lineHeight: '5vh'}}> ↑ </h1>
-
-
 </center>
 </Box>
 
 -----
-
------
-
------
-
-<Box sx={{marginTop: '10vh'}}>
-<center>
-<h1 style={{color:'orange'}}>Why Mnemonica?</h1>
-
-<img src="./content/img/mnemonica_book.jpg" style={{width: '55vw'}} />
-
-</center>
-</Box>
-
------
-
------
-
-
-

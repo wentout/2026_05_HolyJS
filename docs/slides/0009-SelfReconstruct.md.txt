@@ -1,0 +1,91 @@
+
+
+<h1 style={{fontSize:'10vh', color: 'orange'}}>Когда экземпляр —</h1>
+
+<h1 style={{fontSize:'10vh', color: 'cyan', marginTop: '3vh'}}>свой собственный конструктор</h1>
+
+-----
+
+# self_reconstruct.js
+
+<div className='codesmall'>
+
+```javascript
+const Cstr = function () {
+    const Self = function () {
+        if (new.target) {
+            const Constructor = isItSelf ? Cstr : main;
+            return new Constructor;
+        }
+        return Self;  // callable!
+    };
+    Object.setPrototypeOf(Self, root);
+    Self.prototype.constructor = root;
+    Self.value++;
+    return Self;
+};
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h3 style={{color: 'gray'}}>Функция, которая возвращает функцию, которая...</h3>
+<h3 style={{color: 'orange'}}>...может быть вызвана как функция И как конструктор!</h3>
+</center>
+</Box>
+
+-----
+
+# Запустим и посмотрим
+
+<div className='codesmall'>
+
+```javascript
+const item = new Cstr();
+
+// item — это функция!
+item();           // callable ✓
+new item();       // newable ✓
+
+// и при этом...
+item instanceof Cstr;       // true
+item instanceof Function;   // true
+item instanceof Object;     // true
+```
+
+</div>
+
+<Button onClick={() => { runExample('self_reconstruct')}}>Запустить пример</Button>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h2 style={{color: 'red'}}>Экземпляр — одновременно и данные, и функция, и конструктор!</h2>
+</center>
+</Box>
+
+-----
+
+# Но это ещё не всё...
+
+<div className='codesmall'>
+
+```javascript
+const re = new item;  // new item() работает!
+
+console.log(re instanceof item);       // true ?!
+console.log(re instanceof Cstr);       // true
+console.log(re instanceof Function);   // true
+console.log(re instanceof Object);     // true
+```
+
+</div>
+
+<Box sx={{marginTop: '8vh'}}>
+<center>
+<h2 style={{color: 'orange'}}>re instanceof item === true</h2>
+<h3 style={{color: 'gray'}}>item — это экземпляр, но он же и конструктор!</h3>
+</center>
+</Box>
+
+-----

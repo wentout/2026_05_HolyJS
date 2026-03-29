@@ -286,6 +286,18 @@ Object.setPrototypeOf(Main.prototype, {
 
 		this.starterPhase = true;
 
+		// Check URL parameter first (?slide=X)
+		const urlParams = new URLSearchParams(window.location.search);
+		const slideParam = urlParams.get('slide');
+		
+		if (slideParam !== null) {
+			const slideIndex = parseInt(slideParam, 10);
+			if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < this.slides.count) {
+				this.setSlideIndex(slideIndex);
+				return;
+			}
+		}
+
 		if (window.sessionStorage) {
 			const index = parseInt(window.sessionStorage.getItem('STARTER_SLIDE') || 0);
 			if (index < this.slides.list.length) {
