@@ -1,0 +1,74 @@
+
+
+<h1 style={{fontSize:'10vh', color: 'cyan'}}>Type + Interface = ?</h1>
+
+<Box sx={{marginTop: '35vh'}}>
+<center>
+<h2 style={{fontSize: '5vh', color: 'orange'}}>может ли POJO (Type) вести себя как Instance?</h2>
+</center>
+</Box>
+
+-----
+
+# POJO с прототипом
+
+<div className='codesmall'>
+
+```javascript
+// POJO — обычный объект (Type)
+const someObject = {
+    name: 'myType',
+    createdAt: new Date()
+};
+
+// Но мы можем добавить Interface!
+Object.setPrototypeOf(someObject, {
+    describe () {
+        return `Type ${this.name} created at ${this.createdAt}`;
+    }
+});
+
+console.log(someObject.describe());  // работает!
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h3 style={{color: 'orange'}}>Type получил Interface через прототип!</h3>
+</center>
+</Box>
+
+-----
+
+# Тот же результат через Constructor
+
+<div className='codesmall'>
+
+```javascript
+// Constructor — это Interface
+function Interface(name) {
+    this.name = name;
+    this.createdAt = new Date();
+}
+
+Interface.prototype.describe = function() {
+    return `Interface ${this.name} created at ${this.createdAt}`;
+};
+
+const myInstance = new Interface('MyInterface');
+console.log(myInstance.describe());  // тот же результат!
+```
+
+</div>
+
+<Button onClick={() => { runExample('types_vs_interface')}}>Запустить пример</Button>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h2 style={{color: 'cyan'}}>POJO + setPrototypeOf = new Constructor</h2>
+<h3 style={{color: 'gray'}}>Type + Interface = Instance с поведением</h3>
+</center>
+</Box>
+
+-----

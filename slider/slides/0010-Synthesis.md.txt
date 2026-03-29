@@ -1,0 +1,113 @@
+
+
+<h1 style={{fontSize:'9vh', color: 'cyan'}}>Interface VS Types</h1>
+
+<h1 style={{fontSize:'7vh', color: 'gray', marginTop: '2vh'}}>Финальная диаграмма</h1>
+
+-----
+
+# Interface VS Types
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2vw', marginTop: '3vh', fontSize: '2vh'}}>
+
+<div style={{border: '2px solid orange', padding: '2vh', borderRadius: '1vh'}}>
+<h3 style={{color: 'orange', marginBottom: '2vh'}}>🔄 INTERFACE (Algorithm)</h3>
+<ul style={{listStyle: 'none', padding: 0}}>
+<li>✓ Constructors — создают экземпляры</li>
+<li>✓ Functions — трансформируют данные</li>
+<li>✓ Methods — оперируют с this</li>
+<li>✓ Getters — динамический доступ к данным</li>
+<li>✓ Operators — instanceof, etc.</li>
+<li>✓ Symbol.toPrimitive — coercion</li>
+</ul>
+<p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает ПОВЕДЕНИЕ</em></p>
+</div>
+
+<div style={{border: '2px solid green', padding: '2vh', borderRadius: '1vh'}}>
+<h3 style={{color: 'green', marginBottom: '2vh'}}>📦 TYPE (Structure)</h3>
+<ul style={{listStyle: 'none', padding: 0}}>
+<li>✓ POJO — &#123; a: 1, b: 2 &#125;</li>
+<li>✓ Primitives — number, string</li>
+<li>✓ Array — упорядоченная коллекция</li>
+<li>✓ Instance Data — this.* свойства</li>
+<li>✓ Frozen/Sealed объекты</li>
+<li>✓ JSON-serializable</li>
+</ul>
+<p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает СТРУКТУРУ</em></p>
+</div>
+
+</div>
+
+-----
+
+# TypeScript perspective
+
+<div className='codesmall'>
+
+```typescript
+// type — для данных (Type)
+type UserData = &#123;
+    name: string;
+    age: number;
+&#125;;
+
+// interface — для контрактов (Interface)
+interface Constructable &#123;
+    new (): Instance;  // ← конструктор!
+&#125;
+
+interface Callable &#123;
+    (): void;  // ← функция!
+&#125;
+
+// Function — и то, и другое одновременно!
+interface MyFunction extends Callable, Constructable &#123;&#125;
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h3 style={{color: 'orange'}}>type для структуры, interface для поведения</h3>
+</center>
+</Box>
+
+-----
+
+# JavaScript runtime: граница размыта
+
+<div className='codesmall'>
+
+```javascript
+// Function — и Type, и Interface одновременно
+function myFunc() &#123;&#125;
+
+// Как Type (объект):
+myFunc.name;           // "myFunc"
+myFunc.prototype;      // &#123; constructor: ... &#125;
+
+// Как Interface (поведение):
+myFunc();              // callable
+new myFunc();          // newable
+
+// И ещё...
+myFunc instanceof Function;  // true
+myFunc instanceof Object;    // true
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h2 style={{color: 'cyan'}}>В JavaScript движке они были разделены?</h2>
+<h2 style={{color: 'orange'}}>НЕТ. Они всегда были едины.</h2>
+</center>
+</Box>
+
+-----
+
+<h1 style={{fontSize:'10vh', color: 'gray'}}>Вопрос не "Interface ИЛИ Type"</h1>
+
+<h1 style={{fontSize:'10vh', color: 'cyan', marginTop: '5vh'}}>Вопрос: "Где один становится другим?"</h1>
+
+-----

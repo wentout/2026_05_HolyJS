@@ -1,0 +1,66 @@
+
+
+<h1 style={{fontSize:'10vh', color: 'orange'}}>await new</h1>
+
+<Box sx={{marginTop: '35vh'}}>
+<center>
+<h2 style={{fontSize: '5vh', color: 'cyan'}}>можно ли создать экземпляр асинхронно?</h2>
+</center>
+</Box>
+
+-----
+
+# await new — что это значит?
+
+<div className='codesmall'>
+
+```javascript
+class MyPromise extends Promise {
+    constructor(handler) {
+        super(handler);
+    }
+}
+
+const myItem = new MyPromise((resolve) => {
+    resolve(123);
+});
+
+console.log(await myItem);  // 123
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h3 style={{color: 'gray'}}>Мы можем await-ить результат new!</h3>
+</center>
+</Box>
+
+-----
+
+# Запустим и посмотрим
+
+<div className='codesmall'>
+
+```javascript
+console.log('instanceof:', myItem instanceof Promise);  // true
+
+// new + await = ?
+console.log(await new MyPromise((resolve) => {
+    resolve(321);
+}));
+```
+
+</div>
+
+<Button onClick={() => { runExample('await_new_problems')}}>Запустить пример</Button>
+
+<Box sx={{marginTop: '8vh'}}>
+<center>
+<h2 style={{color: 'orange'}}>new — это Interface (конструктор)</h2>
+<h3 style={{color: 'cyan'}}>await — это Interface (оператор ожидания)</h3>
+<h3 style={{color: 'gray'}}>Вместе они создают новую семантику!</h3>
+</center>
+</Box>
+
+-----

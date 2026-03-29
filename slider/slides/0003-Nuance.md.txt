@@ -1,0 +1,91 @@
+
+
+<h1 style={{fontSize:'10vh', color: 'orange'}}>Но сначала — уточнение</h1>
+
+<h1 style={{fontSize:'7vh', color: 'gray', marginTop: '3vh'}}>что говорит документация TypeScript</h1>
+
+-----
+
+# TypeScript docs говорят: "это стилистический выбор"
+
+<div className='codesmall'>
+
+```typescript
+// В TS оба варианта почти эквивалентны:
+interface Point { x: number; y: number; }
+type Point = { x: number; y: number; };
+
+// Интерфейс может описывать функцию:
+interface MyFn { (): void; }
+
+// Type может описывать функцию:
+type MyFn = () => void;
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h3 style={{color: 'gray'}}>В TypeScript компиляторе — да, разница минимальна.</h3>
+<h3 style={{color: 'orange'}}>Но в JavaScript runtime — разница ФУНДАМЕНТАЛЬНА.</h3>
+</center>
+</Box>
+
+-----
+
+# Что я буду показывать
+
+<Box sx={{marginTop: '5vh', marginLeft: '5vw'}}>
+
+<div style={{marginBottom: '4vh'}}>
+<h2 style={{color: 'orange'}}>Interface — это контракт "до и после"</h2>
+<p style={{fontSize: '3.5vh', marginLeft: '3vw', color: 'lightgray'}}>
+    <strong>"До"</strong> — что нужно для создания (new (), аргументы)<br/>
+    <strong>"После"</strong> — что получится в результате<br/>
+    Оба эти описания — это Type. Interface их соединяет.
+</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2 style={{color: 'green'}}>Type — это ответ на вопрос "ЧТО?"</h2>
+<p style={{fontSize: '3.5vh', marginLeft: '3vw', color: 'lightgray'}}>
+    Какая структура? Какие поля? Какой тип значения?<br/>
+    Type описывает данные, не поведение.
+</p>
+</div>
+
+</Box>
+
+-----
+
+# Пример различия
+
+<div className='codesmall'>
+
+```typescript
+// Interface с "до" и "после":
+interface Factory {
+    // "до": что нужно
+    new (config: Config): Instance;
+    
+    // "после": методы экземпляра
+    create(): Product;
+}
+
+// Type — просто описание структуры:
+type Config = {
+    name: string;
+    count: number;
+};
+```
+
+</div>
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h3 style={{color: 'cyan'}}>Interface — это алгоритм. Type — это данные.</h3>
+<h3 style={{color: 'gray'}}>Теперь посмотрим, как это работает в JavaScript...</h3>
+</center>
+</Box>
+
+-----
