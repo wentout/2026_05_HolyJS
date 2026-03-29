@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 const errorHandler = [
 	(error) => {
@@ -18,8 +19,8 @@ const errorHandler = [
 		debugger;
 		const { message } = originalError;
 		instance.showRootError(`<pre>${ message
-				.replace(/</g, ' < ')
-				.replace(/>/g, ' > ;')
+			.replace(/</g, ' < ')
+			.replace(/>/g, ' > ;')
 		}</pre>`);
 	},
 
@@ -38,9 +39,9 @@ const errorHandler = [
 
 		try {
 
-			const {utils, mnemonica} = instance;
-			const {lookup} = mnemonica;
-			const {collectConstructors} = utils;
+			const { utils, mnemonica } = instance;
+			const { lookup } = mnemonica;
+			const { collectConstructors } = utils;
 
 			// const correctError = new inheritedInstance.exception(error);
 			// console.error('error object: ', error);
@@ -55,9 +56,9 @@ const errorHandler = [
 			console.error('конструкторы error.instance в window.Chronotope');
 
 			window.ChronotopeTimeLine = {
-				[instance.constructor.name]                   : instance.__timestamp__,
-				[instance.parent().constructor.name]          : instance.parent().__timestamp__,
-				[instance.parent().parent().constructor.name] : instance.parent().parent().__timestamp__
+				[ instance.constructor.name ]                   : instance.__timestamp__,
+				[ instance.parent().constructor.name ]          : instance.parent().__timestamp__,
+				[ instance.parent().parent().constructor.name ] : instance.parent().parent().__timestamp__
 			};
 
 			console.error('СТРУКТУРА наследования в window.errorInstanceTree');
@@ -68,21 +69,21 @@ const errorHandler = [
 			console.error('ПРИЧИНА ошибки window.exceptionReason');
 
 			window.Chronotope = {
-				[instance.constructor.name]                   : instance.constructor,
-				[instance.parent().constructor.name]          : instance.parent().constructor,
-				[instance.parent().parent().constructor.name] : instance.parent().parent().constructor
+				[ instance.constructor.name ]                   : instance.constructor,
+				[ instance.parent().constructor.name ]          : instance.parent().constructor,
+				[ instance.parent().parent().constructor.name ] : instance.parent().parent().constructor
 			};
 
-			const names = [...new Set(collectConstructors(instance, true))];
+			const names = [ ...new Set(collectConstructors(instance, true)) ];
 			const typesNames = names.splice(0, 3);
-			window.errorInstanceChain = [...typesNames, ...names.splice(-1)];
+			window.errorInstanceChain = [ ...typesNames, ...names.splice(-1) ];
 
 			const tnr = typesNames.reverse();
 			// window.lookup4tests = lookup;
 			window.exceptionConstructors = {
-				[tnr[0]] : lookup(tnr[0]),
-				[tnr[1]] : lookup(tnr.slice(0, 2).join('.')),
-				[tnr[2]] : lookup(tnr.join('.'))
+				[ tnr[ 0 ] ] : lookup(tnr[ 0 ]),
+				[ tnr[ 1 ] ] : lookup(tnr.slice(0, 2).join('.')),
+				[ tnr[ 2 ] ] : lookup(tnr.join('.'))
 			};
 
 			console.error('КОНСТРУКТОРЫ : в window.exceptionConstructors');
@@ -90,7 +91,7 @@ const errorHandler = [
 			console.error('TimeLine в window.ChronotopeTimeLine');
 
 
-		} catch (erroredInside) {
+		} catch {
 			// debugger;
 		}
 
@@ -212,12 +213,12 @@ const errorHandler = [
 
 ];
 
-export default function ({inheritedInstance}) {
+export default function ({ inheritedInstance }) {
 	// Object.entries(Object.getPrototypeOf(inheritedInstance)).forEach(([name, value]) => {
 
-	Object.entries(inheritedInstance).forEach(([fieldName, value]) => {
+	Object.entries(inheritedInstance).forEach(([ fieldName, value ]) => {
 		if (typeof value === 'function') {
-			inheritedInstance[fieldName] = (...args) => {
+			inheritedInstance[ fieldName ] = (...args) => {
 
 				try {
 					const data = value.call(inheritedInstance, ...args);
@@ -227,7 +228,7 @@ export default function ({inheritedInstance}) {
 					const {
 						errorMode
 					} = inheritedInstance.slides.current;
-					return errorHandler[errorMode || 0](error, inheritedInstance) || null;
+					return errorHandler[ errorMode || 0 ](error, inheritedInstance) || null;
 				}
 			};
 		}

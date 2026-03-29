@@ -7,7 +7,7 @@ const tree = function ({
 	margin,
 	width,
 	stash,
-	// eslint-disable-next-line no-unused-vars
+	 
 	printer
 	// tree,
 	// diagonal
@@ -17,7 +17,7 @@ const tree = function ({
 
 	const treeMaker = d3
 		.tree()
-		.nodeSize([dy, dx]);
+		.nodeSize([ dy, dx ]);
 	const diagonal = d3
 		.linkHorizontal()
 		.x(d => d.y)
@@ -37,7 +37,7 @@ const tree = function ({
 	});
 
 	const svg = d3.create('svg')
-		.attr('viewBox', [-margin.left, -margin.top, width, dx])
+		.attr('viewBox', [ -margin.left, -margin.top, width, dx ])
 		.style('font', '10px sans-serif')
 		.style('user-select', 'none');
 
@@ -71,7 +71,7 @@ const tree = function ({
 
 		const transition = svg.transition()
 			.duration(duration)
-			.attr('viewBox', [-margin.left, left.x - margin.top, width, height])
+			.attr('viewBox', [ -margin.left, left.x - margin.top, width, height ])
 			.tween('resize', window.ResizeObserver ? null : () => () => svg.dispatch('toggle'));
 
 		// Update the nodes…

@@ -3,7 +3,7 @@ import { ThemeUIProvider } from 'theme-ui';
 import { dark } from '@theme-ui/presets';
 
 const Root = function () {
-	// eslint-disable-next-line @typescript-eslint/no-this-alias
+	 
 	const app = this;
 	
 	const {
@@ -19,7 +19,7 @@ const Root = function () {
 		view
 	} = current;
 	
-	const slide = new app[view]();
+	const slide = new app[ view ]();
 	this.SlideView = slide.View;
 	
 	this.footer = new slide.Footer(counters);

@@ -19,14 +19,15 @@ const chart = function (scope) {
 		} = props;
 
 		const {
-			chart
+			chart: chartData
 		} = opts;
 
-		chart.chartData = children[0];
-		chart.print = scope.print;
+		const [ _chartData ] = children;
+		chartData.chartData = _chartData;
+		chartData.print = scope.print;
 
 		const appendSVG = function (chartRoot) {
-			const chartSVG = charts[chart.type](chart);
+			const chartSVG = charts[ chartData.type ](chartData);
 			if (chartRoot) {
 				chartRoot.append(chartSVG);
 			}

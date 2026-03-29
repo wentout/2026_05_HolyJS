@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {NICK_TITLE} from '../config';
+import { NICK_TITLE } from '../config';
 
-const Footer = function ({count, index, level, among}) {
+const Footer = function ({ count, index, level, among }) {
 	this.count = `${ count - 1 }`;
 	this.index = `${ index - 1 }`.padStart(count.length, '0');
 	this.level = `${ level }`;

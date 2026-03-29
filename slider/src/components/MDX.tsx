@@ -18,7 +18,7 @@ const MDX = function () {
 
 MDX.prototype.View = function () {
 
-	// eslint-disable-next-line @typescript-eslint/no-this-alias
+	 
 	const me = this;
 
 	const {
@@ -34,7 +34,7 @@ MDX.prototype.View = function () {
 		const { key } = proto.slide;
 		const split = key.split('.');
 		const reducedData = split.reduce((answer, keyName) => {
-			answer = answer[keyName];
+			answer = answer[ keyName ];
 			return answer;
 		}, me);
 		return `${reducedData}`;
@@ -54,28 +54,28 @@ MDX.prototype.View = function () {
 
 	// Wrapper components that pass tactica data from MDX scope
 	const TypeFlowWrapper = (props: object) => React.createElement(TypeFlow, { typeGraph, usages, ...props });
-	const UsagesListWrapper = (props: object) => React.createElement(UsagesList, { usages: usages?.usages || {}, ...props });
+	const UsagesListWrapper = (props: object) => React.createElement(UsagesList, { usages : usages?.usages || {}, ...props });
 
 	const components = {
-		code: Prism,
+		code       : Prism,
 		Heading,
 		Box,
 		app,
 		Chart,
 		Button,
 		// Tactica visualization components
-		TypeFlow: TypeFlowWrapper,
-		UsagesList: UsagesListWrapper,
+		TypeFlow   : TypeFlowWrapper,
+		UsagesList : UsagesListWrapper,
 	};
 	
 	// const code = String(compileSync(data, { outputFormat: 'function-body' }));
 	// const MDXContent = runSync(code, { ...runtime, baseUrl: import.meta.url });
 	const MDXContent = (evaluateSync({
-		path: 'runtime',
-		value: data,
-		jsxDEV: null
+		path   : 'runtime',
+		value  : data,
+		jsxDEV : null
 	}, {
-		...runtime, baseUrl: import.meta.url
+		...runtime, baseUrl : import.meta.url
 	})).default;
 
 	// const scope = {
@@ -99,5 +99,4 @@ MDX.prototype.View = function () {
 	);
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default MDX;

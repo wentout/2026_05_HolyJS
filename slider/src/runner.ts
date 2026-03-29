@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
 import ReactDOM from 'react-dom/client';
@@ -7,7 +8,7 @@ import Snowflakes from 'magic-snowflakes';
 const SLIDES_DIR = './slides';
 
 class Main {
-	constructor(rootId) {
+	constructor (rootId) {
 
 
 		let slideListIndex = 0;
@@ -16,17 +17,17 @@ class Main {
 		let errorMode = 0;
 
 		const slides = {
-			count: 0,
-			index: 0,
-			list: [],
+			count     : 0,
+			index     : 0,
+			list      : [],
 			slideListIndex,
-			direction: 'next',
+			direction : 'next',
 		};
 
 		const makePrint = /print$/.test(window.location.href);
 
 		const rootElement = document.getElementById(rootId);
-		const reactRoot = ReactDOM.createRoot(rootElement)
+		const reactRoot = ReactDOM.createRoot(rootElement);
 
 		Object.assign(this, {
 			reactRoot,
@@ -39,32 +40,32 @@ class Main {
 		this.errored = false;
 
 		Object.defineProperty(this, 'mnemonica', {
-			get() {
+			get () {
 				return mnemonica;
 			},
 		});
 
 		Object.defineProperty(this, 'utils', {
-			get() {
+			get () {
 				return utils;
 			},
 		});
 
 		Object.defineProperty(this, 'defaultCollection', {
-			get() {
+			get () {
 				return defaultCollection;
 			},
 		});
 
 		Object.defineProperty(this.slides, 'count', {
-			get() {
+			get () {
 				return this.list.length;
 			}
 		});
 
 		Object.defineProperty(this.slides, 'current', {
-			get() {
-				const result = slideList[slideListIndex];
+			get () {
+				const result = slideList[ slideListIndex ];
 
 				if (result.settings && result.settings.length) {
 					result.settings.forEach(opts => {
@@ -77,15 +78,15 @@ class Main {
 		});
 
 		Object.defineProperty(this.slides, 'slideListLength', {
-			get() {
+			get () {
 				return slideList.length;
 			}
 		});
 		Object.defineProperty(this.slides, 'slideListIndex', {
-			get() {
+			get () {
 				return slideListIndex;
 			},
-			set(value) {
+			set (value) {
 				slideListIndex = parseInt(value) || 0;
 				if (window.sessionStorage) {
 					window.sessionStorage.setItem('STARTER_SLIDE_LIST_INDEX', slideListIndex);
@@ -94,16 +95,16 @@ class Main {
 		});
 
 		Object.defineProperty(this, 'errorMode', {
-			get() {
+			get () {
 				return errorMode;
 			},
-			set(value) {
+			set (value) {
 				errorMode = parseInt(value) || 0;
 			}
 		});
 
 		Object.defineProperty(this.slides, 'slideList', {
-			set(value) {
+			set (value) {
 
 				slideList = value;
 
@@ -117,7 +118,7 @@ class Main {
 		});
 
 		Object.defineProperty(this, 'counters', {
-			get() {
+			get () {
 				var progressCount = this.slides.count;
 				var progressValue = this.slides.index;
 				var progressIndex = this.slides.slideListIndex;
@@ -130,21 +131,21 @@ class Main {
 					if (idx === progressValue) {
 						current = amount + progressIndex;
 					}
-					amount = amount + parseInt(slideName.split(' ')[1]) + 1;
+					amount = amount + parseInt(slideName.split(' ')[ 1 ]) + 1;
 				});
 
 				if (makePrint) {
 					const split = rootId.split('_');
-					[progressCount, progressValue, progressIndex] = split;
+					[ progressCount, progressValue, progressIndex ] = split;
 				}
 
 				return {
-					count: progressCount,
-					index: progressValue + 1,
-					level: progressIndex + 1,
-					among: progressAmong,
+					count : progressCount,
+					index : progressValue + 1,
+					level : progressIndex + 1,
+					among : progressAmong,
 
-					amount: amount - 1,
+					amount : amount - 1,
 					current
 				};
 
@@ -152,7 +153,7 @@ class Main {
 		});
 
 		Object.defineProperty(this, 'failConstructorItself', {
-			get() {
+			get () {
 				return this.slides.current.failConstructorItself || false;
 			},
 		});
@@ -162,31 +163,31 @@ class Main {
 		const snowflakesConfig = {
 			// color: 'white', // Default: '#5ECDEF'
 			// Default: document.body
-			container: snowRoot,
+			container  : snowRoot,
 			// 100 snowflakes. Default: 50
-			count: 100,
+			count      : 100,
 			// From 0 to 1. Default: 0.6
-			minOpacity: 0.1,
+			minOpacity : 0.1,
 			// From 0 to 1. Default: 1
-			maxOpacity: 0.95,
+			maxOpacity : 0.95,
 			// Default: 8
-			minSize: 20,
+			minSize    : 20,
 			// Default: 18
-			maxSize: 50,
+			maxSize    : 50,
 			// Default: true
-			rotation: true,
+			rotation   : true,
 			// The property affects the speed of falling. Default: 1
-			speed: 2,
+			speed      : 2,
 			// Without wind. Default: true
-			wind: false,
+			wind       : false,
 			// Default: height of container
-			height: 1050,
+			height     : 1050,
 			// Default: 9999
-			zIndex: 100
+			zIndex     : 100
 		};
 
 		const snowflakesConfigWhite = Object.assign({}, snowflakesConfig, {
-			color: 'white'
+			color : 'white'
 		});
 		// const snowflakesConfigRed = Object.assign({}, snowflakesConfig, {
 		// 	color: 'red'
@@ -199,7 +200,7 @@ class Main {
 		// let snowflakesWorking = false;
 
 		Object.defineProperty(this, 'startSnowflakes', {
-			get() {
+			get () {
 				return () => {
 					// if (!snowflakesWorking) {
 					snowflakes.start();
@@ -211,7 +212,7 @@ class Main {
 		});
 
 		Object.defineProperty(this, 'stopSnowflakes', {
-			get() {
+			get () {
 				return () => {
 					// if (snowflakesWorking) {
 					snowflakes.stop();
@@ -251,9 +252,9 @@ class Main {
 
 Object.setPrototypeOf(Main.prototype, {
 
-	constructor: Main,
+	constructor : Main,
 
-	async init() {
+	async init () {
 		const listPath = `./${SLIDES_DIR}/list.txt`;
 		const list = await fetch(listPath)
 			.then(response => {
@@ -277,7 +278,7 @@ Object.setPrototypeOf(Main.prototype, {
 		return this;
 	},
 
-	start() {
+	start () {
 		if (this.makePrint) {
 			this.startPrint();
 			return;
@@ -296,18 +297,18 @@ Object.setPrototypeOf(Main.prototype, {
 
 	},
 
-	makeRender() {
+	makeRender () {
 		this.hideRootError();
 		if (this.Slide instanceof Function) {
 			this.root = new this.Slide();
-			// eslint-disable-next-line 
+			 
 			this.root.View();
 		} else {
 			window.location.reload();
 		}
 	},
 
-	setSlideIndex(index) {
+	setSlideIndex (index) {
 		const {
 			count
 		} = this.slides;
@@ -332,7 +333,7 @@ Object.setPrototypeOf(Main.prototype, {
 
 	},
 
-	getNextSlide() {
+	getNextSlide () {
 		const {
 			count
 		} = this.slides;
@@ -348,7 +349,7 @@ Object.setPrototypeOf(Main.prototype, {
 
 	},
 
-	getPrevSlide() {
+	getPrevSlide () {
 
 		if (this.slides.index > 0) {
 			this.slides.index--;
@@ -360,7 +361,7 @@ Object.setPrototypeOf(Main.prototype, {
 		this.setSlideIndex();
 	},
 
-	slideNext() {
+	slideNext () {
 		const {
 			slides
 		} = this;
@@ -376,7 +377,7 @@ Object.setPrototypeOf(Main.prototype, {
 		}
 	},
 
-	slidePrev() {
+	slidePrev () {
 		const {
 			slides
 		} = this;
@@ -388,7 +389,7 @@ Object.setPrototypeOf(Main.prototype, {
 		}
 	},
 
-	requestSlideNav() {
+	requestSlideNav () {
 		const {
 			count
 		} = this.slides;
@@ -400,39 +401,39 @@ Object.setPrototypeOf(Main.prototype, {
 			if (number === -1) {
 				number = 0;
 			}
-		} catch (error) {
+		} catch {
 			window.alert('invalid input');
 		}
 		try {
 			this.setSlideIndex(number);
-		} catch (error) {
+		} catch {
 			window.alert(error.message);
 		}
 	},
 
-	clickNext() {
+	clickNext () {
 		if (this.makePrint) {
 			return;
 		}
 		this.slideNext();
 	},
 
-	_fetchSlide(slideFileName) {
+	_fetchSlide (slideFileName) {
 
-		const [, ext] = slideFileName.split('.');
+		const [ , ext ] = slideFileName.split('.');
 
 		const viewTypes = {
-			md: 'MDX',
-			mdx: 'MDX',
-			jsx: 'Jsx',
-			txt: 'MDX',
+			md  : 'MDX',
+			mdx : 'MDX',
+			jsx : 'Jsx',
+			txt : 'MDX',
 		};
 
 		const parser = ext === 'json' ? 'json' : 'text';
 
 		return fetch(`./${SLIDES_DIR}/${slideFileName}`)
 			.then(response => {
-				return response[parser]();
+				return response[ parser ]();
 			})
 			.catch(error => {
 				return error;
@@ -442,16 +443,16 @@ Object.setPrototypeOf(Main.prototype, {
 					window.alert('something wrong');
 				}
 
-				let slideList = [''];
+				let slideList = [ '' ];
 
 				if (ext === 'json') {
 					if (Array.isArray(data)) {
 						slideList = data;
 					} else {
-						slideList = [data];
+						slideList = [ data ];
 					}
 				} else {
-					const view = viewTypes[ext];
+					const view = viewTypes[ ext ];
 
 					slideList = data.split('-----').reduce((arr, mdx) => {
 
@@ -478,8 +479,8 @@ Object.setPrototypeOf(Main.prototype, {
 
 						const slide = {
 							view,
-							data: mdx,
-							settings: settings || [],
+							data     : mdx,
+							settings : settings || [],
 						};
 
 						arr.push(slide);
@@ -493,9 +494,9 @@ Object.setPrototypeOf(Main.prototype, {
 			});
 	},
 
-	fetchSlide() {
+	fetchSlide () {
 
-		// eslint-disable-next-line @typescript-eslint/no-this-alias
+		 
 		const slide = this;
 		const {
 			slides
@@ -506,7 +507,7 @@ Object.setPrototypeOf(Main.prototype, {
 			list
 		} = slides;
 
-		const [slideFileName] = list[index].split(' ');
+		const [ slideFileName ] = list[ index ].split(' ');
 
 		this
 			._fetchSlide(slideFileName)
@@ -539,7 +540,7 @@ Object.setPrototypeOf(Main.prototype, {
 
 	},
 
-	startPrint() {
+	startPrint () {
 		document.body.style.overflow = 'auto';
 		document.body.className = 'print';
 
@@ -551,7 +552,7 @@ Object.setPrototypeOf(Main.prototype, {
 			const slideRootId = `slide_${slidesCount}_${index}`;
 			const slide = this.fork(slideRootId, true);
 
-			slide.slides.list = [slideName.split(' ')[0]];
+			slide.slides.list = [ slideName.split(' ')[ 0 ] ];
 			slide.slides.index = 0;
 
 			const slideRoot = document.createElement('div');
@@ -570,7 +571,7 @@ Object.setPrototypeOf(Main.prototype, {
 		}, []);
 	},
 
-	printFetched(slideList) {
+	printFetched (slideList) {
 		const {
 			rootId
 		} = this;
@@ -580,7 +581,7 @@ Object.setPrototypeOf(Main.prototype, {
 			const slide2printId = `${rootId}_${index}`;
 			const slide = this.fork(slide2printId, true);
 
-			slide.slides.slideList = [element];
+			slide.slides.slideList = [ element ];
 
 			const slide2print = document.createElement('div');
 			slide2print.id = slide2printId;
@@ -595,14 +596,14 @@ Object.setPrototypeOf(Main.prototype, {
 		});
 	},
 
-	collectTypes(leaf = undefined, subtypes) {
+	collectTypes (leaf = undefined, subtypes) {
 		if (subtypes === undefined) {
 			subtypes = this.defaultCollection;
 		}
-		return [...subtypes].reduce((o, [subtypeName, type]) => {
+		return [ ...subtypes ].reduce((o, [ subtypeName, type ]) => {
 			const value = {
-				name: subtypeName,
-				children: []
+				name     : subtypeName,
+				children : []
 			};
 			if (type.subtypes instanceof Map && type.subtypes.size > 0) {
 				value.children = this.collectTypes(leaf, type.subtypes);
@@ -611,7 +612,7 @@ Object.setPrototypeOf(Main.prototype, {
 					value.children = leaf(value);
 				}
 				if (typeof leaf === 'string') {
-					value.children = [{ name: `${name}${leaf}` }];
+					value.children = [ { name : `${name}${leaf}` } ];
 				}
 			}
 			o.push(value);
@@ -619,32 +620,32 @@ Object.setPrototypeOf(Main.prototype, {
 		}, []);
 	},
 
-	collectTimestamps() {
-		// eslint-disable-next-line @typescript-eslint/no-this-alias
+	collectTimestamps () {
+		 
 		const instance = this;
 		return {
-			[instance.constructor.name]: new Date(instance.__timestamp__),
-			[instance.parent().constructor.name]: new Date(instance.parent().__timestamp__),
-			[instance.parent().parent().constructor.name]: new Date(instance.parent().parent().__timestamp__)
+			[ instance.constructor.name ]                   : new Date(instance.__timestamp__),
+			[ instance.parent().constructor.name ]          : new Date(instance.parent().__timestamp__),
+			[ instance.parent().parent().constructor.name ] : new Date(instance.parent().parent().__timestamp__)
 		};
 	},
 
-	rootError: document.getElementById('rootError'),
+	rootError : document.getElementById('rootError'),
 
-	hideRootError() {
+	hideRootError () {
 		this.rootError.style.display = 'none';
 	},
 
-	showRootError(message) {
+	showRootError (message) {
 		this.rootError.style.display = 'block';
 		this.rootError.innerHTML = `<pre>${message}</pre>`;
 	},
 
-	setErrored(...args) {
+	setErrored (...args) {
 		this.errored = args;
 	},
 
-	unsetErrored() {
+	unsetErrored () {
 		this.errored = false;
 	},
 

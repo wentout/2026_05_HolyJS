@@ -1,10 +1,12 @@
 [{
 	"view" : "Title",
-	"title" : "Я не знаю JavaSript",
-	"subtitle": "« старый [ [ [ ] ] ] на максималках »"
+	"title" : "Я не знаю JavaSript"
 },{
 	"view" : "Starter",
 	"title" : "..."
+},{
+	"view" : "Title",
+	"title" : "pro . js"
 },{
 	"view" : "Title",
 	"title" : "pro . js",

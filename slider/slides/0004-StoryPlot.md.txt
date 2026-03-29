@@ -1,30 +1,86 @@
 
-# что-то подобное мы это всё уже показывали
+-----
+
+<h1 style={{fontSize:'15vh', color: 'orange'}}>Type vs Interface</h1>
+
+<h1 className="borderline">Ø</h1>
+
+-----
+
+<h1 style={{fontSize:'15vh', color: 'orange'}}>Type vs Interface</h1>
+<h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>the epic battle of toy things</h2>
+
+<h1 className="borderline">Ø</h1>
+
+-----
+
+# на просторах TypeScript интернетов ...
+
+-----
+
+# на просторах TypeScript интернетов ...
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
 </center>
 </Box>
 
 -----
 
-# что-то подобное мы это всё уже показывали
+# на просторах TypeScript интернетов
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
+</center>
+</Box>
+
+-----
+
+# на просторах TypeScript интернетов
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
+<h1 style={{fontSize: '9vh', color: 'red'}}>Типы или Интерфейсы</h1>
+</center>
+</Box>
+
+-----
+
+# и что-то подобное мы уже показывали
+
+-----
+
+# и что-то подобное мы уже показывали
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+</center>
+</Box>
+
+-----
+
+# и что-то подобное мы уже показывали
+
+<Box sx={{marginTop: '5vh'}}>
+<center>
+<h1 style={{fontSize: '7vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
 <h1 style={{fontSize: '9vh', color: 'teal'}}>что нужно показать снова</h1>
 </center>
 </Box>
 
 -----
 
-# что-то подобное мы это всё уже показывали
+# и что-то подобное мы уже показывали
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'teal'}}>... и есть ощущение  ...</h1>
+<h1 style={{fontSize: '9vh', color: 'teal'}}>... и есть ощущение  ...</h1>
 </center>
 </Box>
 

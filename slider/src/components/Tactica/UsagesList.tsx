@@ -26,72 +26,72 @@ export const UsagesList: React.FC<UsagesListProps> = ({ usages }) => {
 
 	// Group by kind
 	const byKind: Record<string, [string, UsageEntry[]][]> = {
-		definition: [],
-		instantiation: [],
-		propertyAccess: []
+		definition     : [],
+		instantiation  : [],
+		propertyAccess : []
 	};
 
 	for (const type of allTypes) {
-		const entries = usages[type];
+		const entries = usages[ type ];
 		for (const entry of entries) {
-			if (!byKind[entry.kind]) {
-				byKind[entry.kind] = [];
+			if (!byKind[ entry.kind ]) {
+				byKind[ entry.kind ] = [];
 			}
 			// Only add once per type per kind
-			const existing = byKind[entry.kind].find(([t]) => t === type);
+			const existing = byKind[ entry.kind ].find(([ t ]) => t === type);
 			if (!existing) {
-				byKind[entry.kind].push([type, entries]);
+				byKind[ entry.kind ].push([ type, entries ]);
 			}
 		}
 	}
 
 	const renderKindSection = (title: string, kind: string, color: string) => {
-		const types = byKind[kind] || [];
+		const types = byKind[ kind ] || [];
 		if (types.length === 0) return null;
 
 		return (
-			<Box sx={{ mb: 4 }}>
+			<Box sx={{ mb : 4 }}>
 				<Text sx={{ 
-					fontSize: 3, 
-					fontWeight: 'bold', 
-					mb: 2,
+					fontSize   : 3, 
+					fontWeight : 'bold', 
+					mb         : 2,
 					color
 				}}>
 					{title} ({types.length})
 				</Text>
-				{types.map(([type, entries]) => (
-					<Card key={type} sx={{ mb: 2, p: 2, bg: 'muted' }}>
-						<Text sx={{ fontWeight: 'bold', fontFamily: 'monospace' }}>
+				{types.map(([ type, entries ]) => (
+					<Card key={type} sx={{ mb : 2, p : 2, bg : 'muted' }}>
+						<Text sx={{ fontWeight : 'bold', fontFamily : 'monospace' }}>
 							{type}
 						</Text>
 						{entries
 							.filter(e => e.kind === kind)
 							.map((entry, i) => (
-								<Box key={i} sx={{ mt: 1, ml: 2 }}>
+								<Box key={i} sx={{ mt : 1, ml : 2 }}>
 									<Text sx={{ 
-										fontSize: 0, 
-										fontFamily: 'monospace',
-										bg: 'background',
-										p: 1,
-										borderRadius: 1
+										fontSize     : 0, 
+										fontFamily   : 'monospace',
+										bg           : 'background',
+										p            : 1,
+										borderRadius : 1
 									}}>
 										{entry.code.slice(0, 80)}
 										{entry.code.length > 80 ? '...' : ''}
 									</Text>
-									<Text sx={{ fontSize: 0, color: 'text', mt: 1 }}>
+									<Text sx={{ fontSize : 0, color : 'text', mt : 1 }}>
 										at {entry.location}
 									</Text>
 								</Box>
 							))}
-						</Card>
-					))}
-				</Box>
+					</Card>
+				))}
+			</Box>
 		);
 	};
 
 	return (
-		<Box sx={{ p: 3 }}>
-			<Text sx={{ fontSize: 4, fontWeight: 'bold', mb: 3 }}>
+		<Box sx={{ p : 3 }}>
+			<Text sx={{ fontSize : 4, fontWeight : 'bold', mb : 3 }}>
 				Type Usages
 			</Text>
 

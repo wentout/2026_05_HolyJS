@@ -30,7 +30,7 @@ const pie = function ({ chartData, width, height, fontSize }) {
 	const arcs = pied(data);
 
 	const svg = d3.create('svg')
-		.attr('viewBox', [-width / 2, -height / 2, width, height]);
+		.attr('viewBox', [ -width / 2, -height / 2, width, height ]);
 
 	svg.append('g')
 		.attr('stroke', 'white')
