@@ -1,0 +1,43 @@
+
+
+<h1 style={{fontSize:'11vh', color: 'navy'}}>я всё ещё</h1>
+<h1 style={{fontSize:'12vh', color: 'orange', paddingLeft: '15vw'}}>не знаю</h1>
+<h1 style={{fontSize:'12vh', color: 'orange', paddingLeft: '25vw'}}> JavaScript</h1>
+
+-----
+
+# Но теперь я знаю:
+
+<div className="slide-layout">
+
+<div style={{marginBottom: '4vh'}}>
+<h2>1. Почему const с getter обманывает</h2>
+<p>const хранит доступ к данным, а не сами данные. Getter — Interface.</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>2. Почему instanceof — не проверка типа</h2>
+<p>Это алгоритм обхода графа. Можно переопределить через Symbol.hasInstance.</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>3. Почему самовоспроизводящиеся экземпляры возможны</h2>
+<p>Граница между экземпляром и конструктором — условность.</p>
+</div>
+
+</div>
+
+-----
+
+# и вот это вот теперь то есть для меня так
+
+<h1 style={{fontSize:'7vh', color: 'gray', paddingLeft: '11vw'}}>Constructor, Function, Method</h1>
+
+<h1 style={{fontSize:'11vh', color: 'orange', marginTop: '3vh', paddingLeft: '9vw'}}>→ это Interface</h1>
+
+<h1 style={{fontSize:'7vh', color: 'gray', paddingLeft: '11vw'}}>а всё остальное</h1>
+
+<h1 style={{fontSize:'11vh', color: 'green', marginTop: '3vh', paddingLeft: '9vw'}}>→ это Type</h1>
+
+
+-----

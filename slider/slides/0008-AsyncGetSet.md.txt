@@ -1,0 +1,67 @@
+
+
+<h1 className="slide-title">async get / set</h1>
+
+<div className="slide-subtitle">
+<h2>когда присваивание — это не то, чем кажется</h2>
+</div>
+
+-----
+
+# Асинхронные геттеры и сеттеры
+
+<div className='codesmall'>
+
+```javascript
+const myObj = {};
+let field = 123;
+
+Object.defineProperty(myObj, 'field', {
+    async get () {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(field), 1000);
+        });
+    },
+    async set (value) { field = value; }
+});
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">get/set — это Interface. Они могут быть асинхронными!</h3>
+</div>
+
+-----
+
+# Присваивание вернуло Promise!
+
+<div className='codesmall'>
+
+```javascript
+// Тот же async getter/setter:
+const myObj = {};
+let field = 123;
+Object.defineProperty(myObj, 'field', {
+    async get () { return new Promise((resolve) => setTimeout(() => resolve(field), 1000)); },
+    async set (value) { field = value; }
+});
+
+// Сюрприз:
+const addition = myObj.field = 321;
+// ↑ что здесь происходит? Присваивание возвращает Promise!
+
+console.log('addition:', addition);   // Promise { ... }
+console.log(await myObj.field);        // 321 (через 1 сек)
+```
+
+</div>
+
+<Button onClick={() => { runExample('awaited_assignment')}}>Запустить пример</Button>
+
+<div className="slide-callout">
+<h2 className="danger">Присваивание вернуло Promise, не значение!</h2>
+<h3>Интерфейс (get/set) скрывает асинхронность</h3>
+</div>
+
+-----

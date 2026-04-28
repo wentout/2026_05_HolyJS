@@ -1,12 +1,10 @@
 
 
-<h1 style={{fontSize:'10vh', color: 'cyan'}}>Type + Interface = ?</h1>
+<h1 className="slide-title">Type + Interface = ?</h1>
 
-<Box sx={{marginTop: '35vh'}}>
-<center>
-<h2 style={{fontSize: '5vh', color: 'orange'}}>может ли POJO (Type) вести себя как Instance?</h2>
-</center>
-</Box>
+<div className="slide-subtitle">
+<h2>может ли POJO (Type) вести себя как Instance?</h2>
+</div>
 
 -----
 
@@ -33,11 +31,9 @@ console.log(someObject.describe());  // работает!
 
 </div>
 
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h3 style={{color: 'orange'}}>Type получил Interface через прототип!</h3>
-</center>
-</Box>
+<div className="slide-callout">
+<h3 className="secondary">Type получил Interface через прототип!</h3>
+</div>
 
 -----
 
@@ -64,11 +60,9 @@ console.log(myInstance.describe());  // тот же результат!
 
 <Button onClick={() => { runExample('types_vs_interface')}}>Запустить пример</Button>
 
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h2 style={{color: 'cyan'}}>POJO + setPrototypeOf = new Constructor</h2>
-<h3 style={{color: 'gray'}}>Type + Interface = Instance с поведением</h3>
-</center>
-</Box>
+<div className="slide-callout">
+<h2 className="primary">POJO + setPrototypeOf = new Constructor</h2>
+<h3>Type + Interface = Instance с поведением</h3>
+</div>
 
 -----

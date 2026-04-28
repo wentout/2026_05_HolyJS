@@ -1,0 +1,66 @@
+
+
+<h1 className="slide-title secondary">await new</h1>
+
+<div className="slide-subtitle">
+<h2>можно ли создать экземпляр асинхронно?</h2>
+</div>
+
+-----
+
+# await new — class + result
+
+<div className='codesmall'>
+
+```javascript
+class MyPromise extends Promise {
+    constructor(handler) { super(handler); }
+}
+
+const myItem = new MyPromise((resolve) => { resolve(123); });
+
+// Мы можем await-ить результат new!
+console.log(await myItem);  // 123
+
+// И проверить наследование:
+console.log(myItem instanceof Promise);  // true
+```
+
+</div>
+
+<div className="slide-callout">
+<h3>new + await = новая семантика!</h3>
+<h3 className="secondary">new — Interface (конструктор), await — Interface (ожидание)</h3>
+</div>
+
+-----
+
+# Запустим и посмотрим
+
+<div className='codesmall'>
+
+```javascript
+class MyPromise extends Promise {
+    constructor(handler) { super(handler); }
+}
+
+// new возвращает thenable
+// await автоматически разворачивает его
+console.log(await new MyPromise((resolve) => {
+    resolve(321);
+}));  // 321
+
+// Граница между sync и async construction размыта
+```
+
+</div>
+
+<Button onClick={() => { runExample('await_new_problems')}}>Запустить пример</Button>
+
+<div className="slide-callout">
+<h2 className="secondary">new — это Interface (конструктор)</h2>
+<h3 className="primary">await — это Interface (оператор ожидания)</h3>
+<h3>Вместе они создают новую семантику!</h3>
+</div>
+
+-----

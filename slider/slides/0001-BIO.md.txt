@@ -1,7 +1,7 @@
 
 -----
 
-# Creadability (BIO)
+# Доверие (BIO)
 
 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3vw', marginTop: '5vh'}}>
 
@@ -29,16 +29,14 @@
 
 # у JavaScript в Ростове есть свой логотип
 
-<Box sx={{textAlign: 'center'}}>
+<div className="slide-visual">
 <img src="./content/RND.JS.png" style={{marginTop: '5vh', width: '35vw'}} />
-</Box>
+</div>
 
 -----
 
-<Box sx={{marginTop: '35vh'}}>
-<center>
-<h1 style={{fontSize: '21vh', color: 'gray'}}> ... </h1>
-</center>
-</Box>
+<div className="slide-interstitial">
+<h1 className="muted"> ... </h1>
+</div>
 
 -----

@@ -1,0 +1,71 @@
+
+
+<h1 className="slide-title secondary">const не так прост</h1>
+
+<div className="slide-subtitle">
+<h2>или почему const &#123; prop &#125; = obj не делает то, что вы думаете</h2>
+</div>
+
+-----
+
+# const - это про привязку, не про значение
+
+<div className='codesmall'>
+
+```javascript
+let toBeProp = 5;
+
+const myObject = {};
+Object.defineProperty(myObject, 'prop', {
+    get () {
+        return {
+            [Symbol.toPrimitive] () {  // ← KEY: делает getter ленивым!
+                return toBeProp;       //     возвращает ТЕКУЩЕЕ значение
+            }
+        };
+    }
+});
+
+const { prop: prop1 } = myObject;  // prop1 — НЕ число!
+                                   // это объект с Symbol.toPrimitive
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">Getter + Symbol.toPrimitive = ленивое вычисление</h3>
+<h3>const хранит ССЫЛКУ, не значение. Getter — это Interface.</h3>
+</div>
+
+-----
+
+# const переменная изменила значение!
+
+<div className='codesmall'>
+
+```javascript
+let toBeProp = 5;
+const myObject = {};
+Object.defineProperty(myObject, 'prop', {
+    get () {
+        return { [Symbol.toPrimitive] () { return toBeProp; } };
+    }
+});
+const { prop: prop1 } = myObject;
+
+// Сюрприз: "const" переменная изменила своё значение:
+console.log(prop1 + 0);   // 5
+toBeProp = 7;             // изменили источник
+console.log(prop1 + 0);   // 7 ?!?!?!?
+```
+
+</div>
+
+<Button onClick={() => { runExample('const_destructuring')}}>Запустить пример</Button>
+
+<div className="slide-callout">
+<h2 className="danger">const переменная изменила значение!</h2>
+<h3>(мы храним не значение, а доступ к нему)</h3>
+</div>
+
+-----

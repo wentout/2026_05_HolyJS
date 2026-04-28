@@ -1,8 +1,8 @@
 
 
-<h1 style={{fontSize:'9vh', color: 'cyan'}}>Interface VS Types</h1>
+<h1 className="slide-title">Interface VS Types</h1>
 
-<h1 style={{fontSize:'7vh', color: 'gray', marginTop: '2vh'}}>Финальная диаграмма</h1>
+<h2 className="slide-subtitle muted" style={{marginTop: 'var(--space-sm)'}}>финальная диаграмма</h2>
 
 -----
 
@@ -11,20 +11,20 @@
 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2vw', marginTop: '3vh', fontSize: '2vh'}}>
 
 <div style={{border: '2px solid orange', padding: '2vh', borderRadius: '1vh'}}>
-<h3 style={{color: 'orange', marginBottom: '2vh'}}>🔄 INTERFACE (Algorithm)</h3>
+<h3 style={{color: 'orange', marginBottom: '2vh'}}>🔄 INTERFACE (Алгоритм)</h3>
 <ul style={{listStyle: 'none', padding: 0}}>
 <li>✓ Constructors — создают экземпляры</li>
 <li>✓ Functions — трансформируют данные</li>
 <li>✓ Methods — оперируют с this</li>
 <li>✓ Getters — динамический доступ к данным</li>
 <li>✓ Operators — instanceof, etc.</li>
-<li>✓ Symbol.toPrimitive — coercion</li>
+<li>✓ Symbol.toPrimitive — приведение типов</li>
 </ul>
 <p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает ПОВЕДЕНИЕ</em></p>
 </div>
 
 <div style={{border: '2px solid green', padding: '2vh', borderRadius: '1vh'}}>
-<h3 style={{color: 'green', marginBottom: '2vh'}}>📦 TYPE (Structure)</h3>
+<h3 style={{color: 'green', marginBottom: '2vh'}}>📦 TYPE (Структура)</h3>
 <ul style={{listStyle: 'none', padding: 0}}>
 <li>✓ POJO — &#123; a: 1, b: 2 &#125;</li>
 <li>✓ Primitives — number, string</li>
@@ -40,7 +40,7 @@
 
 -----
 
-# TypeScript perspective
+# Перспектива TypeScript
 
 <div className='codesmall'>
 
@@ -66,11 +66,9 @@ interface MyFunction extends Callable, Constructable {}
 
 </div>
 
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h3 style={{color: 'orange'}}>type для структуры, interface для поведения</h3>
-</center>
-</Box>
+<div className="slide-callout">
+<h3 className="secondary">type для структуры, interface для поведения</h3>
+</div>
 
 -----
 
@@ -97,17 +95,22 @@ myFunc instanceof Object;    // true
 
 </div>
 
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h2 style={{color: 'cyan'}}>В JavaScript движке они были разделены?</h2>
-<h2 style={{color: 'orange'}}>НЕТ. Они всегда были едины.</h2>
-</center>
-</Box>
+<div className="slide-callout">
+<h2 className="primary">В JavaScript движке они были разделены?</h2>
+<h2 className="secondary">НЕТ. Они всегда были едины.</h2>
+</div>
 
 -----
 
-<h1 style={{fontSize:'10vh', color: 'gray'}}>Вопрос не "Interface ИЛИ Type"</h1>
+<div className="slide-text">
+<h2>Вопрос не в том</h2>
+<h1>"Interface или Type?"</h1>
+</div>
 
-<h1 style={{fontSize:'10vh', color: 'cyan', marginTop: '5vh'}}>Вопрос: "Где один становится другим?"</h1>
+<div className="slide-text" style={{marginTop: 'var(--space-lg)'}}>
+<h2 className="secondary">Вопрос:</h2>
+<h1 className="secondary">" Где одно → → → </h1>
+<h1 className="secondary">&nbsp;&nbsp;&nbsp; становится другим ? "</h1>
+</div>
 
 -----

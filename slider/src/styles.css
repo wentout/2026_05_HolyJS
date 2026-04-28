@@ -9,6 +9,151 @@ body {
   overflow: hidden;
 }
 
+/* === DESIGN TOKENS === */
+:root {
+  /* Title sizes */
+  --title-xl: 15vh;   /* Chapter openers, dramatic moments */
+  --title-lg: 12vh;   /* Secondary emphasis */
+  --title-md: 10vh;   /* Standard section titles */
+  --title-sm: 7vh;    /* Sub-sections, questions */
+  --title-xs: 5vh;    /* Inline emphasis, interstitials */
+
+  /* Subtitle / body text */
+  --subtitle: 5vh;
+  --body: 3.5vh;
+  --caption: 3vh;
+
+  /* Spacing scale */
+  --space-xs: 2vh;
+  --space-sm: 3vh;
+  --space-md: 5vh;
+  --space-lg: 8vh;
+  --space-xl: 15vh;
+  --space-xxl: 25vh;
+
+  /* Color roles — 6 semantic colors */
+  --color-primary: cyan;        /* Main concept, Type */
+  --color-secondary: orange;    /* Contrast, Interface */
+  --color-accent: green;        /* Success, validation */
+  --color-danger: red;          /* Errors, warnings */
+  --color-muted: gray;          /* Secondary text, asides */
+  --color-text: #d3d3e7;        /* Default body text */
+}
+
+/* === SLIDE TYPE CLASSES === */
+
+/* TitleSlide — chapter openers */
+.Slide .SlideContent h1.slide-title {
+  font-size: var(--title-md);
+  color: var(--color-primary);
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+.Slide .SlideContent h1.slide-title.secondary {
+  color: var(--color-secondary);
+}
+.Slide .slide-subtitle {
+  font-size: var(--subtitle);
+  color: var(--color-secondary);
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+.Slide .slide-subtitle.muted {
+  color: var(--color-muted);
+}
+
+/* CodeSlide — code + callout */
+.Slide .slide-callout {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+.Slide .slide-callout h2 {
+  color: var(--color-danger);
+}
+.Slide .slide-callout h2.primary {
+  color: var(--color-primary);
+}
+.Slide .slide-callout h2.secondary {
+  color: var(--color-secondary);
+}
+.Slide .slide-callout h3 {
+  color: var(--color-muted);
+}
+.Slide .slide-callout h3.primary {
+  color: var(--color-primary);
+}
+.Slide .slide-callout h3.secondary {
+  color: var(--color-secondary);
+}
+.Slide .slide-callout h3.accent {
+  color: var(--color-accent);
+}
+.Slide .slide-callout h3.danger {
+  color: var(--color-danger);
+}
+
+/* LayoutSlide — structured content */
+.Slide .slide-layout {
+  margin-top: var(--space-md);
+  margin-left: 5vw;
+}
+.Slide .slide-layout h2 {
+  font-size: var(--title-sm);
+  color: var(--color-secondary);
+}
+.Slide .slide-layout p {
+  font-size: var(--body);
+  color: var(--color-muted);
+  margin-left: 3vw;
+}
+
+/* VisualSlide — images, diagrams */
+.Slide .slide-visual {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+/* Interstitial — single centered phrase */
+.Slide .slide-interstitial {
+  margin-top: var(--space-xxl);
+  text-align: center;
+}
+.Slide .slide-interstitial h1 {
+  font-size: var(--title-xl);
+}
+
+/* TextSlide — centered stacked text (like 2.22) */
+.Slide .slide-text {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+.Slide .slide-text h1 {
+  font-size: var(--title-lg);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text h2 {
+  font-size: var(--title-md);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text h3 {
+  font-size: var(--title-sm);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text p {
+  font-size: var(--body);
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+.Slide .slide-text h3 {
+  font-size: var(--title-sm);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text p {
+  font-size: var(--body);
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
 #rootError {
   z-index: 100;
   /* background: white; */
@@ -250,7 +395,7 @@ progress {
 }
 
 .Slide .codesmall {
-  padding: 0 0 0 5vw;
+  padding: 2vh 0 0 5vw;
   margin: 0;
 }
 

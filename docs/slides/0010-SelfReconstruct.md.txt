@@ -1,8 +1,8 @@
 
 
-<h1 style={{fontSize:'10vh', color: 'orange'}}>Когда экземпляр —</h1>
+<h1 className="slide-title secondary">Когда экземпляр —</h1>
 
-<h1 style={{fontSize:'10vh', color: 'cyan', marginTop: '3vh'}}>свой собственный конструктор</h1>
+<h1 className="slide-title" style={{marginTop: 'var(--space-sm)'}}>свой собственный конструктор</h1>
 
 -----
 
@@ -28,12 +28,10 @@ const Cstr = function () {
 
 </div>
 
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h3 style={{color: 'gray'}}>Функция, которая возвращает функцию, которая...</h3>
-<h3 style={{color: 'orange'}}>...может быть вызвана как функция И как конструктор!</h3>
-</center>
-</Box>
+<div className="slide-callout">
+<h3>Функция, которая возвращает функцию, которая...</h3>
+<h3 className="secondary">...может быть вызвана как функция И как конструктор!</h3>
+</div>
 
 -----
 
@@ -58,11 +56,9 @@ item instanceof Object;     // true
 
 <Button onClick={() => { runExample('self_reconstruct')}}>Запустить пример</Button>
 
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h2 style={{color: 'red'}}>Экземпляр — одновременно и данные, и функция, и конструктор!</h2>
-</center>
-</Box>
+<div className="slide-callout">
+<h2 className="danger">Экземпляр — одновременно и данные, и функция, и конструктор!</h2>
+</div>
 
 -----
 
@@ -81,11 +77,9 @@ console.log(re instanceof Object);     // true
 
 </div>
 
-<Box sx={{marginTop: '8vh'}}>
-<center>
-<h2 style={{color: 'orange'}}>re instanceof item === true</h2>
-<h3 style={{color: 'gray'}}>item — это экземпляр, но он же и конструктор!</h3>
-</center>
-</Box>
+<div className="slide-callout">
+<h2 className="secondary">re instanceof item === true</h2>
+<h3>item — это экземпляр, но он же и конструктор!</h3>
+</div>
 
 -----

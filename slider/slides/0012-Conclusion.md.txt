@@ -1,0 +1,45 @@
+
+
+<div className="slide-text">
+<h2>я всё ещё</h2>
+<h1 className="secondary">не знаю</h1>
+<h1 className="secondary">JavaScript</h1>
+</div>
+
+-----
+
+# Но теперь я знаю:
+
+<div className="slide-layout">
+
+<div style={{marginBottom: '4vh'}}>
+<h2>1. Почему const с getter обманывает</h2>
+<p>const хранит доступ к данным, а не сами данные. Getter — Interface.</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>2. Почему instanceof — не проверка типа</h2>
+<p>Это алгоритм обхода графа. Можно переопределить через Symbol.hasInstance.</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>3. Почему самовоспроизводящиеся экземпляры возможны</h2>
+<p>Граница между экземпляром и конструктором — условность.</p>
+</div>
+
+</div>
+
+-----
+
+<div className="slide-text">
+<h2>Constructor, Function, Method</h2>
+<h1 className="secondary">→ это Interface</h1>
+</div>
+
+<div className="slide-text" style={{marginTop: 'var(--space-xl)'}}>
+<h2>а всё остальное</h2>
+<h1 className="accent">→ это Type</h1>
+</div>
+
+
+-----

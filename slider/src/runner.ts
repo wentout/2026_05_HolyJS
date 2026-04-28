@@ -286,15 +286,46 @@ Object.setPrototypeOf(Main.prototype, {
 
 		this.starterPhase = true;
 
-		// Check URL parameter first (?slide=X)
+		// Check URL parameter first (?slide=X or ?slide=11.3 for file 11, sub-slide 3)
 		const urlParams = new URLSearchParams(window.location.search);
 		const slideParam = urlParams.get('slide');
 		
 		if (slideParam !== null) {
-			const slideIndex = parseInt(slideParam, 10);
-			if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < this.slides.count) {
-				this.setSlideIndex(slideIndex);
-				return;
+			// Check for decimal notation (e.g., 11.3 = file 0011, sub-slide 3)
+			if (slideParam.includes('.')) {
+				const [ fileNum, subSlide ] = slideParam.split('.').map(Number);
+				if (!isNaN(fileNum) && !isNaN(subSlide) && fileNum >= 0 && fileNum < this.slides.list.length) {
+					// Calculate absolute slide index: sum of all previous files' slides + sub-slide
+					// The counters logic adds parseInt(slideName.split(' ')[1]) + 1 for each file
+					let absoluteIndex = 0;
+					for (let i = 0; i < fileNum && i < this.slides.list.length; i++) {
+						const slideCount = parseInt(this.slides.list[ i ].split(' ')[ 1 ]) + 1;
+						absoluteIndex += slideCount;
+					}
+					// Add sub-slide offset (1-indexed in URL, so sub-slide 2 means add 2 to get to it)
+					absoluteIndex += subSlide - 1;
+					
+					// The slides.count is the number of files, not total slides
+					// Calculate total slides for validation
+					let totalSlides = 0;
+					for (let i = 0; i < this.slides.list.length; i++) {
+						totalSlides += parseInt(this.slides.list[ i ].split(' ')[ 1 ]) + 1;
+					}
+					
+					if (absoluteIndex >= 0 && absoluteIndex < totalSlides) {
+						this.slides.index = fileNum;
+						this.slides.slideListIndex = subSlide - 1;
+						this.fetchSlide();
+						return;
+					}
+				}
+			} else {
+				// Simple integer index
+				const slideIndex = parseInt(slideParam, 10);
+				if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < this.slides.count) {
+					this.setSlideIndex(slideIndex);
+					return;
+				}
 			}
 		}
 

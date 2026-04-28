@@ -1,13 +1,13 @@
 
 -----
 
-<h1 style={{fontSize:'15vh', color: 'orange'}}>Type vs Interface</h1>
+<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Type vs Interface</h1>
 
 <h1 className="borderline">Ø</h1>
 
 -----
 
-<h1 style={{fontSize:'15vh', color: 'orange'}}>Type vs Interface</h1>
+<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Type vs Interface</h1>
 <h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>the epic battle of toy things</h2>
 
 <h1 className="borderline">Ø</h1>
@@ -88,11 +88,9 @@
 
 -----
 
-<Box sx={{marginTop: '35vh'}}>
-<center>
+<div className="slide-interstitial">
 <h1 style={{fontSize: '15vh', color: 'darkslateblue'}}> почему ? </h1>
-</center>
-</Box>
+</div>
 
 -----
 
@@ -146,11 +144,9 @@
 
 -----
 
-<Box sx={{marginTop: '35vh'}}>
-<center>
+<div className="slide-interstitial">
 <h1 style={{fontSize: '11vh', color: 'orange'}}>... snowflakes ...</h1>
-</center>
-</Box>
+</div>
 
 <h1 className="borderline">-1</h1>
 
