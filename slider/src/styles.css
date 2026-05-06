@@ -6,13 +6,19 @@ body {
   color: #d3d3e7;
   font-family: sans-serif;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* === BACKGROUNDS FROM 2023 TEMPLATE === */
 .Slide {
   display: block;
   margin: 0;
-  min-height: 100vh;
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
   background-image: url('/content/bg_main.jpg');
   background-size: cover;
   background-position: center;
@@ -262,7 +268,7 @@ progress {
 .Slide .Title h1 {
   font-weight: 700;
   font-size: 12vh;
-  margin-top: 25vh;
+  margin-top: 10%;
   padding: 5vh;
   color: #ffffff;
 }
@@ -645,24 +651,26 @@ progress {
 }
 
 .speaker-card {
+  position: absolute;
+  left: 7%;
+  top: 55.5%;
   display: flex;
   align-items: center;
-  margin-top: -5vh;
-  margin-left: 5vw;
-  width: fit-content;
+  gap: 2vw;
+  z-index: 5;
 }
 
 .speaker-photo {
-  width: 19vh;
-  height: 19vh;
+  width: 18vh;
+  height: 18vh;
   border-radius: 50%;
-  border: 3px solid #ff69b4;
+  border: 7px solid #ff69b4;
   object-fit: cover;
 }
 
 .speaker-name {
   margin-left: 5vw;
-  font-size: 4.5vh;
+  font-size: 3.5vh;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
