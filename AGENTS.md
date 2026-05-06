@@ -584,6 +584,7 @@ Available in MDX content:
 5. **Example not running:** Check path in `exampleRunner.js` fetch URL
 6. **Build fails:** Run `npm run lint` to check for syntax errors
 7. **Navigation stuck:** Press `Ctrl + Esc` to clear error state
+8. **Component edits have no effect:** The build uses `.jsx` files, not `.tsx`. Check `src/components/index.js` to see which file is imported. If both `.jsx` and `.tsx` exist, the `.jsx` file is the one that matters.
 
 ## Dependencies to Know
 

@@ -1,18 +1,25 @@
 import React from 'react';
 
-const Title = function () {
+const Title2 = function () {
 	Object.assign(this, this.slides.current);
 };
 
-Title.prototype.View = function () {
+Title2.prototype.View = function () {
 	return (
 		<div className="SlideContent">
-			<div className="Title2" >
+			<div className="Title" >
 				<h1>{this.title}</h1>
-				<h1 className="subtitle">{this.subtitle}</h1>
+
+				<div className="speaker-card">
+					<img className="speaker-photo" src="./content/avatar.png" alt="speaker" />
+					<div className="speaker-name">Виктор<br />Вершанский</div>
+				</div>
+
+				<h3 className="subtitle">{this.subtitle}</h3>
+
 			</div>
-		</div>
+		</div >
 	);
 };
 
-export default Title;
+export default Title2;

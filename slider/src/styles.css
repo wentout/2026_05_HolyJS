@@ -23,7 +23,7 @@ body {
 .Slide:has(.Title),
 .Slide:has(.StarterSlide),
 .Slide:has(.title-slide) {
-  background-image: url('/content/bg_title.jpg');
+  background-image: url('/content/bg_title_good.jpg');
 }
 
 .Slide:has(.slide-bio) {
@@ -268,7 +268,7 @@ progress {
 }
 
 .SlideContent .Title .subtitle {
-  margin-top: -10vh;
+  margin-top: 25vh;
   font-size: 5vh;
   color: #ff69b4;
 }
@@ -306,12 +306,6 @@ progress {
   margin-left: 42vh;
 }
 
-
-.Slide {
-  display: block;
-  margin: 0;
-  min-height: 100vh;
-}
 
 .Slide h1 {
   margin-left: 0.2vw;
@@ -371,6 +365,11 @@ progress {
 .Slide .prism-code {
   padding-left: 5vw;
   font-size: 5vh !important;
+  border-radius: 1.5vh;
+}
+
+.Slide pre {
+  border-radius: 1.5vh;
 }
 
 .Slide .language-javascript {
@@ -640,11 +639,31 @@ progress {
   display: none;
 }
 
-/* Move HolyJS logo to bottom-right on title slides with speaker card */
+/* Hide HolyJS logo to bottom-right on title slides with speaker card */
 .Slide:has(.speaker-card)::after {
-  top: auto;
-  left: auto;
-  bottom: 2vh;
-  right: 2vw;
-  background-position: right bottom;
+  display: none;
+}
+
+.speaker-card {
+  display: flex;
+  align-items: center;
+  margin-top: -5vh;
+  margin-left: 5vw;
+  width: fit-content;
+}
+
+.speaker-photo {
+  width: 19vh;
+  height: 19vh;
+  border-radius: 50%;
+  border: 3px solid #ff69b4;
+  object-fit: cover;
+}
+
+.speaker-name {
+  margin-left: 5vw;
+  font-size: 4.5vh;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
 }
