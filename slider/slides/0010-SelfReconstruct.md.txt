@@ -1,17 +1,20 @@
 
+<h1 className="slide-title">new instance</h1>
 
-<h1 className="slide-title secondary">Когда экземпляр —</h1>
+<div className="slide-subtitle">
+<h2>само-воспроизводимые<br/> экземпляры</h2>
+</div>
 
-<h1 className="slide-title" style={{marginTop: 'var(--space-sm)'}}>свой собственный конструктор</h1>
+<h1 className="borderline">8</h1>
 
 -----
 
-# self_reconstruct.js
+# self reconstruct
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
-const Cstr = function () {
+const SelfReConstructor = function () {
     const Self = function () {
         if (new.target) {
             const Constructor = isItSelf ? Cstr : main;
@@ -28,61 +31,85 @@ const Cstr = function () {
 
 </div>
 
-<div className="slide-callout">
-<h3>Функция, которая возвращает функцию, которая...</h3>
-<h3 className="secondary">...может быть вызвана как функция И как конструктор!</h3>
-</div>
-
 -----
 
-# Запустим и посмотрим
+# можно вот так
 
 <div className='codemedium'>
 
 ```javascript
-const item = new Cstr();
+const item = new SelfReConstructor();
 
 // item — это функция!
 item();           // callable ✓
 new item();       // newable ✓
 
 // и при этом...
-item instanceof Cstr;       // true
-item instanceof Function;   // true
-item instanceof Object;     // true
+item instanceof SelfReConstructor;  // true
+item instanceof Function;           // true
+item instanceof Object;             // true
 ```
 
 </div>
 
-<Button onClick={() => { runExample('self_reconstruct')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="danger">Экземпляр — одновременно и данные, и функция, и конструктор!</h2>
+<h2 className="danger">item — одновременно и Тип и Интерфейс!</h2>
 </div>
 
 -----
 
-# Но это ещё не всё...
+# и ещё вот так ...
 
 <div className='codemedium'>
 
 ```javascript
 const re = new item;  // new item() работает!
 
-console.log(re instanceof item);       // true ?!
-console.log(re instanceof Cstr);       // true
-console.log(re instanceof Function);   // true
-console.log(re instanceof Object);     // true
+console.log(re instanceof item);                // true ?!
+console.log(re instanceof SelfReConstructor);   // true
+console.log(re instanceof Function);            // true
+console.log(re instanceof Object);              // true
 
-// это нативные проверки, настоящие
+class MyInheritedItem extends item {
+    /* yes, it works */
+}
 
 ```
 
 </div>
 
 <div className="slide-callout">
-<h2 className="secondary">re instanceof item === true</h2>
-<h3>item — это экземпляр, но он же и конструктор!</h3>
+<h2 className="secondary">MyInheritedItem instanceof item</h2>
 </div>
+
+-----
+
+
+# запустим и посмотрим
+
+<div className='codemedium'>
+
+```javascript
+const re = new item;  // new item() работает!
+
+console.log(re instanceof item);                // true ?!
+console.log(re instanceof SelfReConstructor);   // true
+console.log(re instanceof Function);            // true
+console.log(re instanceof Object);              // true
+
+class MyInheritedItem extends item {
+    /* yes, it works */
+}
+
+```
+
+</div>
+
+<div className="slide-callout">
+<h2 className="secondary">MyInheritedItem instanceof item</h2>
+</div>
+
+<Button onClick={() => { runExample('self_reconstruct')}}>Запустить пример</Button>
 
 -----

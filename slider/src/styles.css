@@ -91,6 +91,8 @@ body {
   color: var(--color-primary);
   margin-top: var(--space-xl);
   text-align: center;
+  margin-left: -11vw;
+  /* border: 1px solid red; */
 }
 .Slide .SlideContent h1.slide-title.secondary {
   color: var(--color-secondary);
@@ -333,9 +335,9 @@ progress {
 
 .Slide h1.borderline {
 	position: absolute;
-	right: 0vw;
-	top: -10vh;
-	font-size: 57vh;
+	right: 5vw;
+	top: -12vh;
+	font-size: 55vh;
 	color:rgb(67, 45, 190);
 }
 
@@ -392,6 +394,11 @@ progress {
   margin: 0;
 }
 
+.Slide .language-typescript {
+  padding: 0.1vh 0 0 2.5vw;
+  margin: 0;
+}
+
 .Slide .codegiant {
   font-size: 7vh !important;
   padding: 0.1vh 0 0 5vw;
@@ -441,7 +448,7 @@ progress {
 }
 
 .Slide .codemedium pre {
-  font-size: 4vh !important;
+  font-size: 3vh !important;
 }
 
 .Slide .codesmall {
@@ -451,11 +458,11 @@ progress {
 
 .Slide .codesmall pre {
   line-height: 1.2;
-  font-size: 3vh !important;
+  font-size: 2vh !important;
 }
 
 .Slide .codesmallshift {
-  font-size: 3vh !important;
+  font-size: 2vh !important;
   padding: 0.1vh 0 0 11vw;
   margin: 0;
 }
@@ -562,6 +569,7 @@ progress {
 
 .Footer .slides {
   border-top: 1px solid red;
+  color: black;
   padding: 0.2vw 0.2vh 0.5vw 0.2vh;
   position: absolute;
   bottom: 0.1vh;

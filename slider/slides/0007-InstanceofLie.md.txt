@@ -1,16 +1,16 @@
-
-
-<h1 className="slide-title secondary">instanceof — <br/> тоже Interface</h1>
+<h1 className="slide-title">instanceof — <br/> тоже Interface</h1>
 
 <div className="slide-subtitle">
 <h2>оператор, который можно обмануть</h2>
 </div>
 
+<h1 className="borderline">4</h1>
+
 -----
 
 # Как работает instanceof?
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 function foo() { };
@@ -35,16 +35,18 @@ console.log(baz instanceof foo);  // true
 
 # Запустим и посмотрим
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 // Та же цепочка:
 function foo() { };  const bar = { a: 'a' };
 Object.setPrototypeOf(foo.prototype, bar);
+
 const baz = Object.create(foo.prototype);
 
 // Ложь:
 console.log(baz instanceof foo);  // true
+
 // baz создан от bar, где foo.prototype.__proto__ === bar
 ```
 
@@ -53,8 +55,34 @@ console.log(baz instanceof foo);  // true
 <Button onClick={() => { runExample('instanceof_lie')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="danger">baz instanceof foo === true</h2>
-<h3>даже если baz не создавался через new foo()</h3>
+<h3>baz instanceof foo === true</h3>
+</div>
+
+-----
+
+# Запустим и посмотрим
+
+<div className='codemedium'>
+
+```javascript
+// Та же цепочка:
+function foo() { };  const bar = { a: 'a' };
+Object.setPrototypeOf(foo.prototype, bar);
+
+const baz = Object.create(foo.prototype);
+
+// Ложь:
+console.log(baz instanceof foo);  // true
+
+// baz создан от bar, где foo.prototype.__proto__ === bar
+```
+
+</div>
+
+<Button onClick={() => { runExample('instanceof_lie')}}>Запустить пример</Button>
+
+<div className="slide-callout">
+<h2 className="danger">даже если baz не создавался через new foo()</h2>
 </div>
 
 -----
@@ -65,8 +93,11 @@ console.log(baz instanceof foo);  // true
 
 ```javascript
 // instanceof
+
 // НЕ спрашивает: "ты экземпляр foo?"
+
 // instanceof отвечает на вопрос: 
+
 //  "есть ли в цепочке прототипов
 //  прототип с конструктором foo?"
 
@@ -74,27 +105,56 @@ console.log(baz instanceof foo);  // true
 
 </div>
 <div className="slide-callout">
-<h2 className="secondary">instanceof — это метод прототипа</h2>
-<h3 className="primary">А метод — это Interface. А Interface можно переопределить.</h3>
+<h2 className="secondary">instanceof — это метод, Interface</h2>
+<h3 className="primary">и этот Interface можно переопределить</h3>
 </div>
 
 -----
+
 # instanceof не проверяет тип
 
 <div className='codemedium'>
 
 ```javascript
 // instanceof 
-// Это traversal algorithm, не type check!
+
+// Это traversal algorithm, не type check !
+
 // baz → foo.prototype → bar → 
-//          ↑  has .constructor === foo
+//          ↑  has .constructor === foo ??? !
+
 //   → Object.prototype → null
+
 ```
 
 </div>
 <div className="slide-callout">
-<h2 className="secondary">instanceof — это метод прототипа</h2>
-<h3 className="primary">А метод — это Interface. А Interface можно переопределить.</h3>
+<h2 className="secondary">instanceof — это метод, Interface</h2>
+<h3 className="primary">и этот Interface можно переопределить</h3>
+</div>
+
+-----
+
+
+# переопределяем instanceof
+
+<div className='codemedium'>
+
+```javascript
+
+const MyFunctionCtor = function () {}
+MyFunctionCtr [ Symbol.hasInstance ] = ( instance ) => {
+    /* ... */
+}
+
+class MyClassCtor {
+    static [ Symbol.hasInstance ] ( instance ) {
+        /* ... */
+```
+
+</div>
+<div className="slide-callout">
+<h2 className="danger">instanceof — это алгоритм !</h2>
 </div>
 
 -----

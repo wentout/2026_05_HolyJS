@@ -1,5 +1,4 @@
 
------
 
 <div className="slide-interstitial">
 <h1 className="secondary" style={{fontSize: '25vh'}}>спасиб</h1>
@@ -25,15 +24,12 @@
 
 <td>
 
-# https://twitter.com/went_out
+## https://www.npmjs.com/package/mnemonica
 
-<br/>
+# https://gist.github.com/wentout
 
-# https://github.com/wentout/mnemonica
+## https://github.com/wentout
 
-<br/>
-
-# https://github.com/wentout/typeomatica
 
 </td>
 

@@ -1,16 +1,17 @@
 
-
-<h1 className="slide-title secondary">await new</h1>
+<h1 className="slide-title">await new</h1>
 
 <div className="slide-subtitle">
 <h2>можно ли создать экземпляр асинхронно?</h2>
 </div>
 
+<h1 className="borderline">7</h1>
+
 -----
 
 # await new — class + result
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 class MyPromise extends Promise {
@@ -29,15 +30,14 @@ console.log(myItem instanceof Promise);  // true
 </div>
 
 <div className="slide-callout">
-<h3>new + await = новая семантика!</h3>
-<h3 className="secondary">new — Interface (конструктор), await — Interface (ожидание)</h3>
+<h3>new + await === новая семантика!</h3>
 </div>
 
 -----
 
-# Запустим и посмотрим
+# запустим и посмотрим
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 class MyPromise extends Promise {
@@ -58,9 +58,7 @@ console.log(await new MyPromise((resolve) => {
 <Button onClick={() => { runExample('await_new_problems')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="secondary">new — это Interface (конструктор)</h2>
-<h3 className="primary">await — это Interface (оператор ожидания)</h3>
-<h3>Вместе они создают новую семантику!</h3>
+<h2 className="secondary">и new и await — это Интерфейс</h2>
 </div>
 
 -----
