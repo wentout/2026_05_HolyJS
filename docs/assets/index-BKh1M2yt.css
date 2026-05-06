@@ -1,5 +1,4 @@
 * {
-  page-break-inside: avoid;
 }
 
 body {
@@ -9,27 +8,65 @@ body {
   overflow: hidden;
 }
 
+/* === BACKGROUNDS FROM 2023 TEMPLATE === */
+.Slide {
+  display: block;
+  margin: 0;
+  min-height: 100vh;
+  background-image: url('/2026_05_HolyJS/content/bg_main.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.Slide:has(.Title),
+.Slide:has(.StarterSlide),
+.Slide:has(.title-slide) {
+  background-image: url('/2026_05_HolyJS/content/bg_title.jpg');
+}
+
+.Slide:has(.slide-bio) {
+  background-image: url('/2026_05_HolyJS/content/bg_bio.jpg');
+}
+
+/* HolyJS logo */
+.Slide::after {
+  content: '';
+  position: absolute;
+  top: 5vh;
+  left: 3vw;
+  width: 12vw;
+  height: 7vh;
+  background-image: url('/2026_05_HolyJS/content/logo_holyjs.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left top;
+  pointer-events: none;
+  z-index: 10;
+}
+
 /* === DESIGN TOKENS === */
 :root {
   /* Title sizes */
-  --title-xl: 15vh;   /* Chapter openers, dramatic moments */
-  --title-lg: 12vh;   /* Secondary emphasis */
-  --title-md: 10vh;   /* Standard section titles */
-  --title-sm: 7vh;    /* Sub-sections, questions */
+  --title-xl: 12vh;   /* Chapter openers, dramatic moments */
+  --title-lg: 11vh;   /* Secondary emphasis */
+  --title-md: 8vh;   /* Standard section titles */
+  --title-sm: 8vh;    /* Sub-sections, questions */
   --title-xs: 5vh;    /* Inline emphasis, interstitials */
 
   /* Subtitle / body text */
-  --subtitle: 5vh;
-  --body: 3.5vh;
+  --subtitle: 3vh;
+  --body: 2.5vh;
   --caption: 3vh;
 
   /* Spacing scale */
-  --space-xs: 2vh;
-  --space-sm: 3vh;
-  --space-md: 5vh;
-  --space-lg: 8vh;
-  --space-xl: 15vh;
-  --space-xxl: 25vh;
+  --space-xs: 1vh;
+  --space-sm: 1.5vh;
+  --space-md: 2vh;
+  --space-lg: 3vh;
+  --space-xl: 12vh;
+  --space-xxl: 15vh;
 
   /* Color roles — 6 semantic colors */
   --color-primary: cyan;        /* Main concept, Type */
@@ -122,6 +159,38 @@ body {
   font-size: var(--title-xl);
 }
 
+/* TextSlide — centered stacked text (like 2.22) */
+.Slide .slide-text {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+.Slide .slide-text h1 {
+  font-size: var(--title-lg);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text h2 {
+  font-size: var(--title-md);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text h3 {
+  font-size: var(--title-sm);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text p {
+  font-size: var(--body);
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+.Slide .slide-text h3 {
+  font-size: var(--title-sm);
+  margin-bottom: var(--space-md);
+}
+.Slide .slide-text p {
+  font-size: var(--body);
+  color: var(--color-muted);
+  margin-bottom: var(--space-sm);
+}
+
 #rootError {
   z-index: 100;
   /* background: white; */
@@ -188,7 +257,6 @@ progress {
 .Slide .Title {
   display: block;
   text-align: center;
-  page-break-inside: avoid;
 }
 
 .Slide .Title h1 {
@@ -196,34 +264,33 @@ progress {
   font-size: 12vh;
   margin-top: 25vh;
   padding: 5vh;
-  color: steelblue;
+  color: #ffffff;
 }
 
 .SlideContent .Title .subtitle {
   margin-top: -10vh;
   font-size: 5vh;
-  color: orange;
+  color: #ff69b4;
 }
 
 .Slide .Title2 h1 {
   font-weight: 700;
   font-size: 12vh;
   margin-top: 25vh;
-  color: steelblue;
+  color: #ffffff;
 }
 
 
 .Slide .StarterSlide {
   display: block;
   text-align: center;
-  page-break-inside: avoid;
 }
 
 .Slide .StarterSlide h1 {
   font-weight: 700;
   font-size: 12vh;
   margin-top: 37vh;
-  color: slategray;
+  color: #ffffff;
 }
 
 .Slide .StarterSlide p {
@@ -239,15 +306,16 @@ progress {
   margin-left: 42vh;
 }
 
+
 .Slide {
   display: block;
   margin: 0;
-  page-break-inside: avoid;
+  min-height: 100vh;
 }
 
 .Slide h1 {
   margin-left: 0.2vw;
-  color: #d3d3e7;
+  color: #ffffff;
   font-size: 5vh;
 }
 
@@ -363,12 +431,13 @@ progress {
 }
 
 .Slide .codesmall {
-  padding: 0 0 0 5vw;
+  padding: 2vh 0 0 5vw;
   margin: 0;
 }
 
 .Slide .codesmall pre {
-  font-size: 3.2vh !important;
+  line-height: 1.2;
+  font-size: 2.2vh !important;
 }
 
 .Slide .codesmallshift {
@@ -414,7 +483,7 @@ progress {
 }
 
 .SlideContent > h1:first-child {
-  color: steelblue;
+  color: #ffffff;
   margin-left: 10vw;
 }
 
@@ -467,7 +536,6 @@ progress {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5vh;
   width: 100%;
-  page-break-inside: avoid;
 }
 
 .Footer .myname {
@@ -497,6 +565,9 @@ progress {
 
 
 .slide2print .Slide {
+  display: block;
+  margin: 0;
+  min-height: 100vh;
   page-break-before: always;
 }
 
@@ -561,4 +632,19 @@ progress {
   top: 14vh;
   width: 89vw;
   height: 30vh;
+}
+/* === CUSTOM TITLE SLIDE === */
+
+/* Hide default footer on title slides with speaker card */
+.Slide:has(.speaker-card) .Footer {
+  display: none;
+}
+
+/* Move HolyJS logo to bottom-right on title slides with speaker card */
+.Slide:has(.speaker-card)::after {
+  top: auto;
+  left: auto;
+  bottom: 2vh;
+  right: 2vw;
+  background-position: right bottom;
 }

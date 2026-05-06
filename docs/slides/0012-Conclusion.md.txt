@@ -1,43 +1,56 @@
 
-
-<h1 style={{fontSize:'11vh', color: 'navy'}}>я всё ещё</h1>
-<h1 style={{fontSize:'12vh', color: 'orange', paddingLeft: '15vw'}}>не знаю</h1>
-<h1 style={{fontSize:'12vh', color: 'orange', paddingLeft: '25vw'}}> JavaScript</h1>
-
 -----
 
-# Но теперь я знаю:
-
-<div className="slide-layout">
-
-<div style={{marginBottom: '4vh'}}>
-<h2>1. Почему const с getter обманывает</h2>
-<p>const хранит доступ к данным, а не сами данные. Getter — Interface.</p>
-</div>
-
-<div style={{marginBottom: '4vh'}}>
-<h2>2. Почему instanceof — не проверка типа</h2>
-<p>Это алгоритм обхода графа. Можно переопределить через Symbol.hasInstance.</p>
-</div>
-
-<div style={{marginBottom: '4vh'}}>
-<h2>3. Почему самовоспроизводящиеся экземпляры возможны</h2>
-<p>Граница между экземпляром и конструктором — условность.</p>
-</div>
-
+<div className="slide-interstitial">
+<h1 className="secondary" style={{fontSize: '25vh'}}>спасиб</h1>
+<h1 className="borderline">ø</h1>
 </div>
 
 -----
 
-# и вот это вот теперь то есть для меня так
+<div>
+<center>
 
-<h1 style={{fontSize:'7vh', color: 'gray', paddingLeft: '11vw'}}>Constructor, Function, Method</h1>
+<h1 className="secondary" style={{fontSize: '12vh'}}>ссылки</h1>
 
-<h1 style={{fontSize:'11vh', color: 'orange', marginTop: '3vh', paddingLeft: '9vw'}}>→ это Interface</h1>
+<table>
+<tbody>
+<tr>
 
-<h1 style={{fontSize:'7vh', color: 'gray', paddingLeft: '11vw'}}>а всё остальное</h1>
+<td>
 
-<h1 style={{fontSize:'11vh', color: 'green', marginTop: '3vh', paddingLeft: '9vw'}}>→ это Type</h1>
+<img src="./content/qrcode.png"  style={{marginRight: '5vw', width: '27vw'}} />
 
+</td>
+
+<td>
+
+# https://twitter.com/went_out
+
+<br/>
+
+# https://github.com/wentout/mnemonica
+
+<br/>
+
+# https://github.com/wentout/typeomatica
+
+</td>
+
+</tr>
+</tbody>
+</table>
+
+</center>
+</div>
+
+-----
+
+<div className="slide-interstitial" style={{marginTop: '15vh'}}>
+<h1 className="secondary" style={{fontSize: '11vh'}}>f i n</h1>
+<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ↑ </h1>
+<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ← &nbsp; &nbsp; → </h1>
+<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ↓ </h1>
+</div>
 
 -----

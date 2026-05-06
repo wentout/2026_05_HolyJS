@@ -3,7 +3,7 @@
 <h1 className="slide-title secondary">const не так прост</h1>
 
 <div className="slide-subtitle">
-<h2>или почему const &#123; prop &#125; = obj не делает то, что вы думаете</h2>
+<h2>или почему const &#123; prop &#125; = obj<br/> не делает то, что вы думаете</h2>
 </div>
 
 -----

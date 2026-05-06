@@ -22,10 +22,7 @@ Object.defineProperty(myObj, 'field', {
             setTimeout(() => resolve(field), 1000);
         });
     },
-    async set (value) {
-        // ... async operation
-        field = value;
-    }
+    async set (value) { field = value; }
 });
 ```
 

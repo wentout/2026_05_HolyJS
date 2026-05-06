@@ -37,7 +37,7 @@ const Cstr = function () {
 
 # Запустим и посмотрим
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 const item = new Cstr();
@@ -64,7 +64,7 @@ item instanceof Object;     // true
 
 # Но это ещё не всё...
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 const re = new item;  // new item() работает!
@@ -73,6 +73,9 @@ console.log(re instanceof item);       // true ?!
 console.log(re instanceof Cstr);       // true
 console.log(re instanceof Function);   // true
 console.log(re instanceof Object);     // true
+
+// это нативные проверки, настоящие
+
 ```
 
 </div>

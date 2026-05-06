@@ -1,14 +1,4 @@
 [{
 	"view" : "Title",
 	"title" : "Я не знаю JavaScript"
-},{
-	"view" : "Starter",
-	"title" : "..."
-},{
-	"view" : "Title",
-	"title" : "pro . js"
-},{
-	"view" : "Title",
-	"title" : "pro . js",
-	"subtitle": "никогда не было и вот опять"
 }]

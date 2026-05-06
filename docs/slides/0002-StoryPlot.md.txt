@@ -8,7 +8,7 @@
 -----
 
 <h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Type vs Interface</h1>
-<h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>the epic battle of toy things</h2>
+<h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>эпичная битва игрушечных вещей</h2>
 
 <h1 className="borderline">Ø</h1>
 
@@ -230,28 +230,28 @@ Unlike most class-based object languages, properties can be added to objects dyn
 -----
 
 <Box sx={{marginTop: '25vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
-	Let us remember, it was: December 4, 1995<br/>
+	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
-	The More Developed languages had Class Based Ineritance<br/>
-	But prototypes are way more simplier pattern.<br/>
-	Just put something to the Constructors.prototype.<br/>
-	And that is it -- it would be inherited.<br/>
+	У более развитых языков было наследование на классах<br/>
+	Но прототипы — гораздо более простой паттерн.<br/>
+	Просто положи что-нибудь в Constructors.prototype.<br/>
+	И всё — это будет унаследовано.<br/>
 	<br/>
-		-- What for?
+		-- Зачем?
 </Box>
 
 -----
 [{"snowflakes":true}]
 
 <Box sx={{marginTop: '25vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
-	Let us remember, it was: December 4, 1995<br/>
+	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
-	The More Developed languages had Class Based Ineritance<br/>
-	But prototypes are way more simplier pattern.<br/>
-	Just put something to the Constructors.prototype.<br/>
-	And that is it -- it would be inherited.<br/>
+	У более развитых языков было наследование на классах<br/>
+	Но прототипы — гораздо более простой паттерн.<br/>
+	Просто положи что-нибудь в Constructors.prototype.<br/>
+	И всё — это будет унаследовано.<br/>
 	<br/>
-		-- What for? Snowflakes, for sure!<br/>
+		-- Зачем? Снежинки, конечно!<br/>
 </Box>
 
 

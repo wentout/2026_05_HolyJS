@@ -1,25 +1,25 @@
 
 -----
 
-# Доверие (BIO)
+# Absolute Incompetence (BIO)
 
-<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3vw', marginTop: '5vh'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '2vw', marginTop: '15vh'}}>
 
 <div>
-<Box sx={{textAlign: 'left', fontSize: '4.5vh' }}>
+<Box sx={{textAlign: 'left', fontSize: '4.7vh' }}>
 
 * я из Ростова-на-Дону
-* мне 45 лет
-* из которых 25 я пишу на JavaScript
-* пришёл рассказать о наблюдениях
-* надеюсь, это как-то поможет
+* мне 45 годиков
+* из них 25 пишу на JavaScript
+* пришёл рассказать ...
+* надеюсь, это поможет
 
 </Box>
 </div>
 
 <div>
 <Box sx={{textAlign: 'center'}}>
-<img src="./content/ava_pipe_499.jpg" style={{width: '30vw', borderRadius: '2vh'}} />
+<img src="./content/ava_pipe_499.jpg" style={{width: '25vw', marginTop: '5vh', borderRadius: '2vh'}} />
 </Box>
 </div>
 
@@ -27,10 +27,10 @@
 
 -----
 
-# у JavaScript в Ростове есть свой логотип
+# Ростовский логотип JavaScript
 
 <div className="slide-visual">
-<img src="./content/RND.JS.png" style={{marginTop: '5vh', width: '35vw'}} />
+<img src="./content/RND.JS.png" style={{marginLeft: '-20vw', marginTop: '5vh', width: '35vw'}} />
 </div>
 
 -----

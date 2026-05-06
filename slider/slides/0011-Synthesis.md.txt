@@ -8,10 +8,10 @@
 
 # Interface VS Types
 
-<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2vw', marginTop: '3vh', fontSize: '2vh'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '2vw', marginTop: '7vh', fontSize: '3.5vh'}}>
 
 <div style={{border: '2px solid orange', padding: '2vh', borderRadius: '1vh'}}>
-<h3 style={{color: 'orange', marginBottom: '2vh'}}>🔄 INTERFACE (Алгоритм)</h3>
+<h3 style={{color: 'orange', marginBottom: '2vh'}}>🔄 INTERFACE ( Алгоритм )</h3>
 <ul style={{listStyle: 'none', padding: 0}}>
 <li>✓ Constructors — создают экземпляры</li>
 <li>✓ Functions — трансформируют данные</li>
@@ -24,11 +24,11 @@
 </div>
 
 <div style={{border: '2px solid green', padding: '2vh', borderRadius: '1vh'}}>
-<h3 style={{color: 'green', marginBottom: '2vh'}}>📦 TYPE (Структура)</h3>
+<h3 style={{color: 'green', marginBottom: '2vh'}}>📦 TYPE ( Структура )</h3>
 <ul style={{listStyle: 'none', padding: 0}}>
 <li>✓ POJO — &#123; a: 1, b: 2 &#125;</li>
 <li>✓ Primitives — number, string</li>
-<li>✓ Array — упорядоченная коллекция</li>
+<li>✓ Array/Map — коллекция</li>
 <li>✓ Instance Data — this.* свойства</li>
 <li>✓ Frozen/Sealed объекты</li>
 <li>✓ JSON-serializable</li>
@@ -50,16 +50,13 @@ type UserData = {
     name: string;
     age: number;
 };
-
 // interface — для контрактов (Interface)
 interface Constructable {
     new (): Instance;  // ← конструктор!
 }
-
 interface Callable {
     (): void;  // ← функция!
 }
-
 // Function — и то, и другое одновременно!
 interface MyFunction extends Callable, Constructable {}
 ```
@@ -107,10 +104,55 @@ myFunc instanceof Object;    // true
 <h1>"Interface или Type?"</h1>
 </div>
 
+-----
 <div className="slide-text" style={{marginTop: 'var(--space-lg)'}}>
 <h2 className="secondary">Вопрос:</h2>
 <h1 className="secondary">" Где одно → → → </h1>
 <h1 className="secondary">&nbsp;&nbsp;&nbsp; становится другим ? "</h1>
 </div>
+
+-----
+
+<div className="slide-text">
+<h2>я всё ещё</h2>
+<h1 className="secondary">не знаю</h1>
+<h1 className="secondary">JavaScript</h1>
+</div>
+
+-----
+
+# Но теперь я знаю:
+
+<div className="slide-layout">
+
+<div style={{marginBottom: '4vh'}}>
+<h2>1. Почему const с getter обманывает</h2>
+<p>const хранит доступ к данным, а не сами данные. Getter — Interface.</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>2. Почему instanceof — не проверка типа</h2>
+<p>Это алгоритм обхода графа. Можно переопределить через Symbol.hasInstance.</p>
+</div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>3. Почему самовоспроизводящиеся экземпляры возможны</h2>
+<p>Граница между экземпляром и конструктором — условность.</p>
+</div>
+
+</div>
+
+-----
+
+<div className="slide-text">
+<h2>Constructor, Function, Method</h2>
+<h1 className="secondary">→ это Interface</h1>
+</div>
+
+<div className="slide-text" style={{marginTop: 'var(--space-xl)'}}>
+<h2>а всё остальное</h2>
+<h1 className="accent">→ это Type</h1>
+</div>
+
 
 -----

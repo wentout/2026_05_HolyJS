@@ -1,6 +1,6 @@
 
 
-<h1 className="slide-title">Математика Type vs Interface</h1>
+<h1 className="slide-title">Математика <br/> Type vs Interface</h1>
 
 <div className="slide-subtitle">
 <h2>структурная vs номинальная эквивалентность</h2>
@@ -10,7 +10,7 @@
 
 # Структурная (type) vs Номинальная (interface)
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```typescript
 // Структурная: одинаковая структура = одинаковый тип
@@ -34,7 +34,7 @@ interface ICoord { x: number; y: number; }
 
 # Intersection: наивный подход не работает
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```typescript
 // Наивное пересечение по перекрывающимся ключам:
@@ -43,26 +43,27 @@ type B = { x: 2 };
 type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
 
 // TypeScript intersection требует оба значения сразу.
-// Но цепочки прототипов не сливаются — они ПЕРЕОПРЕДЕЛЯЮТ.
+// Но цепочки прототипов не сливаются — 
+//    они ПЕРЕОПРЕДЕЛЯЮТ.
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="danger">A & B on overlapping keys gives never</h3>
-<h3>This is NOT how prototype inheritance works</h3>
+<h3 className="danger">A & B по перекрывающимся ключам даёт never</h3>
+<h3>Это НЕ то, как работает наследование прототипов.</h3>
 </div>
 
 -----
 
 # Паттерн Proto: Pick + Exclude
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```typescript
-// Корректно моделирует наследование цепочки прототипов:
-export type Proto<P extends object, T extends object> =
-    T & Pick<P, Exclude<keyof P, keyof T>>;
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
 
 // Родитель: x=1, Потомок переопределяет на x=2
 type Parent = { x: 1; y: 'a' };
@@ -75,60 +76,57 @@ type Result = Proto<Parent, Child>;
 </div>
 
 <div className="slide-callout">
-<h3 className="accent">Child properties take precedence over Parent</h3>
-<h3>Same as JS: instance.x finds the closest prototype first</h3>
+<h4 className="accent">Свойства потомка приоритетнее родителя</h4>
+<h4>Как в JS: instance.x ищет ближайший прототип</h4>
 </div>
 
 -----
 
 # Почему interface НЕ МОЖЕТ это выразить
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```typescript
 // Interface требует совместимости:
 interface Child extends Parent {
     x: 2;  // Ошибка: x уже объявлен в Parent
 }
-
 // Но type с паттерном Proto МОЖЕТ:
-type Child = Proto<Parent, { x: 2 }>;  // ✓  { x: 2; ... }
-
-// interface extends = номинальная проверка совместимости
+type Child = Proto<Parent, { x: 2 }>;
+// ✓  { x: 2; ... }
+// interface extends = номинальная проверка
 // type & Pick/Exclude = структурное переопределение
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="secondary">interface extends forces the child to be compatible with parent</h3>
-<h3 className="primary">But prototype chains are about OVERRIDING, not compatibility</h3>
+<h3 className="secondary">interface extends заставляет потомка быть совместимым с родителем</h3>
+<h3 className="primary">Но цепочки прототипов — про ПЕРЕОПРЕДЕЛЕНИЕ, не совместимость</h3>
 </div>
 
 -----
 
-# Суть: type & моделирует цепочки прототипов
-
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```typescript
 // Алгебра типов TypeScript:
-type Instance = Proto<Base, Proto<Extension, Override>>;
-// Результат: свойства из Override, недостающие из Extension, затем Base
+type Instance = 
+        Proto<Base, Proto<Extension, Override>>;
 
 // JavaScript runtime:
 const instance = Object.setPrototypeOf(
     Override,
     Object.setPrototypeOf(Extension, Base)
 );
-instance.x;  // ближайшее в цепочке побеждает — тот же принцип!
+instance.x;  // ближайшее побеждает!
 ```
 
 </div>
 
 <div className="slide-callout">
-<h2 className="primary">type with & is the ONLY way to express "inherit with overrides"</h2>
-<h3>interface with extends cannot — it forces structural compatibility</h3>
+<h2 className="primary">type &mdash; ЕДИНСТВЕННЫЙ способ<br/> выразить «наследование с переопределением»</h2>
+<h3>interface с extends не может — он заставляет структурную совместимость</h3>
 </div>
 
 -----

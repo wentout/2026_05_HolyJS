@@ -33,14 +33,14 @@ type MyFn = () => void;
 
 -----
 
-<div className="slide-text">
+<div style={{marginTop:'11vh'}}>
 <h2 className="secondary">Интерфейс — это контракт "до и после"</h2>
 <h3>"До" — что нужно для создания (new (), аргументы)</h3>
 <h3>"После" — что получится в результате</h3>
 <h3>Оба эти описания — это Тип. Интерфейс их соединяет.</h3>
 </div>
 
-<div className="slide-text" style={{marginTop: 'var(--space-xl)'}}>
+<div style={{marginTop: 'var(--space-xl)'}}>
 <h2 className="accent">Тип — это ответ на вопрос "ЧТО?"</h2>
 <h3>Какая структура? Какие поля? Какой тип значения?</h3>
 <h3>Тип описывает данные, не поведение.</h3>

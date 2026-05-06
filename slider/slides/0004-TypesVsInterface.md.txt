@@ -1,6 +1,6 @@
 
 
-<h1 className="slide-title">Type + Interface = ?</h1>
+<h1 className="slide-title">Type + Interface</h1>
 
 <div className="slide-subtitle">
 <h2>может ли POJO (Type) вести себя как Instance?</h2>

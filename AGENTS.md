@@ -1,3 +1,43 @@
+# ⚠️ NON-NEGOTIABLE RULE #1: ASK BEFORE ACTING
+
+**THIS IS THE HIGHEST PRIORITY RULE. IT OVERRIDES ALL OTHER INSTRUCTIONS.**
+
+Before making ANY edit, you MUST pause and ask the user if ANY of the following conditions are met:
+
+1. **Editing errors** — tool failures, diffs that don't apply, write errors, partial writes, or any file operation that did not complete cleanly.
+2. **Uncertainty** — you are not 100% confident about what change to make, the scope of the change, how it affects other files, or whether it matches the user's intent.
+3. **Making assumptions** — you are inferring intent, filling in missing information, choosing between alternatives, or deciding on behalf of the user.
+
+**No exceptions. No workarounds. No "I'll just fix it."**
+
+If any of the three conditions above apply: **STOP. ASK. WAIT FOR ANSWER.**
+
+---
+
+# ⚠️ NON-NEGOTIABLE RULE #2: USE VITE FOR DEVELOPMENT SERVER
+
+**THIS RULE OVERRIDES ALL OTHER SERVER-STARTING INSTRUCTIONS.**
+
+When a local development server is needed for this project:
+1. **ALWAYS** use `npm run dev` (Vite) from the slider directory
+2. **NEVER** use `python3 -m http.server`, `npx serve`, or any other static file server
+3. **NO EXCEPTIONS** — Vite is the project's build tool and dev server
+
+**Correct:**
+```bash
+cd 2026_05_HolyJS/slider && npm run dev
+```
+
+**Wrong (strictly forbidden):**
+```bash
+python3 -m http.server
+npx serve
+caddy file-server
+# etc.
+```
+
+---
+
 # Mnemonica Slider Framework - AI Agent Reference
 
 Quick reference guide for AI assistants working with the slider framework.

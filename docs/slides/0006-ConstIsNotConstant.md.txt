@@ -3,7 +3,7 @@
 <h1 className="slide-title secondary">const не так прост</h1>
 
 <div className="slide-subtitle">
-<h2>или почему const &#123; prop &#125; = obj не делает то, что вы думаете</h2>
+<h2>или почему const &#123; prop &#125; = obj<br/> не делает то, что вы думаете</h2>
 </div>
 
 -----
@@ -14,20 +14,15 @@
 
 ```javascript
 let toBeProp = 5;
-
 const myObject = {};
 Object.defineProperty(myObject, 'prop', {
     get () {
-        return {
-            [Symbol.toPrimitive] () {  // ← KEY: делает getter ленивым!
-                return toBeProp;       //     возвращает ТЕКУЩЕЕ значение
-            }
-        };
+        return { [Symbol.toPrimitive] () {
+            return toBeProp;  // ← returns CURRENT value
+        }};
     }
 });
-
 const { prop: prop1 } = myObject;  // prop1 — НЕ число!
-                                   // это объект с Symbol.toPrimitive
 ```
 
 </div>

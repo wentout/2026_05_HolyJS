@@ -1,6 +1,6 @@
 
 
-<h1 className="slide-title">The Math Behind Type vs Interface</h1>
+<h1 className="slide-title">Математика <br/> Type vs Interface</h1>
 
 <div className="slide-subtitle">
 <h2>структурная vs номинальная эквивалентность</h2>
@@ -8,127 +8,128 @@
 
 -----
 
-# Structural (type) vs Nominal (interface)
+# Структурная (type) vs Номинальная (interface)
 
 <div className='codesmall'>
 
 ```typescript
-// Structural: same structure = same type
+// Структурная: одинаковая структура = одинаковый тип
 type Point  = { x: number; y: number };
 type Coord  = { x: number; y: number };
-// Point ≡ Coord  ✓  (structurally equivalent)
+// Point ≡ Coord  ✓  (структурно эквивалентны)
 
-// Nominal: different names = different types
+// Номинальная: разные имена = разные типы
 interface IPoint { x: number; y: number; }
 interface ICoord { x: number; y: number; }
-// IPoint ≢ ICoord  ✗  (nominally distinct)
+// IPoint ≢ ICoord  ✗  (номинально различны)
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="secondary">type — математика множеств. interface — имена классов.</h3>
+<h3 className="secondary">type — математика множеств.</h3>
+<h3 className="secondary">interface — имена классов.</h3>
 </div>
 
 -----
 
-# Intersection: the naive approach fails
+# Intersection: наивный подход не работает
 
 <div className='codesmall'>
 
 ```typescript
-// Naive intersection on overlapping keys:
+// Наивное пересечение по перекрывающимся ключам:
 type A = { x: 1 };
 type B = { x: 2 };
-type AB = A & B;  // { x: never }  ← CONFLICT!
+type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
 
-// TypeScript intersection requires both values at once.
-// But prototype chains don't merge — they OVERRIDE.
+// TypeScript intersection требует оба значения сразу.
+// Но цепочки прототипов не сливаются — они ПЕРЕОПРЕДЕЛЯЮТ.
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="danger">A & B on overlapping keys gives never</h3>
-<h3>This is NOT how prototype inheritance works</h3>
+<h3 className="danger">A & B по перекрывающимся ключам даёт never</h3>
+<h3>Это НЕ то, как работает наследование прототипов.</h3>
 </div>
 
 -----
 
-# The Proto Pattern: Pick + Exclude
+# Паттерн Proto: Pick + Exclude
 
 <div className='codesmall'>
 
 ```typescript
-// Correctly models prototype chain inheritance:
+// Корректно моделирует наследование цепочки прототипов:
 export type Proto<P extends object, T extends object> =
     T & Pick<P, Exclude<keyof P, keyof T>>;
 
-// Parent has x=1, Child overrides with x=2
+// Родитель: x=1, Потомок переопределяет на x=2
 type Parent = { x: 1; y: 'a' };
 type Child  = { x: 2 };
 type Result = Proto<Parent, Child>;
 // Result = { x: 2 } & Pick<Parent, 'y'>
-// Result = { x: 2; y: 'a' }  ← Child WINS!
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="accent">Child properties take precedence over Parent</h3>
-<h3>Same as JS: instance.x finds the closest prototype first</h3>
+<h3 className="accent">Свойства потомка приоритетнее родителя</h3>
+<h3>Как в JS: instance.x ищет ближайший прототип</h3>
 </div>
 
 -----
 
-# Why interface CAN'T express this
+# Почему interface НЕ МОЖЕТ это выразить
 
 <div className='codesmall'>
 
 ```typescript
-// Interface forces compatibility:
+// Interface требует совместимости:
 interface Child extends Parent {
-    x: 2;  // Error: x was already declared in Parent
+    x: 2;  // Ошибка: x уже объявлен в Parent
 }
 
-// But type with Proto pattern CAN:
+// Но type с паттерном Proto МОЖЕТ:
 type Child = Proto<Parent, { x: 2 }>;  // ✓  { x: 2; ... }
 
-// interface extends = nominal compatibility check
-// type & Pick/Exclude = structural override
+// interface extends = номинальная проверка совместимости
+// type & Pick/Exclude = структурное переопределение
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="secondary">interface extends forces the child to be compatible with parent</h3>
-<h3 className="primary">But prototype chains are about OVERRIDING, not compatibility</h3>
+<h3 className="secondary">interface extends заставляет потомка быть совместимым с родителем</h3>
+<h3 className="primary">Но цепочки прототипов — про ПЕРЕОПРЕДЕЛЕНИЕ, не совместимость</h3>
 </div>
 
 -----
 
-# The Punchline: type & models prototype chains
+# Суть: type & моделирует цепочки прототипов
 
 <div className='codesmall'>
 
 ```typescript
-// TypeScript type algebra:
+// Алгебра типов TypeScript:
 type Instance = Proto<Base, Proto<Extension, Override>>;
-// Result: properties from Override, missing ones from Extension, then Base
+// Результат: свойства из Override, недостающие из Extension, затем Base
 
 // JavaScript runtime:
 const instance = Object.setPrototypeOf(
     Override,
     Object.setPrototypeOf(Extension, Base)
 );
-instance.x;  // closest in chain wins — same rule!
+instance.x;  // ближайшее в цепочке побеждает — тот же принцип!
 ```
 
 </div>
 
 <div className="slide-callout">
-<h2 className="primary">type with & is the ONLY way to express "inherit with overrides"</h2>
-<h3>interface with extends cannot — it forces structural compatibility</h3>
+<h2 className="primary">type &mdash; ЕДИНСТВЕННЫЙ способ<br/> выразить «наследование с переопределением»</h2>
+<h3>interface с extends не может — он заставляет структурную совместимость</h3>
 </div>
 
 -----

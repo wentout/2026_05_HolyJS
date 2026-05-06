@@ -1,6 +1,6 @@
 
 
-<h1 className="slide-title secondary">instanceof — тоже Interface</h1>
+<h1 className="slide-title secondary">instanceof — <br/> тоже Interface</h1>
 
 <div className="slide-subtitle">
 <h2>оператор, который можно обмануть</h2>
@@ -61,20 +61,37 @@ console.log(baz instanceof foo);  // true
 
 # instanceof не проверяет тип
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
-// instanceof НЕ спрашивает: "ты экземпляр foo?"
-// instanceof спрашивает: "есть ли в цепочке прототипов
+// instanceof
+// НЕ спрашивает: "ты экземпляр foo?"
+// instanceof отвечает на вопрос: 
+//  "есть ли в цепочке прототипов
 //  прототип с конструктором foo?"
 
-// Это traversal algorithm, не type check!
-// baz → foo.prototype → bar → Object.prototype → null
-//          ↑  has .constructor === foo
 ```
 
 </div>
+<div className="slide-callout">
+<h2 className="secondary">instanceof — это метод прототипа</h2>
+<h3 className="primary">А метод — это Interface. А Interface можно переопределить.</h3>
+</div>
 
+-----
+# instanceof не проверяет тип
+
+<div className='codemedium'>
+
+```javascript
+// instanceof 
+// Это traversal algorithm, не type check!
+// baz → foo.prototype → bar → 
+//          ↑  has .constructor === foo
+//   → Object.prototype → null
+```
+
+</div>
 <div className="slide-callout">
 <h2 className="secondary">instanceof — это метод прототипа</h2>
 <h3 className="primary">А метод — это Interface. А Interface можно переопределить.</h3>

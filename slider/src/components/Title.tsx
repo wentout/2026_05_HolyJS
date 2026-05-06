@@ -10,6 +10,12 @@ Title.prototype.View = function () {
 			<div className="Title" >
 				<h1>{this.title}</h1>
 				<h1 className="subtitle">{this.subtitle}</h1>
+
+				<div className="speaker-card">
+					<img className="speaker-photo" src="/content/img/avatar.png" alt="speaker" />
+					<div className="speaker-name">Виктор<br />Вершанский</div>
+				</div>
+
 			</div>
 		</div>
 	);

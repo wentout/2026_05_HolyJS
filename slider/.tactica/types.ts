@@ -13,8 +13,8 @@ export type List = {
 };
 
 export type List_Slide = ProtoFlat<List, {
-	view: unknown;
-	data: unknown;
-	settings: unknown;
+	view: string;
+	data: string;
+	settings: Record<string, unknown>;
 	Slide: undefined;
 }>;
