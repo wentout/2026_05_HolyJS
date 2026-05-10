@@ -1,0 +1,458 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-05-10T15:29:25.441Z",
+  "flow": {
+    "window.keypress.Listener": [
+      {
+        "location": "src/keyboard.ts:21:19",
+        "kind": "instantiation",
+        "code": "new window.keypress.Listener()",
+        "context": "new expression"
+      },
+      {
+        "location": "src/keyboard.ts:23:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('home', w(() => app.slidePrev()))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:23:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:24:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('end', w(() => app.slideNext()))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:24:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:25:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('left', w(() => app.slidePrev()))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:25:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:26:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('right', w(() => app.slideNext()))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:26:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:27:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('space', w(() => app.slideNext()))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:27:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:28:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('ctrl home', w(() => app.setSlideIndex(0)))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:28:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:29:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('ctrl end', w(() => app.setSlideIndex(-1)))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:29:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:30:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('ctrl m', w(() => app.requestSlideNav()))",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:30:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:31:2",
+        "kind": "methodCall",
+        "code": "listener.simple_combo('ctrl esc', () => {\n\t\tapp.unsetErrored();\n\t})",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      },
+      {
+        "location": "src/keyboard.ts:31:2",
+        "kind": "propertyRead",
+        "code": "listener.simple_combo",
+        "propertyName": "simple_combo",
+        "targetType": "window.keypress.Listener"
+      }
+    ],
+    "Error": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:11:9",
+        "kind": "instantiation",
+        "code": "new Error(`some ${this.constructor.name} fail`)",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:364:11",
+        "kind": "instantiation",
+        "code": "new Error('index is not a number')",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:371:11",
+        "kind": "instantiation",
+        "code": "new Error('index is not valid')",
+        "context": "new expression"
+      }
+    ],
+    "slideRenderer.Footer": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:34:18",
+        "kind": "instantiation",
+        "code": "new slideRenderer.Footer(counters)",
+        "context": "new expression"
+      }
+    ],
+    "slideRenderer.Progressor": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:39:22",
+        "kind": "instantiation",
+        "code": "new slideRenderer.Progressor()",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:59:1",
+        "kind": "propertyWrite",
+        "code": "Slide.prototype.View = function () {\n\t \n\tconst app = this;\n\tconst {\n\t\tSlideView\n\t} = app;\n\n\n\tthis.re",
+        "propertyName": "View",
+        "targetType": "slideRenderer.Progressor"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:59:1",
+        "kind": "propertyRead",
+        "code": "Slide.prototype.View",
+        "propertyName": "View",
+        "targetType": "slideRenderer.Progressor"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Slide.tsx:59:1",
+        "kind": "propertyRead",
+        "code": "Slide.prototype",
+        "propertyName": "prototype",
+        "targetType": "slideRenderer.Progressor"
+      }
+    ],
+    "Date": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/Tactica/TypeFlow.tsx:104:17",
+        "kind": "instantiation",
+        "code": "new Date(typeGraph.generatedAt)",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/MDX.tsx:56:45",
+        "kind": "passAsArg",
+        "code": "React.createElement(TypeFlow, { typeGraph, usages, ...props })",
+        "targetType": "Date",
+        "context": "arg 0 to createElement"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:671:54",
+        "kind": "instantiation",
+        "code": "new Date(instance.__timestamp__)",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:672:54",
+        "kind": "instantiation",
+        "code": "new Date(instance.parent().__timestamp__)",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:673:54",
+        "kind": "instantiation",
+        "code": "new Date(instance.parent().parent().__timestamp__)",
+        "context": "new expression"
+      }
+    ],
+    "Snowflakes": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:196:20",
+        "kind": "instantiation",
+        "code": "new Snowflakes(snowflakesConfigWhite)",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:197:3",
+        "kind": "methodCall",
+        "code": "snowflakes.stop()",
+        "propertyName": "stop",
+        "targetType": "Snowflakes"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:197:3",
+        "kind": "propertyRead",
+        "code": "snowflakes.stop",
+        "propertyName": "stop",
+        "targetType": "Snowflakes"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:206:6",
+        "kind": "methodCall",
+        "code": "snowflakes.start()",
+        "propertyName": "start",
+        "targetType": "Snowflakes"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:206:6",
+        "kind": "propertyRead",
+        "code": "snowflakes.start",
+        "propertyName": "start",
+        "targetType": "Snowflakes"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:218:6",
+        "kind": "methodCall",
+        "code": "snowflakes.stop()",
+        "propertyName": "stop",
+        "targetType": "Snowflakes"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:218:6",
+        "kind": "propertyRead",
+        "code": "snowflakes.stop",
+        "propertyName": "stop",
+        "targetType": "Snowflakes"
+      }
+    ],
+    "URLSearchParams": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:290:21",
+        "kind": "instantiation",
+        "code": "new URLSearchParams(window.location.search)",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:291:22",
+        "kind": "methodCall",
+        "code": "urlParams.get('slide')",
+        "propertyName": "get",
+        "targetType": "URLSearchParams"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:291:22",
+        "kind": "propertyRead",
+        "code": "urlParams.get",
+        "propertyName": "get",
+        "targetType": "URLSearchParams"
+      }
+    ],
+    "List.Slide": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:346:16",
+        "kind": "instantiation",
+        "code": "new this.Slide()",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:635:17",
+        "kind": "instantiation",
+        "code": "new slide.Slide()",
+        "context": "new expression"
+      }
+    ],
+    "Set": [
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:77:23",
+        "kind": "instantiation",
+        "code": "new Set(collectConstructors(instance, true))",
+        "context": "new expression"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:78:23",
+        "kind": "methodCall",
+        "code": "names.splice(0, 3)",
+        "propertyName": "splice",
+        "targetType": "Set"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:78:23",
+        "kind": "propertyRead",
+        "code": "names.splice",
+        "propertyName": "splice",
+        "targetType": "Set"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:79:52",
+        "kind": "methodCall",
+        "code": "names.splice(-1)",
+        "propertyName": "splice",
+        "targetType": "Set"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/postCreation.ts:79:52",
+        "kind": "propertyRead",
+        "code": "names.splice",
+        "propertyName": "splice",
+        "targetType": "Set"
+      }
+    ],
+    "Runner": [
+      {
+        "location": "src/main.tsx:38:13",
+        "kind": "instantiation",
+        "code": "new Runner('root')",
+        "context": "new expression"
+      },
+      {
+        "location": "src/main.tsx:48:2",
+        "kind": "methodCall",
+        "code": "app.setErrored(...args)",
+        "propertyName": "setErrored",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:48:2",
+        "kind": "propertyRead",
+        "code": "app.setErrored",
+        "propertyName": "setErrored",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:51:1",
+        "kind": "methodCall",
+        "code": "app.init()",
+        "propertyName": "init",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:51:1",
+        "kind": "propertyRead",
+        "code": "app.init",
+        "propertyName": "init",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:52:14",
+        "kind": "methodCall",
+        "code": "app.start()",
+        "propertyName": "start",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:52:14",
+        "kind": "propertyRead",
+        "code": "app.start",
+        "propertyName": "start",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:54:7",
+        "kind": "propertyRead",
+        "code": "app.print",
+        "propertyName": "print",
+        "targetType": "Runner"
+      },
+      {
+        "location": "src/main.tsx:55:3",
+        "kind": "passAsArg",
+        "code": "Keys.call(app)",
+        "targetType": "Runner",
+        "context": "arg 0 to call"
+      },
+      {
+        "location": "src/components/Root.tsx:9:8",
+        "kind": "destructureRead",
+        "code": "{\n\t\tslides,\n\t\tcounters\n\t} = app",
+        "targetType": "Runner",
+        "context": "slides, counters"
+      },
+      {
+        "location": "src/components/Root.tsx:22:20",
+        "kind": "elementAccess",
+        "code": "app[ view ]",
+        "targetType": "Runner"
+      }
+    ],
+    "slide.Footer": [
+      {
+        "location": "src/components/Root.tsx:25:16",
+        "kind": "instantiation",
+        "code": "new slide.Footer(counters)",
+        "context": "new expression"
+      },
+      {
+        "location": "src/components/Root.tsx:30:1",
+        "kind": "propertyWrite",
+        "code": "Root.prototype.View = function () {\n\t\n\tconst {\n\t\tSlideView\n\t} = this;\n\t\n\t\n\tthis.reactRoot.render(\n\t\t",
+        "propertyName": "View",
+        "targetType": "slide.Footer"
+      },
+      {
+        "location": "src/components/Root.tsx:30:1",
+        "kind": "propertyRead",
+        "code": "Root.prototype.View",
+        "propertyName": "View",
+        "targetType": "slide.Footer"
+      },
+      {
+        "location": "src/components/Root.tsx:30:1",
+        "kind": "propertyRead",
+        "code": "Root.prototype",
+        "propertyName": "prototype",
+        "targetType": "slide.Footer"
+      }
+    ]
+  }
+}

@@ -6,7 +6,7 @@
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
 <div>
-<Box sx={{textAlign: 'left', fontSize: '5.7vh' }}>
+<Box sx={{textAlign: 'left', fontSize: '5vh', lineHeight: '9vh' }}>
 
 * из Ростова-на-Дону
 * 45 годиков

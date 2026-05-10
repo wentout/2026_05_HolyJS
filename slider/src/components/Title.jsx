@@ -5,10 +5,13 @@ const Title = function () {
 };
 
 Title.prototype.View = function () {
+
+	const title = (new String(this.title));
+
 	return (
 		<div className="SlideContent">
 			<div className="Title" >
-				<h1>{this.title}</h1>
+				<h1>{title}</h1>
 
 				<div className="speaker-card">
 					<img className="speaker-photo" src="./content/avatar.png" alt="speaker" />

@@ -1,5 +1,5 @@
 
-<h1 className="slide-title">async get / set</h1>
+<h1 className="slide-title">async get ~ set</h1>
 
 <div className="slide-subtitle">
 <h2>когда присваивание &ndash;<br/> не то, чем кажется</h2>
@@ -67,9 +67,14 @@ console.log(await myObj.field);        // 321 (через 1 сек)
 
 # Где это применяется
 
-<div className="slide-callout">
-<h3>Асинхронный getter — обогащение данных (fetch конфига). Асинхронный setter — валидация перед записью.</h3>
-<h3 className="secondary">Но нужно решить: ждать предыдущий set или перезаписывать? Иначе — race condition.</h3>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+
+<div>
+<h3> Асинхронный getter — обогащение данных (fetch конфига).</h3>
+<h3> Асинхронный setter — валидация перед записью.</h3>
+<h3 className="secondary">Но нужно решить: ждать предыдущий set или перезаписывать?<br/> Иначе — race condition.</h3>
 </div>
+
+</Box>
 
 -----

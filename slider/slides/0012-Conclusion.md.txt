@@ -1,8 +1,8 @@
 
 
 <div className="slide-interstitial">
-<h1 className="secondary" style={{fontSize: '25vh'}}>спасиб</h1>
-<h1 className="borderline">ø</h1>
+<h1 className="secondary" style={{fontSize: '15vh'}}>спасибо !</h1>
+<h1 className="borderline">→</h1>
 </div>
 
 -----
@@ -24,7 +24,7 @@
 
 <td>
 
-## https://www.npmjs.com/package/mnemonica
+### https://www.npmjs.com/package/mnemonica
 
 # https://gist.github.com/wentout
 

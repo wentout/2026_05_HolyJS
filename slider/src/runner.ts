@@ -593,14 +593,16 @@ Object.setPrototypeOf(Main.prototype, {
 		this.slides.list.reduce((slides, slideName, index) => {
 
 			const slideRootId = `slide_${slidesCount}_${index}`;
-			const slide = this.fork(slideRootId, true);
-
-			slide.slides.list = [ slideName.split(' ')[ 0 ] ];
-			slide.slides.index = 0;
 
 			const slideRoot = document.createElement('div');
 			slideRoot.id = slideRootId;
 			slideRoot.className = 'slideRoot';
+			rootElement.appendChild(slideRoot);
+
+			const slide = this.fork(slideRootId, true);
+
+			slide.slides.list = [ slideName.split(' ')[ 0 ] ];
+			slide.slides.index = 0;
 
 			slides.push({
 				slide,
@@ -608,7 +610,6 @@ Object.setPrototypeOf(Main.prototype, {
 				slideRoot,
 			});
 
-			rootElement.appendChild(slideRoot);
 			slide.fetchSlide();
 			return slides;
 		}, []);
@@ -622,14 +623,15 @@ Object.setPrototypeOf(Main.prototype, {
 		const rootElement = document.getElementById(rootId);
 		slideList.forEach((element, index) => {
 			const slide2printId = `${rootId}_${index}`;
-			const slide = this.fork(slide2printId, true);
-
-			slide.slides.slideList = [ element ];
 
 			const slide2print = document.createElement('div');
 			slide2print.id = slide2printId;
 			slide2print.className = 'slide2print';
 			rootElement.appendChild(slide2print);
+
+			const slide = this.fork(slide2printId, true);
+
+			slide.slides.slideList = [ element ];
 
 			slide.root = new slide.Slide();
 

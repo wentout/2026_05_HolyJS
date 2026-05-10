@@ -1,7 +1,7 @@
-<h1 className="slide-title">instanceof — <br/> тоже Interface</h1>
+<h1 className="slide-title">instanceof <br/> тоже Interface</h1>
 
 <div className="slide-subtitle">
-<h2>оператор, который можно обмануть</h2>
+<h2>оператор, <br/>который можно обмануть</h2>
 </div>
 
 <h1 className="borderline">4</h1>
@@ -39,7 +39,8 @@ console.log(baz instanceof foo);  // true
 
 ```javascript
 // Та же цепочка:
-function foo() { };  const bar = { a: 'a' };
+function foo() { }; 
+const bar = { a: 'a' };
 Object.setPrototypeOf(foo.prototype, bar);
 
 const baz = Object.create(foo.prototype);
@@ -66,7 +67,8 @@ console.log(baz instanceof foo);  // true
 
 ```javascript
 // Та же цепочка:
-function foo() { };  const bar = { a: 'a' };
+function foo() { };
+const bar = { a: 'a' };
 Object.setPrototypeOf(foo.prototype, bar);
 
 const baz = Object.create(foo.prototype);
@@ -161,9 +163,13 @@ class MyClassCtor {
 
 # Зачем Symbol.hasInstance
 
-<div className="slide-callout">
-<h3><code>instanceof</code> проверяет только <code>constructor.prototype.constructor</code> — но не факт создания через <code>new</code>.</h3>
-<h3 className="secondary"><code>Symbol.hasInstance</code> позволяет проверить: а было ли что-то добавлено именно во время конструирования?</h3>
-</div>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 
+<h3><code className="inlineCode">instanceof</code> проверяет только, что <br/>
+<code>constructor.prototype.constructor</code> совпадает,
+<br/> — но не факт создания через оператор new.</h3>
+<br/>
+<h3 className="secondary">Symbol.hasInstance <br/>позволяет проверить: <br/>а было ли что-то добавлено <br/>именно во время конструирования?</h3>
+
+</Box>
 -----

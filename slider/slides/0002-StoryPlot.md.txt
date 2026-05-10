@@ -1,14 +1,11 @@
 
 -----
 
-<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Types vs Interfaces</h1>
+<h1 className="slide-title">Types vs Interfaces</h1>
 
-<h1 className="borderline">Ø</h1>
-
------
-
-<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Types vs Interfaces</h1>
-<h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>эпичная битва игрушечных вещей</h2>
+<div className="slide-subtitle">
+<h2>эпичная битва игрушечных вещей</h2>
+</div>
 
 <h1 className="borderline">Ø</h1>
 
@@ -21,7 +18,7 @@
 # на просторах TypeScript интернетов ...
 
 <Box sx={{marginTop: '5vh'}}>
-<h1 style={{marginLeft: '11%', fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
 </Box>
 
 -----
@@ -29,7 +26,7 @@
 # на просторах TypeScript интернетов
 
 <Box sx={{marginTop: '5vh'}}>
-<h1 style={{marginLeft: '11%', fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
 <h1 style={{marginLeft: '20%', fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
 </Box>
 
@@ -38,7 +35,7 @@
 # на просторах TypeScript интернетов
 
 <Box sx={{marginTop: '5vh'}}>
-<h1 style={{marginLeft: '11%', fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
+<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
 <h1 style={{marginLeft: '20%', fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
 <h1 style={{marginLeft: '7%', fontSize: '9vh', color: 'red'}}>Типы или Интерфейсы</h1>
 </Box>
@@ -53,7 +50,7 @@
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{marginLeft: '-12%', fontSize: '7vh', color: 'aqua'}}>... но есть ощущение  ...</h1>
+<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
 </center>
 </Box>
 
@@ -63,8 +60,8 @@
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{marginLeft: '-12%', fontSize: '7vh', color: 'aqua'}}>... но есть ощущение  ...</h1>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>что нужно показать снова</h1>
+<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
+<h1 style={{fontSize: '9vh', color: 'teal'}}>нужно показать снова</h1>
 </center>
 </Box>
 
@@ -135,7 +132,7 @@
 -----
 
 <div className="slide-interstitial">
-<h1 style={{fontSize: '11vh', color: 'orange'}}>... snowflakes ...</h1>
+<h1 style={{fontSize: '11vh'}}>... snowflakes ...</h1>
 </div>
 
 <h1 className="borderline">-1</h1>
@@ -148,29 +145,29 @@
 # задам вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '7vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
 </Box>
 
 -----
 # задам вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '7vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
-<h1 style={{fontSize: '8vh', color: 'orange'}}>Их AI уже кодит JavaScript ?</h1>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
+<h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
 </Box>
 
 -----
 # задам вопросы аудитории : 
 
 <Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
-<h1 style={{fontSize: '7vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
-<h1 style={{fontSize: '8vh', color: 'orange'}}>Их AI уже кодит JavaScript ?</h1>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>А кто всё ещё сам уверен,<br/> что знает JavaScript ?</h1>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
+<h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
+<h1 style={{fontSize: '7vh', color: 'teal'}}>А кто всё ещё сам уверен,<br/> что знает JavaScript ?</h1>
 </Box>
 
 -----
 
-# часто думаете, что нужно переделать ?
+# часто думаете переделать ?
 
 <img src="./content/img/girl_burns.jpeg" style={{position: 'absolute', top: '22vh', left:'12vw', zIndex: 100, width: '70vw'}} />
 
@@ -188,10 +185,10 @@
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
-	У более развитых языков было наследование на классах<br/>
+	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
 	Просто положи что-нибудь в Constructors.prototype.<br/>
 	И всё — это будет унаследовано.<br/>
@@ -200,10 +197,10 @@
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
-	У более развитых языков было наследование на классах<br/>
+	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
 	Просто положи что-нибудь в Constructors.prototype.<br/>
 	И всё — это будет унаследовано.<br/>
@@ -216,7 +213,7 @@
 -----
 [{"snowflakes":true}]
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
 	У более развитых языков было наследование на классах<br/>

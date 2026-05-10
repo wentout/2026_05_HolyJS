@@ -139,10 +139,10 @@ class MySubAsyncClass extends MyAsyncClass {
 
 # Паттерн: await new
 
-<div className="slide-callout">
-<h3>Вместо <code>new Client()</code> + <code>await client.init()</code> — конструктор сразу возвращает Promise.</h3>
-<h3 className="secondary">Один <code>await new Client()</code> вместо двух строк.</h3>
-</div>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h3>Вместо new Client() + await client.init()<br/> — конструктор сразу возвращает Promise.</h3>
+<h3 className="secondary">Один await new Client() вместо двух строк.</h3>
+</Box>
 
 -----
 

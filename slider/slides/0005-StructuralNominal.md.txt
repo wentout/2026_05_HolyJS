@@ -45,13 +45,13 @@ const existingPOJO = { previous: true };
 Object.assign(
     TheConstructor.prototype, existingPOJO
 );
-// typeof existingPOJO & typeof InstanceType<thiTheConstructors>
+// typeof existingPOJO & typeof InstanceType<TheConstructors>
 var instance = new TheConstructor; 
 ```
 </div>
 
 <div className="slide-callout">
-<h3 className="secondary">для вывода типа instance<br/>нужно объединить сущетвующие типы</h3>
+<h3 className="secondary">для вывода типа instance<br/>нужно объединить существующие типы</h3>
 </div>
 
 

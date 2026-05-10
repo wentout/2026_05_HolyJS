@@ -1,6 +1,12 @@
 
 
-<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>нюансы</h1>
+<h1 className="slide-title secondary">нюансы</h1>
+
+<h1 className="borderline">0</h1>
+
+-----
+
+<h1 className="slide-title" style={{fontSize: 'var(--title-xl)'}}>нюансы</h1>
 
 <h1 className="borderline">0</h1>
 
@@ -31,39 +37,48 @@ type MyFn = () => void;
 
 -----
 
-<div style={{marginTop: '8vh', marginLeft: '20%'}}>
-<h2 className="secondary">Интерфейс — это контракт &laquo;До и После&raquo;</h2>
-<h3> ↑ &nbsp; "До" — что нужно для создания (new (), аргументы)</h3>
-<h3> ↑ &nbsp; "После" — что получится в результате</h3>
-<h3> ↑ &nbsp; Оба эти описания — это Тип. Интерфейс их соединяет.</h3>
-</div>
-
-<div style={{marginTop: '7vh', marginLeft: '20%'}}>
+<div style={{marginTop: '7vh', marginLeft: '10%'}}>
 <h2 className="accent">Тип — это ответ на вопрос &laquo;ЧТО?&raquo;</h2>
+<div style={{marginLeft: '2%'}}>
 <h3> ↓ &nbsp; Какая структура? Какие поля? Какой тип значения?</h3>
 <h3> ↓ &nbsp; Тип описывает данные, не поведение.</h3>
 </div>
+</div>
+
+<div style={{marginTop: '8vh', marginLeft: '10%'}}>
+<h2 className="secondary">Интерфейс — это контракт &laquo; До и После &raquo;</h2>
+<div style={{marginLeft: '2%'}}>
+<h3> ↑ &nbsp; &laquo; До &raquo; — что нужно для создания (new (), аргументы)</h3>
+<h3> ↑ &nbsp; &laquo; После &raquo; — что получится в результате</h3>
+<h3> ↑ &nbsp; Но сами эти &laquo; до &raquo; и &laquo; после &raquo; — это Тип</h3>
+<h3> ↑ &nbsp; Интерфейс Объясняет трансформацию из Типа в Тип </h3>
+<h3> ↑ &nbsp; Как то что было &laquo; до &raquo; станет тем, что будет &laquo; после &raquo; </h3>
+</div>
+</div>
+
 
 -----
 
 # Пример различия
 
 <div className='codemedium'>
+
 ```typescript
     
 // Interface содержит в себе и "до" и "после":
-        interface Factory {
-            // " до " : с какой сущностью
-                new (config: Config): Instance;
-            // " после " : что можем делать
-                create (): Product;
-        }
+interface Factory {
+        // " до " : с какой сущностью
+        new (config: Config): Instance;
+        // " после " : что можем делать
+        create (): Product;
+}
 // Type — просто описание структуры сущности:
-        type Config = {
-                name: string;
-                count: number;
-        };
+type Config = {
+        name: string;
+        count: number;
+};
 ```
+
 </div>
 
 

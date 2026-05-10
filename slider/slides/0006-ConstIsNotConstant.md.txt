@@ -2,7 +2,7 @@
 <h1 className="slide-title">const не так прост</h1>
 
 <div className="slide-subtitle">
-<h2>или почему const &#123; prop &#125; = obj<br/> не делает то, что вы думаете</h2>
+<h2>или почему <code className="inlineCode">const &#123; prop &#125; = obj</code><br/> не делает то, что вы думаете</h2>
 </div>
 
 <h1 className="borderline">3</h1>
@@ -99,11 +99,15 @@ console.log(prop + 0);   // 7 ?!?!?!?
 
 -----
 
-# В production
+# production
 
-<div className="slide-callout">
-<h3>Момент, когда <code>const</code> вдруг меняет значение — вы понимаете: изменился не <code>const</code>, а тот контекст, где значение было создано.</h3>
-<h3 className="secondary">Getter + деструктуризация = вы читаете живые данные, а не снимок.</h3>
-</div>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+
+<h3>В Момент, когда const <br/>вдруг меняет значение — вы понимаете:<br/> изменился не const, 
+а тот контекст,<br/> где значение было создано.</h3>
+<h3 className="secondary">Getter + деструктуризация =
+<br/> вы читаете живые данные, а не &laquo;снимок&raquo;.</h3>
+
+</Box>
 
 -----

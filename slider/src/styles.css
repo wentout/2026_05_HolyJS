@@ -1,10 +1,47 @@
+/* === LOCAL FONTS === */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Inter-400.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Inter-700.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Inter-800.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-400.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-700.ttf') format('truetype');
+}
+
 * {
 }
 
 body {
-  background: #020203;
-  color: #d3d3e7;
-  font-family: sans-serif;
+  background: var(--holy-bg, #020203);
+  color: var(--holy-white, #d3d3e7);
+  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -75,12 +112,23 @@ body {
   --space-xxl: 15vh;
 
   /* Color roles — 6 semantic colors */
-  --color-primary: cyan;        /* Main concept, Type */
-  --color-secondary: orange;    /* Contrast, Interface */
+  --color-primary: white;        /* Main concept, Type */
+  --color-secondary: lightgray; /* Contrast, Interface */
   --color-accent: green;        /* Success, validation */
   --color-danger: red;          /* Errors, warnings */
   --color-muted: gray;          /* Secondary text, asides */
   --color-text: #d3d3e7;        /* Default body text */
+
+  /* HolyJS Palette */
+  --holy-magenta: #FF00FF;
+  --holy-cyan: #00F0FF;
+  --holy-bg: #0B0B0E;
+  --holy-white: #F8F9FA;
+  --holy-gray: #71717A;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Roboto Mono', monospace;
 }
 
 /* === SLIDE TYPE CLASSES === */
@@ -269,16 +317,15 @@ progress {
 
 .Slide .Title h1 {
   font-weight: 700;
-  font-size: 12vh;
+  font-size: 9vh;
   margin-top: 10%;
-  padding: 5vh;
   color: #ffffff;
 }
 
 .SlideContent .Title .subtitle {
-  margin-top: 25%;
+  margin-top: 33%;
   font-size: 5vh;
-  color: #ff69b4;
+  color: violet;
 }
 
 .Slide .Title2 h1 {
@@ -305,7 +352,7 @@ progress {
   font-weight: 700;
   font-size: 5vh;
   margin-left: 42vh;
-  color: 'orange';
+  color: orangered;
 }
 
 .author {
@@ -335,9 +382,9 @@ progress {
 
 .Slide h1.borderline {
 	position: absolute;
-	right: 5vw;
-	top: -12vh;
-	font-size: 55vh;
+	right: 7vw;
+	bottom: -27vh;
+	font-size: 33vh;
 	color:rgb(67, 45, 190);
 }
 
@@ -413,9 +460,13 @@ progress {
 
 .SlideContent button {
   position: absolute;
-  background-color: red;
-  top: 5vh;
-  left: 93vw;
+  background-color: violet;
+  color: black;
+  font-weight: bold;
+  font-size: 2vh;
+  top: 3vh;
+  right: 1vw;
+  border: 1px solid orangered;
 } 
 
 .Slide .codegiantshift {
@@ -572,6 +623,7 @@ progress {
 
 .Footer .slides {
   border-top: 1px solid red;
+  color: navy;
   padding: 0.5vh 1vw;
   position: absolute;
   bottom: 0;
@@ -693,4 +745,48 @@ progress {
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
+}
+
+/* === HOLYJS DESIGN SYSTEM === */
+
+.Slide h1,
+.Slide h2 {
+  color: var(--holy-magenta);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.inlineCode {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 1ch;
+  color: white;
+  border-radius: 8px;
+  border-left: none !important;
+}
+
+.Slide pre,
+.Slide code {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--holy-cyan);
+}
+
+.Slide > pre {
+  padding: 2vh 0;
+  border-radius: 1.5vh;
+  overflow: hidden;
+}
+
+.accent-text {
+  color: var(--holy-cyan);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.overlay-panel {
+  background: rgba(11, 11, 14, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 8px;
 }

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-10T07:47:06.059Z",
+  "generatedAt": "2026-05-10T15:29:25.441Z",
   "usages": {
     "List.Slide": [
       {
@@ -9,12 +9,22 @@
         "code": "this.Slide"
       },
       {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:346:16",
+        "kind": "instantiation",
+        "code": "new this.Slide()"
+      },
+      {
         "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:346:20",
         "kind": "propertyAccess",
         "code": "this.Slide"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:634:21",
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:635:17",
+        "kind": "instantiation",
+        "code": "new slide.Slide()"
+      },
+      {
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:635:21",
         "kind": "propertyAccess",
         "code": "slide.Slide"
       }

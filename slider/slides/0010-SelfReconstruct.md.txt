@@ -11,7 +11,7 @@
 
 # self reconstruct
 
-<div className='codemedium'>
+<div className='codemedium' style={{marginTop: '-5vh'}}>
 
 ```javascript
 const SelfReConstructor = function () {
@@ -116,11 +116,13 @@ class MyInheritedItem extends item {
 
 # Зачем само-воспроизведение
 
-<div className="slide-callout">
-<h3>• Пересоздать экземпляр с нуля, зная только <code>.constructor</code></h3>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+
+<h3>• Пересоздать экземпляр с нуля</h3>
 <h3>• Склонировать с новыми аргументами</h3>
-<h3 className="secondary">• Undo / redo: повторить создание, откатить изменения</h3>
-<h3><code>myItem.MyReConstructibleField</code> — каждый объект знает, как себя пересоздать.</h3>
-</div>
+<h3 className="secondary">• Undo / Redo: повторить создание, откатить изменения</h3>
+<br/>
+<h3>myItem.MyReConstructibleField — <br/> &nbsp; каждый объект знает, как себя пересоздать</h3>
+</Box>
 
 -----
