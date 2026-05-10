@@ -1,16 +1,17 @@
 
-
-<h1 className="slide-title secondary">await new</h1>
+<h1 className="slide-title">await new</h1>
 
 <div className="slide-subtitle">
-<h2>можно ли создать экземпляр асинхронно?</h2>
+<h2>можно ли создать <br/>экземпляр<br/> асинхронно?</h2>
 </div>
+
+<h1 className="borderline">7</h1>
 
 -----
 
 # await new — class + result
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 class MyPromise extends Promise {
@@ -29,15 +30,14 @@ console.log(myItem instanceof Promise);  // true
 </div>
 
 <div className="slide-callout">
-<h3>new + await = новая семантика!</h3>
-<h3 className="secondary">new — Interface (конструктор), await — Interface (ожидание)</h3>
+<h3>new + await === новая семантика!</h3>
 </div>
 
 -----
 
-# Запустим и посмотрим
+# запустим и посмотрим
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 class MyPromise extends Promise {
@@ -58,9 +58,91 @@ console.log(await new MyPromise((resolve) => {
 <Button onClick={() => { runExample('await_new_problems')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="secondary">new — это Interface (конструктор)</h2>
-<h3 className="primary">await — это Interface (оператор ожидания)</h3>
-<h3>Вместе они создают новую семантику!</h3>
+<h2 className="secondary">и new и await — это Интерфейс</h2>
 </div>
 
 -----
+
+# можно и без наследования от Promise
+
+<div className='codemedium'>
+
+```javascript
+class MyAsyncClass {
+	field = undefined;
+	constructor() {
+		const self = this;
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				self.field = 123;
+				resolve(self);
+			}, 1000);
+		});
+	}
+}
+```
+
+</div>
+
+-----
+
+# можно и без наследования от Promise
+
+<div className='codemedium'>
+
+```javascript
+class MySubAsyncClass extends MyAsyncClass {
+	constructor() {
+                // да, super возвращает результат ! 
+		const promise = super();
+		return new Promise(async (resolve) => {
+			// тут item содержит  this !!!
+			const item = await promise;
+			console.log(item.field); // 123
+			resolve(item);
+		});
+	}
+}
+```
+
+</div>
+
+
+-----
+
+# запустим и посмотрим
+
+<div className='codemedium'>
+
+```javascript
+
+    ( async () => {
+
+        // создадим ожидание наследника
+        const successor = new MySubAsyncClass;
+
+        // создадим сам экземпляр наследника
+        const item = await successor;
+
+        // проверим, что всё получилось 
+        console.log(item.field); // 123
+
+} )();
+
+```
+
+</div>
+
+<Button onClick={() => { runExample('asyncClassTest')}}>Запустить пример</Button>
+
+-----
+
+# Паттерн: await new
+
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h3>Вместо new Client() + await client.init()<br/> — конструктор сразу возвращает Promise.</h3>
+<h3 className="secondary">Один await new Client() вместо двух строк.</h3>
+</Box>
+
+-----
+

@@ -1,14 +1,11 @@
 
 -----
 
-<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Type vs Interface</h1>
+<h1 className="slide-title">Types vs Interfaces</h1>
 
-<h1 className="borderline">Ø</h1>
-
------
-
-<h1 className="slide-title secondary" style={{fontSize: 'var(--title-xl)'}}>Type vs Interface</h1>
-<h2 style={{fontSize:'5vh', color: 'gray', paddingLeft: '15vw'}}>эпичная битва игрушечных вещей</h2>
+<div className="slide-subtitle">
+<h2>эпичная битва игрушечных вещей</h2>
+</div>
 
 <h1 className="borderline">Ø</h1>
 
@@ -21,9 +18,7 @@
 # на просторах TypeScript интернетов ...
 
 <Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
-</center>
+<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
 </Box>
 
 -----
@@ -31,10 +26,8 @@
 # на просторах TypeScript интернетов
 
 <Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
-<h1 style={{fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
-</center>
+<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
+<h1 style={{marginLeft: '20%', fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
 </Box>
 
 -----
@@ -42,11 +35,9 @@
 # на просторах TypeScript интернетов
 
 <Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '7vh', color: 'aqua'}}>... бушует великая битва  ...</h1>
-<h1 style={{fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
-<h1 style={{fontSize: '9vh', color: 'red'}}>Типы или Интерфейсы</h1>
-</center>
+<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
+<h1 style={{marginLeft: '20%', fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
+<h1 style={{marginLeft: '7%', fontSize: '9vh', color: 'red'}}>Типы или Интерфейсы</h1>
 </Box>
 
 -----
@@ -59,7 +50,7 @@
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '7vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
+<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
 </center>
 </Box>
 
@@ -69,8 +60,8 @@
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '7vh', color: 'aqua'}}>... и есть ощущение  ...</h1>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>что нужно показать снова</h1>
+<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
+<h1 style={{fontSize: '9vh', color: 'teal'}}>нужно показать снова</h1>
 </center>
 </Box>
 
@@ -80,11 +71,11 @@
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>... и есть ощущение  ...</h1>
+<h1 style={{marginLeft: '-11%', marginTop: '-1%', fontSize: '9vh', color: 'teal'}}>... и есть ощущение  ...</h1>
 </center>
 </Box>
 
-<img src="./content/img/Yes-You-Can.jpg" style={{position: 'absolute', top: '42vh', left:'27vw', zIndex: 100, width: '45vw'}} />
+<img src="./content/img/Yes-You-Can.jpg" style={{marginLeft: '-5%', position: 'absolute', top: '37vh', left:'27vw', zIndex: 100, width: '45vw'}} />
 
 -----
 
@@ -97,9 +88,7 @@
 # просто мне нравятся эти два слайда
 
 <Box>
-<center>
-<img src="./content/img/poly_struct.svg"  style={{width: '70vw'}} />
-</center>
+<img src="./content/img/poly_struct.svg"  style={{width: '85%', marginLeft: '7%'}} />
 </Box>
 
 
@@ -108,32 +97,30 @@
 # мне просто нравятся эти два слайда
 
 <Box>
+<img src="./content/img/poly_red.svg"  style={{width: '85%', marginLeft: '7%'}} />
+</Box>
+
+-----
+
+# хотя, на самом деле 
+
+-----
+
+# хотя, на самом деле 
+
+<Box sx={{marginTop: '5vh'}}>
 <center>
-<img src="./content/img/poly_red.svg"  style={{width: '70vw'}} />
+<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
 </center>
 </Box>
 
 -----
 
-# не, на самом деле 
-
------
-
-# не, на самом деле 
+# хотя, на самом деле 
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{fontSize: '11vh', color: 'teal'}}>... есть новые примеры   ...</h1>
-</center>
-</Box>
-
------
-
-# не, на самом деле 
-
-<Box sx={{marginTop: '5vh'}}>
-<center>
-<h1 style={{fontSize: '11vh', color: 'teal'}}>... есть новые примеры   ...</h1>
+<h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
 <h1 style={{fontSize: '5vh', color: 'teal'}}> ↑</h1>
 <h1 style={{fontSize: '11vh', color: 'teal'}}> ← ;^)  →</h1>
 <h1 style={{fontSize: '5vh', color: 'teal'}}> ↓</h1>
@@ -145,47 +132,44 @@
 -----
 
 <div className="slide-interstitial">
-<h1 style={{fontSize: '11vh', color: 'orange'}}>... snowflakes ...</h1>
+<h1 style={{fontSize: '11vh'}}>... snowflakes ...</h1>
 </div>
 
 <h1 className="borderline">-1</h1>
 
 
 -----
-# в прошлый раз были вопросы аудитории : 
+# задам вопросы аудитории : 
 
-<Box sx={{marginTop: '7vh'}}>
-<center>
-	<h1 style={{fontSize: '7vh', color: 'green'}}>Как много тут JavaScript'изёров ?</h1>
-</center>
+-----
+# задам вопросы аудитории : 
+
+<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
 </Box>
 
 -----
-# в прошлый раз были вопросы аудитории : 
+# задам вопросы аудитории : 
 
-<Box sx={{marginTop: '7vh'}}>
-<center>
-	<h1 style={{fontSize: '7vh', color: 'green'}}>Как много тут JavaScript'изёров ?</h1>
-	<h1 style={{fontSize: '8vh', color: 'orange'}}>Сколько нас пишет на JavaScript ?</h1>
-</center>
+<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
+<h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
 </Box>
 
 -----
-# в прошлый раз были вопросы аудитории : 
+# задам вопросы аудитории : 
 
-<Box sx={{marginTop: '7vh'}}>
-<center>
-	<h1 style={{fontSize: '7vh', color: 'green'}}>Как много тут JavaScript'изёров ?</h1>
-	<h1 style={{fontSize: '8vh', color: 'orange'}}>Сколько нас пишет на JavaScript ?</h1>
-	<h1 style={{fontSize: '9vh', color: 'teal'}}>А кто считает, что пишет<br/> сам JavaScript ?</h1>
-</center>
+<Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
+<h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
+<h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
+<h1 style={{fontSize: '7vh', color: 'teal'}}>А кто всё ещё сам уверен,<br/> что знает JavaScript ?</h1>
 </Box>
 
 -----
 
-# &mdash; как часто думаете, что нужно переделать ?
+# часто думаете переделать ?
 
-<img src="./content/img/girl_burns.jpeg" style={{position: 'absolute', top: '22vh', left:'16vw', zIndex: 100, width: '71vw'}} />
+<img src="./content/img/girl_burns.jpeg" style={{position: 'absolute', top: '22vh', left:'12vw', zIndex: 100, width: '70vw'}} />
 
 
 -----
@@ -194,56 +178,42 @@
 
 <Box>
 <center>
-<img src="./content/img/JS_Object_Topology.svg"  style={{width: '70vw'}} />
+<img src="./content/img/JS_Object_Topology.svg"  style={{width: '78%'}} />
 </center>
 </Box>
 
 
-
 -----
 
-# и это всё ещё слишком сложно
-
-<Box>
-<center>
-<a href="http://ecma-international.org/ecma-262/#sec-objects">
-<img src="./content/img/figure-1.svg"  style={{width: '70vw'}} />
-</a>
-</center>
-</Box>
-
-CF is a constructor (and also an object). Five objects have been created by using new expressions: cf1, cf2, cf3, cf4, and cf5. Each of these objects contains properties named "q1" and "q2". The dashed lines represent the implicit prototype relationship; so, for example, cf3's prototype is CFp. The constructor, CF, has two properties itself, named "P1" and "P2", which are not visible to CFp, cf1, cf2, cf3, cf4, or cf5. The property named "CFP1" in CFp is shared by cf1, cf2, cf3, cf4, and cf5 (but not by CF), as are any properties found in CFp's implicit prototype chain that are not named "q1", "q2", or "CFP1". Notice that there is no implicit prototype link between CF and CFp.
-
-Unlike most class-based object languages, properties can be added to objects dynamically by assigning values to them. That is, constructors are not required to name or assign values to all or any of the constructed object's properties. In the above diagram, one could add a new shared property for cf1, cf2, cf3, cf4, and cf5 by assigning a new value to the property in CFp.
-
-
------
-
-# но так, всё же действительно проще
-
-<Box>
-<center>
-<img src="./content/img/JS_Object_Topology.svg"  style={{width: '70vw'}} />
-</center>
-</Box>
-
------
-
-<Box sx={{marginTop: '25vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
-	У более развитых языков было наследование на классах<br/>
+	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
 	Просто положи что-нибудь в Constructors.prototype.<br/>
 	И всё — это будет унаследовано.<br/>
 	<br/>
-		-- Зачем?
 </Box>
+
+-----
+
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+	Вспомним, это было: 4 декабря 1995<br/>
+	<br/>
+	У более развитых языков было наследование на классах.<br/>
+	Но прототипы — гораздо более простой паттерн.<br/>
+	Просто положи что-нибудь в Constructors.prototype.<br/>
+	И всё — это будет унаследовано.<br/>
+	<br/>
+</Box>
+<center>
+<h1>		&mdash; Зачем?</h1>
+</center>
 
 -----
 [{"snowflakes":true}]
 
-<Box sx={{marginTop: '25vh', marginLeft: '15vw', fontFamily: 'Courier', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
 	У более развитых языков было наследование на классах<br/>
@@ -251,8 +221,10 @@ Unlike most class-based object languages, properties can be added to objects dyn
 	Просто положи что-нибудь в Constructors.prototype.<br/>
 	И всё — это будет унаследовано.<br/>
 	<br/>
-		-- Зачем? Снежинки, конечно!<br/>
 </Box>
 
+<center>
+<h1> Конечно из-за снежинок !</h1>
+</center>
 
 -----

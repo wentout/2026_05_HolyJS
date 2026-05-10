@@ -1,30 +1,22 @@
 
 
+
 <h1 className="slide-title">Interface VS Types</h1>
 
-<h2 className="slide-subtitle muted" style={{marginTop: 'var(--space-sm)'}}>финальная диаграмма</h2>
+<div className="slide-subtitle">
+<h2>интегральная ценность</h2>
+</div>
+
+<h1 className="borderline">9</h1>
 
 -----
 
 # Interface VS Types
 
-<div style={{display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '2vw', marginTop: '7vh', fontSize: '3.5vh'}}>
+<div style={{display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: '2vw', marginTop: '3vh', fontSize: '3.5vh'}}>
 
-<div style={{border: '2px solid orange', padding: '2vh', borderRadius: '1vh'}}>
-<h3 style={{color: 'orange', marginBottom: '2vh'}}>🔄 INTERFACE ( Алгоритм )</h3>
-<ul style={{listStyle: 'none', padding: 0}}>
-<li>✓ Constructors — создают экземпляры</li>
-<li>✓ Functions — трансформируют данные</li>
-<li>✓ Methods — оперируют с this</li>
-<li>✓ Getters — динамический доступ к данным</li>
-<li>✓ Operators — instanceof, etc.</li>
-<li>✓ Symbol.toPrimitive — приведение типов</li>
-</ul>
-<p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает ПОВЕДЕНИЕ</em></p>
-</div>
-
-<div style={{border: '2px solid green', padding: '2vh', borderRadius: '1vh'}}>
-<h3 style={{color: 'green', marginBottom: '2vh'}}>📦 TYPE ( Структура )</h3>
+<div style={{border: '2px solid steelblue', padding: '2vh', borderRadius: '1vh'}}>
+<h3 style={{color: 'steelblue', marginBottom: '2vh'}}>📦 TYPE ( Структура )</h3>
 <ul style={{listStyle: 'none', padding: 0}}>
 <li>✓ POJO — &#123; a: 1, b: 2 &#125;</li>
 <li>✓ Primitives — number, string</li>
@@ -33,7 +25,20 @@
 <li>✓ Frozen/Sealed объекты</li>
 <li>✓ JSON-serializable</li>
 </ul>
-<p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает СТРУКТУРУ</em></p>
+<p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает Структуру: <br/> ЧТО ЭТО ТАКОЕ</em></p>
+</div>
+
+<div style={{border: '2px solid violet', padding: '2vh', borderRadius: '1vh'}}>
+<h3 style={{color: 'violet', marginBottom: '2vh'}}>🔄 INTERFACE ( Алгоритм )</h3>
+<ul style={{listStyle: 'none', padding: 0}}>
+<li>✓ Constructors — создают экземпляры</li>
+<li>✓ Functions — трансформируют данные</li>
+<li>✓ Methods — оперируют с this</li>
+<li>✓ Getters — динамический доступ</li>
+<li>✓ Operators — instanceof, etc.</li>
+<li>✓ Symbol.toPrimitive — приведение типов</li>
+</ul>
+<p style={{color: 'gray', marginTop: '2vh'}}><em>Описывает Поведение:<br/> КАК ОНО СЕБЯ ВЕДЁТ</em></p>
 </div>
 
 </div>
@@ -50,6 +55,7 @@ type UserData = {
     name: string;
     age: number;
 };
+
 // interface — для контрактов (Interface)
 interface Constructable {
     new (): Instance;  // ← конструктор!
@@ -57,6 +63,7 @@ interface Constructable {
 interface Callable {
     (): void;  // ← функция!
 }
+
 // Function — и то, и другое одновременно!
 interface MyFunction extends Callable, Constructable {}
 ```
@@ -69,13 +76,14 @@ interface MyFunction extends Callable, Constructable {}
 
 -----
 
-# JavaScript runtime: граница размыта
+# в JavaScript runtime граница размыта
 
 <div className='codesmall'>
 
 ```javascript
-// Function — и Type, и Interface одновременно
+// Function — это и Type и Interface одновременно
 function myFunc() {}
+
 
 // Как Type (объект):
 myFunc.name;           // "myFunc"
@@ -85,6 +93,7 @@ myFunc.prototype;      // { constructor: ... }
 myFunc();              // callable
 new myFunc();          // newable
 
+
 // И ещё...
 myFunc instanceof Function;  // true
 myFunc instanceof Object;    // true
@@ -93,66 +102,142 @@ myFunc instanceof Object;    // true
 </div>
 
 <div className="slide-callout">
-<h2 className="primary">В JavaScript движке они были разделены?</h2>
-<h2 className="secondary">НЕТ. Они всегда были едины.</h2>
+<h2 className="primary">Разделяют ли их в движке ?</h2>
 </div>
 
 -----
 
-<div className="slide-text">
-<h2>Вопрос не в том</h2>
-<h1>"Interface или Type?"</h1>
+# в JavaScript runtime граница размыта
+
+<div className='codesmall'>
+
+```javascript
+// Function — это и Type и Interface одновременно
+function myFunc() {}
+
+
+// Как Type (объект):
+myFunc.name;           // "myFunc"
+myFunc.prototype;      // { constructor: ... }
+
+// Как Interface (поведение):
+myFunc();              // callable
+new myFunc();          // newable
+
+
+// И ещё...
+myFunc instanceof Function;  // true
+myFunc instanceof Object;    // true
+```
+
+</div>
+
+<div className="slide-callout">
+<h2 className="secondary"> они всегда были едины ...</h2>
 </div>
 
 -----
-<div className="slide-text" style={{marginTop: 'var(--space-lg)'}}>
-<h2 className="secondary">Вопрос:</h2>
-<h1 className="secondary">" Где одно → → → </h1>
-<h1 className="secondary">&nbsp;&nbsp;&nbsp; становится другим ? "</h1>
-</div>
+
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 style={{color: 'white'}}>Вопрос не в том</h2>
+<h1>&laquo; Interface или Type? &raquo;</h1>
+</Box>
 
 -----
 
-<div className="slide-text">
-<h2>я всё ещё</h2>
-<h1 className="secondary">не знаю</h1>
-<h1 className="secondary">JavaScript</h1>
-</div>
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
+</Box>
 
 -----
 
-# Но теперь я знаю:
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
+<h1 className="secondary">&laquo; Где одно </h1>
+<center><h1 className="secondary" style={{marginLeft: '-40%'}}>... </h1></center>
 
-<div className="slide-layout">
+</Box>
+
+-----
+
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
+<h1 className="secondary">&laquo; Где одно </h1>
+<center><h1 className="secondary" style={{marginLeft: '-40%'}}>... </h1></center>
+<h1 className="secondary">&nbsp;&nbsp;&nbsp; становится другим ? &raquo;</h1>
+
+</Box>
+
+-----
+
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
+<h1 className="secondary">&laquo; Где одно </h1>
+<center><h1 className="secondary" style={{marginLeft: '-40%'}}>... </h1></center>
+<h1 className="secondary">&nbsp;&nbsp;&nbsp; становится другим ? &raquo;</h1>
+
+<center>
+<h1 style={{fontSize: '3vh', color: 'teal'}}> ↑</h1>
+<h1 style={{fontSize: '5vh', color: 'teal'}}> ← ;^)  →</h1>
+<h1 style={{fontSize: '3vh', color: 'teal'}}> ↓</h1>
+</center>
+
+</Box>
+
+-----
+
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 style={{color: 'white'}}>и я всё ещё</h2>
+</Box>
+
+-----
+
+<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<h2 style={{color: 'white'}}>и я всё ещё</h2>
+<h1 className="secondary">не знаю JavaScript</h1>
+</Box>
+
+-----
+
+# Но теперь я знаю, что:
+
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>1. Почему const с getter обманывает</h2>
-<p>const хранит доступ к данным, а не сами данные. Getter — Interface.</p>
+<h2>1. const обманывает</h2>
 </div>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>2. Почему instanceof — не проверка типа</h2>
-<p>Это алгоритм обхода графа. Можно переопределить через Symbol.hasInstance.</p>
+<h2>2. instanceof — не проверка типа</h2>
 </div>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>3. Почему самовоспроизводящиеся экземпляры возможны</h2>
-<p>Граница между экземпляром и конструктором — условность.</p>
+<h2>3. get / set может быть awaited</h2>
 </div>
 
+<div style={{marginBottom: '4vh'}}>
+<h2>4. await new не фикция</h2>
 </div>
+
+<div style={{marginBottom: '4vh'}}>
+<h2>5. экземпляры самовоспроизводимы</h2>
+</div>
+
+</Box>
 
 -----
 
-<div className="slide-text">
+# и теперь я запомню, что 
+
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2>Constructor, Function, Method</h2>
-<h1 className="secondary">→ это Interface</h1>
-</div>
+<h1 className="secondary" style={{color: 'white'}}>→ это Interface</h1>
+</Box>
 
-<div className="slide-text" style={{marginTop: 'var(--space-xl)'}}>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2>а всё остальное</h2>
-<h1 className="accent">→ это Type</h1>
-</div>
+<h1 className="accent" style={{color: 'white'}}>→ это Type</h1>
+</Box>
 
 
 -----

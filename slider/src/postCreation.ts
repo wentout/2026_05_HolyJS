@@ -213,7 +213,9 @@ const errorHandler = [
 
 ];
 
-export default function ({ inheritedInstance }) {
+export default function (opts: { inheritedInstance?: any }) {
+	const { inheritedInstance } = opts;
+	if (!inheritedInstance) return;
 	// Object.entries(Object.getPrototypeOf(inheritedInstance)).forEach(([name, value]) => {
 
 	Object.entries(inheritedInstance).forEach(([ fieldName, value ]) => {

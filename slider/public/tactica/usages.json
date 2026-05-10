@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-10T15:29:25.441Z",
+  "generatedAt": "2026-05-10T18:45:25.546Z",
   "usages": {
     "List.Slide": [
       {
@@ -19,12 +19,12 @@
         "code": "this.Slide"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:635:17",
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:636:17",
         "kind": "instantiation",
         "code": "new slide.Slide()"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:635:21",
+        "location": "/code/talks/2026_05_HolyJS/slider/src/runner.ts:636:21",
         "kind": "propertyAccess",
         "code": "slide.Slide"
       }

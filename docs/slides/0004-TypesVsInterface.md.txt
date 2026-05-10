@@ -1,16 +1,17 @@
 
-
 <h1 className="slide-title">Type + Interface</h1>
 
 <div className="slide-subtitle">
-<h2>может ли POJO (Type) вести себя как Instance?</h2>
+<h2>может ли Тип ( POJO ) <br/>вести себя как Интерфейс?</h2>
 </div>
+
+<h1 className="borderline">1</h1>
 
 -----
 
 # POJO с прототипом
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 // POJO — обычный объект (Type)
@@ -18,14 +19,12 @@ const someObject = {
     name: 'myType',
     createdAt: new Date()
 };
-
 // Но мы можем добавить Interface!
 Object.setPrototypeOf(someObject, {
     describe () {
         return `Type ${this.name} created at ${this.createdAt}`;
     }
 });
-
 console.log(someObject.describe());  // работает!
 ```
 
@@ -39,7 +38,7 @@ console.log(someObject.describe());  // работает!
 
 # Тот же результат через Constructor
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 // Constructor — это Interface
@@ -47,11 +46,10 @@ function Interface(name) {
     this.name = name;
     this.createdAt = new Date();
 }
-
+// но мы можем добавить тип
 Interface.prototype.describe = function() {
     return `Interface ${this.name} created at ${this.createdAt}`;
 };
-
 const myInstance = new Interface('MyInterface');
 console.log(myInstance.describe());  // тот же результат!
 ```
@@ -61,8 +59,35 @@ console.log(myInstance.describe());  // тот же результат!
 <Button onClick={() => { runExample('types_vs_interface')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="primary">POJO + setPrototypeOf = new Constructor</h2>
-<h3>Type + Interface = Instance с поведением</h3>
+<h2 className="secondary">POJO + setPrototypeOf === new Constructor</h2>
+</div>
+
+-----
+
+# Тот же результат через Constructor
+
+<div className='codemedium'>
+
+```javascript
+// Constructor — это Interface
+function Interface(name) {
+    this.name = name;
+    this.createdAt = new Date();
+}
+// но мы можем добавить тип
+Interface.prototype.describe = function() {
+    return `Interface ${this.name} created at ${this.createdAt}`;
+};
+const myInstance = new Interface('MyInterface');
+console.log(myInstance.describe());  // тот же результат!
+```
+
+</div>
+
+<Button onClick={() => { runExample('types_vs_interface')}}>Запустить пример</Button>
+
+<div className="slide-callout">
+<h3 className="primary">Type + Interface === Instance с поведением</h3>
 </div>
 
 -----
