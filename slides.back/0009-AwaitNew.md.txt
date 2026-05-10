@@ -135,14 +135,5 @@ class MySubAsyncClass extends MyAsyncClass {
 
 <Button onClick={() => { runExample('asyncClassTest')}}>Запустить пример</Button>
 
------
 
-# Паттерн: await new
-
-<div className="slide-callout">
-<h3>Вместо <code>new Client()</code> + <code>await client.init()</code> — конструктор сразу возвращает Promise.</h3>
-<h3 className="secondary">Один <code>await new Client()</code> вместо двух строк.</h3>
-</div>
-
------
 

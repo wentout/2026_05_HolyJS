@@ -98,12 +98,3 @@ console.log(prop + 0);   // 7 ?!?!?!?
 <Button onClick={() => { runExample('const_destructuring')}}>Запустить пример</Button>
 
 -----
-
-# В production
-
-<div className="slide-callout">
-<h3>Момент, когда <code>const</code> вдруг меняет значение — вы понимаете: изменился не <code>const</code>, а тот контекст, где значение было создано.</h3>
-<h3 className="secondary">Getter + деструктуризация = вы читаете живые данные, а не снимок.</h3>
-</div>
-
------

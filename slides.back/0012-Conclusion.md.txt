@@ -1,0 +1,52 @@
+
+
+<div className="slide-interstitial">
+<h1 className="secondary" style={{fontSize: '25vh'}}>спасиб</h1>
+<h1 className="borderline">ø</h1>
+</div>
+
+-----
+
+<div>
+<center>
+
+<h1 className="secondary" style={{fontSize: '12vh'}}>ссылки</h1>
+
+<table>
+<tbody>
+<tr>
+
+<td>
+
+<img src="./content/qrcode.png"  style={{marginRight: '5vw', width: '27vw'}} />
+
+</td>
+
+<td>
+
+## https://www.npmjs.com/package/mnemonica
+
+# https://gist.github.com/wentout
+
+## https://github.com/wentout
+
+
+</td>
+
+</tr>
+</tbody>
+</table>
+
+</center>
+</div>
+
+-----
+
+<div className="slide-interstitial" style={{marginTop: '15vh'}}>
+<h1 className="secondary" style={{fontSize: '11vh'}}>f i n</h1>
+<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ↑ </h1>
+<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ← &nbsp; &nbsp; → </h1>
+<h1 style={{fontSize:'10vh', lineHeight: '5vh'}}> ↓ </h1>
+</div>
+
+-----

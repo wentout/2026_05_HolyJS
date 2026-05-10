@@ -113,14 +113,3 @@ class MyInheritedItem extends item {
 <Button onClick={() => { runExample('self_reconstruct')}}>Запустить пример</Button>
 
 -----
-
-# Зачем само-воспроизведение
-
-<div className="slide-callout">
-<h3>• Пересоздать экземпляр с нуля, зная только <code>.constructor</code></h3>
-<h3>• Склонировать с новыми аргументами</h3>
-<h3 className="secondary">• Undo / redo: повторить создание, откатить изменения</h3>
-<h3><code>myItem.MyReConstructibleField</code> — каждый объект знает, как себя пересоздать.</h3>
-</div>
-
------

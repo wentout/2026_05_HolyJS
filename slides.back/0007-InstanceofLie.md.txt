@@ -158,12 +158,3 @@ class MyClassCtor {
 </div>
 
 -----
-
-# Зачем Symbol.hasInstance
-
-<div className="slide-callout">
-<h3><code>instanceof</code> проверяет только <code>constructor.prototype.constructor</code> — но не факт создания через <code>new</code>.</h3>
-<h3 className="secondary"><code>Symbol.hasInstance</code> позволяет проверить: а было ли что-то добавлено именно во время конструирования?</h3>
-</div>
-
------

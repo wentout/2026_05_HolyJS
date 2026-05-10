@@ -557,22 +557,24 @@ progress {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5vh;
   width: 100%;
+  position: absolute;
+  bottom: 1vh;
+  left: 0;
 }
 
 .Footer .myname {
   border-top: 1px solid red;
-  padding: 0.2vw 0.2vh 0.5vw 0.2vh;
+  padding: 0.5vh 1vw;
   position: absolute;
-  bottom: 0.1vh;
+  bottom: 0;
   left: 1vw;
 }
 
 .Footer .slides {
   border-top: 1px solid red;
-  color: black;
-  padding: 0.2vw 0.2vh 0.5vw 0.2vh;
+  padding: 0.5vh 1vw;
   position: absolute;
-  bottom: 0.1vh;
+  bottom: 0;
   right: 1vw;
 }
 
