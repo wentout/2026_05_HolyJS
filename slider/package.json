@@ -23,6 +23,7 @@
     "d3": "^7.9.0",
     "jquery": "^3.7.1",
     "magic-snowflakes": "^6.3.0",
+    "mermaid": "^11.14.0",
     "mnemonica": "file:/code/mnemonica/core",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

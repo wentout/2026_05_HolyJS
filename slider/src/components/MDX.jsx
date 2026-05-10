@@ -1,6 +1,7 @@
 import React from 'react';
 import Prism from '@theme-ui/prism';
 import chart from './Chart';
+import Mermaid from './Mermaid';
 
 // import { Box, Heading, Donut, Container, Message, Embed, Link, Badge, Grid, AspectRatio } from 'theme-ui';
 import { Box, Heading, Button } from 'theme-ui';
@@ -39,8 +40,16 @@ MDX.prototype.View = function () {
 	
 	const Chart = chart(me);
 
+	const Code = function (props) {
+		const className = props.className || '';
+		if (className.includes('language-mermaid')) {
+			return <Mermaid>{props.children}</Mermaid>;
+		}
+		return <Prism {...props} />;
+	};
+
 	const components = {
-		code: Prism,
+		code: Code,
 		Heading,
 		Box,
 		app,

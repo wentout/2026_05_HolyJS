@@ -150,6 +150,7 @@ body {
   color: var(--color-secondary);
   margin-top: var(--space-xl);
   text-align: center;
+  margin-left: -11vw;
 }
 .Slide .slide-subtitle.muted {
   color: var(--color-muted);
@@ -382,10 +383,10 @@ progress {
 
 .Slide h1.borderline {
 	position: absolute;
-	right: 7vw;
-	bottom: -27vh;
-	font-size: 33vh;
-	color:rgb(67, 45, 190);
+	right: 1.5vw;
+	bottom: -14vh;
+	font-size: 19vh;
+	color: darkslateblue;
 }
 
 .Slide h1.borderline2 {
@@ -789,4 +790,57 @@ progress {
   border: 1px solid rgba(255, 0, 255, 0.2);
   padding: 1.5rem;
   border-radius: 8px;
+}
+
+/* === MERMAID DIAGRAMS === */
+.Mermaid {
+  margin: 2vh auto;
+  max-width: 90%;
+}
+
+.Mermaid svg {
+  max-height: 55vh;
+  width: auto;
+}
+
+/* Mermaid dark theme overrides for HolyJS palette */
+.Mermaid .node rect,
+.Mermaid .node circle,
+.Mermaid .node ellipse,
+.Mermaid .node polygon,
+.Mermaid .node path {
+  fill: #1a1a2e !important;
+  stroke: var(--holy-cyan) !important;
+  stroke-width: 2px !important;
+}
+
+.Mermaid .node .label,
+.Mermaid .nodeLabel,
+.Mermaid .edgeLabel {
+  color: var(--holy-white) !important;
+  fill: var(--holy-white) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.Mermaid .edge-thickness-normal {
+  stroke: var(--holy-cyan) !important;
+  stroke-width: 2px !important;
+}
+
+.Mermaid .edge-pattern-solid {
+  stroke: var(--holy-cyan) !important;
+}
+
+.Mermaid .arrowheadPath {
+  fill: var(--holy-cyan) !important;
+}
+
+.Mermaid .cluster rect {
+  fill: rgba(26, 26, 46, 0.5) !important;
+  stroke: var(--holy-magenta) !important;
+}
+
+.Mermaid .label-container {
+  fill: #1a1a2e !important;
+  stroke: var(--holy-cyan) !important;
 }

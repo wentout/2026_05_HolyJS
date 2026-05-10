@@ -114,7 +114,7 @@ const errorHandler = [
 		// strings.push(`<h1>3. достаточный stack-trace:</h1>`);
 		// strings.push(`<pre>${ stack }</pre>`);
 		strings.push('<br/><hr/><br/>');
-		strings.push('<h1>3. и ещё немножеско:</h1>');
+		strings.push('<h1>3. и ещё немножечко:</h1>');
 		strings.push(`<pre>Упало в методе [ ${ methodName } ] объекта ${ applyTo.constructor.name } </pre>`);
 		strings.push('<pre>сам метод:</pre>');
 		strings.push(`<pre>${ method }</pre>`);
@@ -154,7 +154,7 @@ const errorHandler = [
 	// 	strings.push(`<h1>3. достаточный stack-trace:</h1>`);
 	// 	strings.push(`<pre>${ stack }</pre>`);
 	// 	strings.push(`<br/><hr/><br/>`);
-	// 	strings.push(`<h1>и ещё немножеско:</h1>`);
+	// 	strings.push(`<h1>и ещё немножечко:</h1>`);
 	// 	strings.push(`<pre>Упало в методе [ ${ methodName } ] объекта ${ applyTo.constructor.name } </pre>`);
 	// 	strings.push(`<pre>сам метод:</pre>`);
 	// 	strings.push(`<pre>${ method }</pre>`);
