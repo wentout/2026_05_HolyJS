@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd .. && ./gen.sh && cd ./slider && vite",
-    "build": "cd .. && ./gen.sh && cd ./slider && tsc --noEmit || true && vite build && cp -r ./slides ../docs/slides && cp -r ./assets ../docs/assets",
+    "build": "cd .. && ./gen.sh && cd ./slider && tsc --noEmit || true && vite build && cp -r ./slides ../docs/slides",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
     "preview": "vite preview"
   },
