@@ -1,6 +1,6 @@
 0000.json 1
 0001-BIO.md.txt 16
-0002-StoryPlot.md.txt 27
+0002-StoryPlot.md.txt 24
 0003-Nuance.md.txt 5
 0004-TypesVsInterface.md.txt 4
 0005-StructuralNominal.md.txt 13

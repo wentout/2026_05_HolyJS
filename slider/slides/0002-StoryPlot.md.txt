@@ -11,38 +11,38 @@
 
 -----
 
-# на просторах TypeScript интернетов ...
-
------
-
-# на просторах TypeScript интернетов ...
-
-<Box sx={{marginTop: '5vh'}}>
-<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
+<Box sx={{marginTop: '5vh', marginBottom: '20vh'}}>
+<div className="star-wars-container">
+  <div className="star-wars-crawl">
+    <div className="crawl-content">
+      <p className="crawl-line crawl-big">Типы или Интерфейсы ?</p>
+      <p className="crawl-line">на тех самых ненужОнных просторах</p>
+      <p className="crawl-line">ихни-их заблокированных интернетов</p>
+      <p className="crawl-line">в сообществах TypeScript 'изёров</p>
+      <p className="crawl-line crawl-big">бушует<br/> великая битва</p>
+      <p className="crawl-line">что лучше ?</p>
+      <p className="crawl-line"><br/></p>
+      <p className="crawl-line crawl-big">Типы</p>
+      <p className="crawl-line">или</p>
+      <p className="crawl-line crawl-big"> Интерфейсы</p>
+      <p className="crawl-line"><br/></p>
+      <p className="crawl-line">
+	  <img src="./content/in_fear.webp" style={{width: '75%', marginLeft: '7%', borderRadius: '25%'}} />
+	  </p>
+      <p className="crawl-line"><br/>если бы мы знали</p>
+      <p className="crawl-line"><br/>что такое &laquo; лучше &raquo; ...</p>
+    </div>
+  </div>
+</div>
 </Box>
 
------
-
-# на просторах TypeScript интернетов
-
-<Box sx={{marginTop: '5vh'}}>
-<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
-<h1 style={{marginLeft: '20%', fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
-</Box>
-
------
-
-# на просторах TypeScript интернетов
-
-<Box sx={{marginTop: '5vh'}}>
-<h1 style={{marginLeft: '11%', fontSize: '7vh'}}>... бушует великая битва  ...</h1>
-<h1 style={{marginLeft: '20%', fontSize: '5vh', color: 'teal'}}>... что лучше ? ...</h1>
-<h1 style={{marginLeft: '7%', fontSize: '9vh', color: 'red'}}>Типы или Интерфейсы</h1>
-</Box>
 
 -----
 
 # и что-то подобное мы уже показывали
+
+<img src="./content/img/girl_burns.jpeg" style={{position: 'absolute', top: '22vh', left:'20vw', zIndex: 100, width: '50vw', borderRadius: '9%'}} />
+
 
 -----
 
@@ -71,7 +71,7 @@
 
 <Box sx={{marginTop: '5vh'}}>
 <center>
-<h1 style={{marginLeft: '-11%', marginTop: '-1%', fontSize: '9vh', color: 'teal'}}>... и есть ощущение  ...</h1>
+<h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
 </center>
 </Box>
 
@@ -85,7 +85,7 @@
 
 -----
 
-# просто мне нравятся эти два слайда
+# мне нравятся эти два слайда
 
 <Box>
 <img src="./content/img/poly_struct.svg"  style={{width: '85%', marginLeft: '7%'}} />
@@ -94,7 +94,7 @@
 
 -----
 
-# мне просто нравятся эти два слайда
+# мне нравятся эти два слайда
 
 <Box>
 <img src="./content/img/poly_red.svg"  style={{width: '85%', marginLeft: '7%'}} />
@@ -121,9 +121,11 @@
 <Box sx={{marginTop: '5vh'}}>
 <center>
 <h1 style={{fontSize: '7vh', color: 'teal', marginLeft: '-15vw'}}>... есть новые примеры   ...</h1>
+<div style={{transform: 'rotate(55deg)'}}>
 <h1 style={{fontSize: '5vh', color: 'teal'}}> ↑</h1>
-<h1 style={{fontSize: '11vh', color: 'teal'}}> ← ;^)  →</h1>
+<h1 style={{fontSize: '11vh', color: 'teal'}}> ← <span style={{color:'violet'}}>;^)</span>  →</h1>
 <h1 style={{fontSize: '5vh', color: 'teal'}}> ↓</h1>
+</div>
 </center>
 </Box>
 
@@ -162,7 +164,7 @@
 <Box sx={{marginTop: '7vh', marginLeft: '10vw'}}>
 <h1 style={{fontSize: '5vh', color: 'green'}}>Масса JavaScript'изёров ?</h1>
 <h1 style={{fontSize: '6vh'}}>Их AI уже кодит JavaScript ?</h1>
-<h1 style={{fontSize: '7vh', color: 'teal'}}>А кто всё ещё сам уверен,<br/> что знает JavaScript ?</h1>
+<h1 style={{fontSize: '7vh', color: 'teal'}}>А кто всё ещё &laquo;сам решает&raquo;,<br/> что знает JavaScript ?</h1>
 </Box>
 
 -----
