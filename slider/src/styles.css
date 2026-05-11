@@ -759,12 +759,12 @@ progress {
 }
 
 .inlineCode {
-  font-family: var(--font-mono);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 8px 1ch;
-  color: white;
-  border-radius: 8px;
-  border-left: none !important;
+    font-family: var(--font-mono);
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 2px 8px;
+    color: white;
+    border-radius: 8px;
+    border-left: none !important;
 }
 
 .Slide pre,

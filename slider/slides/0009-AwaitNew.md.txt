@@ -93,7 +93,7 @@ class MyAsyncClass {
 ```javascript
 class MySubAsyncClass extends MyAsyncClass {
 	constructor() {
-                // да, super возвращает результат ! 
+		// да, super возвращает результат ! 
 		const promise = super();
 		return new Promise(async (resolve) => {
 			// тут item содержит  this !!!

@@ -67,7 +67,7 @@ const proxy = new Proxy(protoProps, {
         const result = Reflect.set(target, prop, value, receiver);
         console.log('set:', prop, result, value);
         return result;
-    },
+    } // ↓↓↓ и далее всё, что нужно ...
 
 ```
 </div>
