@@ -67,7 +67,7 @@ const proxy = new Proxy(protoProps, {
         const result = Reflect.set(target, prop, value, receiver);
         console.log('set:', prop, result, value);
         return result;
-    },
+    } // ↓↓↓ и далее всё, что нужно ...
 
 ```
 </div>
@@ -174,24 +174,25 @@ Technique:
 
 # KIMI : Final Architecture
 
+<Box>
 <div className='codemedium'>
-
-```text
+```javascript
 seq (Self function, from new reconstructed)
   → prototype: { constructor: MyHTMLElement }
-  → [[Prototype]]: reconstructed (another Self)
-    → [[Prototype]]: myElement (another Self)
-      → [[Prototype]]: proxy
-        → [[Prototype]]: MyHTMLElement.prototype
-          → [[Prototype]]: SelfReconstructibleHTMLElement.prototype
-            → [[Prototype]]: HTMLElement.prototype
-              → [[Prototype]]: Element.prototype
-                → [[Prototype]]: Node.prototype
-                  → [[Prototype]]: EventTarget.prototype
-                    → [[Prototype]]: Object.prototype
+  → [[ Prototype ]]: reconstructed ( another Self )
+    → [[ Prototype ]]: myElement ( another Self )
+      → [[ Prototype ]]: proxy
+        → [[ Prototype ]]: MyHTMLElement.prototype
+          → [[ Prototype ]]: SelfReconstructibleHTMLElement.prototype
+            → [[ Prototype ]]: HTMLElement.prototype
+              → [[ Prototype ]]: Element.prototype
+                → [[ Prototype ]]: Node.prototype
+                  → [[ Prototype ]]: EventTarget.prototype
+                    → [[ Prototype ]]: Object.prototype
                       → null
 ```
 </div>
+</Box>
 
 -----
 
