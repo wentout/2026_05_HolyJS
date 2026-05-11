@@ -150,8 +150,8 @@ type Result = Proto<Parent, Child>;
 </div>
 
 <div className="slide-callout">
-<h2 style={{color: 'gray'}}>где <code class="inlineCode">P</code> - это <code class="inlineCode">prototype</code>,
- a <code class="inlineCode">T</code> - actual <code class="inlineCode">type</code></h2>
+<h2 style={{color: 'gray'}}>где <code className="inlineCode">P</code> - это <code className="inlineCode">prototype</code>,
+ a <code className="inlineCode">T</code> - actual <code className="inlineCode">type</code></h2>
 </div>
 
 -----
@@ -175,7 +175,7 @@ interface Child extends Parent {
 </div>
 
 <div className="slide-callout">
-<h3 className="secondary"><code class="inlineCode">interface extends</code> заставляет потомка быть совместимым с родителем</h3>
+<h3 className="secondary"><code className="inlineCode">interface extends</code> заставляет потомка быть совместимым с родителем</h3>
 </div>
 
 -----
@@ -201,7 +201,7 @@ type Child = Proto<Parent, { x: 2 }>;
 
 <div className="slide-callout">
 <h2 className="secondary">тип позволяет исключить свойства из потомка</h2>
-<h3 className="secondary"><code class="inlineCode">interface extends</code> заставляет их быть совместимыми</h3>
+<h3 className="secondary"><code className="inlineCode">interface extends</code> заставляет их быть совместимыми</h3>
 </div>
 
 -----
@@ -237,7 +237,7 @@ type Result = Proto<Parent, Child>;
 </div>
 
 <div className="slide-callout">
-<h3 className="primary">Потому, что <code class="inlineCode">type</code> может создать ПЕРЕОПРЕДЕЛЕНИЕ</h3>
+<h3 className="primary">Потому, что <code className="inlineCode">type</code> может создать ПЕРЕОПРЕДЕЛЕНИЕ</h3>
 </div>
 
 -----
@@ -262,8 +262,8 @@ instance.x;  // ближайшее побеждает!
 </div>
 
 <div className="slide-callout">
-<h2 className="primary"><code class="inlineCode">type</code> &laquo; может в это &raquo;
- через : <code class="inlineCode">Pick + Exclude + &</code></h2>
+<h2 className="primary"><code className="inlineCode">type</code> &laquo; может в это &raquo;
+ через : <code className="inlineCode">Pick + Exclude + &</code></h2>
 </div>
 
 

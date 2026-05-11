@@ -138,20 +138,20 @@ myFunc instanceof Object;    // true
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '25vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 style={{color: 'white'}}>Вопрос не в том</h2>
 <h1>&laquo; Interface или Type? &raquo;</h1>
 </Box>
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
 </Box>
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
 <h1 className="secondary">&laquo; Где одно </h1>
 <center><h1 className="secondary" style={{marginLeft: '-40%'}}>... </h1></center>
@@ -160,7 +160,7 @@ myFunc instanceof Object;    // true
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
 <h1 className="secondary">&laquo; Где одно </h1>
 <center><h1 className="secondary" style={{marginLeft: '-40%'}}>... </h1></center>
@@ -170,7 +170,7 @@ myFunc instanceof Object;    // true
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '15vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 className="secondary" style={{color: 'white'}}>Вопрос в том :</h2>
 <h1 className="secondary">&laquo; Где одно </h1>
 <center><h1 className="secondary" style={{marginLeft: '-40%'}}>... </h1></center>
@@ -186,13 +186,13 @@ myFunc instanceof Object;    // true
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '25vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 style={{color: 'white'}}>и я всё ещё</h2>
 </Box>
 
 -----
 
-<Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '25vh', marginLeft: '25vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 <h2 style={{color: 'white'}}>и я всё ещё</h2>
 <h1 className="secondary">не знаю JavaScript</h1>
 </Box>

@@ -69,16 +69,16 @@ console.log(await new MyPromise((resolve) => {
 
 ```javascript
 class MyAsyncClass {
-	field = undefined;
-	constructor() {
-		const self = this;
+    field = undefined;
+    constructor() {
+        const self = this;
 		return new Promise((resolve) => {
-			setTimeout(() => {
-				self.field = 123;
-				resolve(self);
-			}, 1000);
-		});
-	}
+            setTimeout(() => {
+                self.field = 123;
+                resolve(self);
+            }, 1000);
+        });
+    }
 }
 ```
 
@@ -92,16 +92,16 @@ class MyAsyncClass {
 
 ```javascript
 class MySubAsyncClass extends MyAsyncClass {
-	constructor() {
-		// да, super возвращает результат ! 
-		const promise = super();
-		return new Promise(async (resolve) => {
-			// тут item содержит  this !!!
-			const item = await promise;
-			console.log(item.field); // 123
-			resolve(item);
-		});
-	}
+    constructor() {
+        // да, super возвращает результат ! 
+        const promise = super();
+        return new Promise(async (resolve) => {
+            // тут item содержит  this !!!
+            const item = await promise;
+            console.log(item.field); // 123
+            resolve(item);
+        });
+    }
 }
 ```
 
@@ -143,8 +143,8 @@ class MySubAsyncClass extends MyAsyncClass {
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr'}}>
 
 <div>
-<h3>Вместо : <code className="inlineCode"><br/>new Client()</code>+ <br/><code className="inlineCode">await client.init()</code><br/> 
-конструктор сразу возвращает Promise</h3>
+<h3>Вместо: <br/><code className="inlineCode">new Client()</code>+ <br/><code className="inlineCode">await client.init()</code><br/> 
+конструктор сразу <br/>возвращает Promise</h3>
 <h3 className="secondary">То есть единый : <br/> <code className="inlineCode">await new Client()</code><br/> 
 вместо &laquo; лапши &raquo; из двух строк</h3>
 </div>
@@ -165,8 +165,8 @@ class MySubAsyncClass extends MyAsyncClass {
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw'}}>
 
 <div>
-<h3>Вместо : <code className="inlineCode"><br/>new Client()</code>+ <br/><code className="inlineCode">await client.init()</code><br/>
-конструктор сразу возвращает Promise</h3>
+<h3>Вместо: <br/><code className="inlineCode">new Client()</code>+ <br/><code className="inlineCode">await client.init()</code><br/>
+конструктор сразу <br/>возвращает Promise</h3>
 <h3 className="secondary">То есть единый : <br/> <code className="inlineCode">await new Client()</code><br/> 
 вместо &laquo; лапши &raquo; из двух строк<br/>&laquo;скованных одной цепью&raquo;
 <br/> &laquo;связанных одной целью&raquo;</h3>
