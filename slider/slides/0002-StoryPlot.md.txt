@@ -169,7 +169,7 @@
 
 # часто думаете переделать ?
 
-<img src="./content/img/girl_burns.jpeg" style={{position: 'absolute', top: '22vh', left:'12vw', zIndex: 100, width: '70vw'}} />
+<img src="./content/vitya.png" style={{position: 'absolute', top: '22vh', left:'12vw', zIndex: 100, width: '50vw'}} />
 
 
 -----
@@ -216,7 +216,7 @@
 <Box sx={{marginTop: '15vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 	Вспомним, это было: 4 декабря 1995<br/>
 	<br/>
-	У более развитых языков было наследование на классах<br/>
+	У более развитых языков было наследование на классах.<br/>
 	Но прототипы — гораздо более простой паттерн.<br/>
 	Просто положи что-нибудь в Constructors.prototype.<br/>
 	И всё — это будет унаследовано.<br/>

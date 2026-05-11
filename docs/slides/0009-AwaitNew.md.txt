@@ -30,7 +30,7 @@ console.log(myItem instanceof Promise);  // true
 </div>
 
 <div className="slide-callout">
-<h3>new + await === новая семантика!</h3>
+<h3><code className="inlineCode">new</code> + <code className="inlineCode">await</code> === новая семантика!</h3>
 </div>
 
 -----
@@ -58,7 +58,7 @@ console.log(await new MyPromise((resolve) => {
 <Button onClick={() => { runExample('await_new_problems')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="secondary">и new и await — это Интерфейс</h2>
+<h2 className="secondary">и да: и <code className="inlineCode">new</code> и <code className="inlineCode">await</code> — это Интерфейс</h2>
 </div>
 
 -----
@@ -137,12 +137,49 @@ class MySubAsyncClass extends MyAsyncClass {
 
 -----
 
-# Паттерн: await new
+# Паттерн: <code className="inlineCode">await new</code>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+
+<div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr'}}>
+
+<div>
+<h3>Вместо : <code className="inlineCode"><br/>new Client()</code>+ <br/><code className="inlineCode">await client.init()</code><br/> 
+конструктор сразу возвращает Promise</h3>
+<h3 className="secondary">То есть единый : <br/> <code className="inlineCode">await new Client()</code><br/> 
+вместо &laquo; лапши &raquo; из двух строк</h3>
+</div>
+
+<div>
+<br/>
+</div>
+
+</div>
+</Box>
+
+-----
+
+# Паттерн: <code className="inlineCode">await new</code>
 
 <Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
-<h3>Вместо new Client() + await client.init()<br/> — конструктор сразу возвращает Promise.</h3>
-<h3 className="secondary">Один await new Client() вместо двух строк.</h3>
+
+<div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw'}}>
+
+<div>
+<h3>Вместо : <code className="inlineCode"><br/>new Client()</code>+ <br/><code className="inlineCode">await client.init()</code><br/>
+конструктор сразу возвращает Promise</h3>
+<h3 className="secondary">То есть единый : <br/> <code className="inlineCode">await new Client()</code><br/> 
+вместо &laquo; лапши &raquo; из двух строк<br/>&laquo;скованных одной цепью&raquo;
+<br/> &laquo;связанных одной целью&raquo;</h3>
+</div>
+
+<div>
+<img src="./content/nau.webp" style={{width: '29vw', marginTop: '5vh', borderRadius: '2vh'}} />
+</div>
+
+</div>
 </Box>
+
+
 
 -----
 

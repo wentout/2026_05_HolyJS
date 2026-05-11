@@ -204,23 +204,23 @@ myFunc instanceof Object;    // true
 <Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>1. const обманывает</h2>
+<h2>1. <code className="inlineCode">const</code> нас обманывает</h2>
 </div>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>2. instanceof — не проверка типа</h2>
+<h2>2. <code className="inlineCode">instanceof</code> — не проверка типа</h2>
 </div>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>3. get / set может быть awaited</h2>
+<h2>3. <code className="inlineCode">get</code> / <code className="inlineCode">set</code> может быть <code className="inlineCode">Awaited</code></h2>
 </div>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>4. await new не фикция</h2>
+<h2>4. <code className="inlineCode">await new</code> не фикция</h2>
 </div>
 
 <div style={{marginBottom: '4vh'}}>
-<h2>5. экземпляры самовоспроизводимы</h2>
+<h2>5. экземпляры само-воспроизводимы</h2>
 </div>
 
 </Box>

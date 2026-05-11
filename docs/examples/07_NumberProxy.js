@@ -18,13 +18,13 @@ const proxyAsNumber = new Proxy(vectorObj, {
 	}
 });
 
-console.log(proxyAsNumber);
-console.log(vectorObj);
-console.log(proxyAsNumber === vectorObj);
+console.log('proxyAsNumber : ', proxyAsNumber);
+console.log('vectorObj : ', vectorObj);
+console.log('proxyAsNumber === vectorObj : ', proxyAsNumber === vectorObj);
 
 try {
-	console.log(0 + proxyAsNumber);		// 5
-	console.log(2 + vectorObj);		// 7
+	console.log('0 + proxyAsNumber : ', 0 + proxyAsNumber);		// 5
+	console.log('2 + vectorObj : ', 2 + vectorObj);		// 7
 } catch (error) {
 	console.error(error);
 }
@@ -56,6 +56,6 @@ whySymbolToPrimitive[Symbol.toPrimitive] = function () {
 
 debugger;
 
-console.log(0 + whySymbolToPrimitive);
+console.log('0 + whySymbolToPrimitive : ', 0 + whySymbolToPrimitive);
 
 debugger;

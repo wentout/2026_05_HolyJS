@@ -24,6 +24,6 @@ var instance = new MyConstructor(2);
 
 debugger;
 
-console.log(instance instanceof MyConstructor);
+console.log('instance instanceof MyConstructor : ', instance instanceof MyConstructor);
 
 debugger;

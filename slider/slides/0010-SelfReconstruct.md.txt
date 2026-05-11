@@ -2,29 +2,216 @@
 <h1 className="slide-title">new instance</h1>
 
 <div className="slide-subtitle">
-<h2>само-воспроизводимые<br/> экземпляры</h2>
+<h2>или рассказ о том как<br/> сделать экземпляр экземпляра</h2>
 </div>
 
 <h1 className="borderline">8</h1>
 
 -----
 
-# self reconstruct
+# Зачем тебе, Витя, self reconstruct ?
 
-<div className='codemedium' style={{marginTop: '-5vh'}}>
+<div className='codemedium'>
+
+```javascript
+
+const { HTMLElement } = window;
+
+class MyHTMLElement extends HTMLElement {}
+
+customElements.define('my-custom-element', MyHTMLElement);
+const myElement = document.createElement('my-custom-element');
+
+console.log('myElement instanceof MyHTMLElement',
+    myElement instanceof MyHTMLElement);    // true
+console.log('myElement instanceof HTMLElement',
+    myElement instanceof HTMLElement);      // true
+```
+</div>
+
+-----
+
+# Зачем тебе, Витя, self reconstruct ?
+
+<div className='codemedium'>
+
+```javascript
+class MyHTMLElement extends HTMLElement {
+    communicate ( value ) {
+        // всё те же игрушки ... 
+        this.innerHTML = `${this.protoAddition} + ${this.addition} + ${value}`;
+    }
+    addition = 'addition';
+}
+const protoProps = {
+    protoAddition: 'protoAddition',
+};
+Object.setPrototypeOf(protoProps, HTMLElement.prototype);
+```
+</div>
+
+-----
+
+# Зачем тебе, Витя, self reconstruct ?
+
+<div className='codemedium'>
+
+```javascript
+const proxy = new Proxy(protoProps, {
+    get (target, prop, receiver) {
+        const result = Reflect.get(target, prop, receiver);
+        console.log('get:', prop, result);
+        return result;
+    },
+    set (target, prop, value, receiver) {
+        const result = Reflect.set(target, prop, value, receiver);
+        console.log('set:', prop, result, value);
+        return result;
+    },
+
+```
+</div>
+
+-----
+
+# Зачем тебе, Витя, self reconstruct ?
+
+<div className='codemedium'>
+
+```javascript
+Object.setPrototypeOf(MyHTMLElement.prototype, proxy);
+
+customElements.define('my-custom-element', MyHTMLElement);
+const myElement = document.createElement('my-custom-element');
+console.log('myElement instanceof MyHTMLElement',
+    myElement instanceof MyHTMLElement);
+console.log('myElement instanceof HTMLElement',
+    myElement instanceof HTMLElement);
+
+console.log('render begins');   // magic happens here
+myElement.innerText = 123;      // set скажет в консоль
+
+```
+</div>
+
+
+<Button onClick={() => { openExample('MyHTMLElement')}}>Запустить пример</Button>
+
+-----
+
+# Спросил Gemini AI : &laquo; Можешь Повторить &raquo; ?
+
+<div className='codemedium'>
+
+```javascript
+
+For Self Reconstruct: 
+
+The Working Solution: .spawn() Method.
+We can perfectly replicate the behaviour
+of self-reconstruction and prototype chaining
+when using a method instead of the `new operator`.
+
+Here is the corrected code.
+
+It replaces new myElement with myElement.spawn(),
+which is the only valid way to achieve this in the DOM.
+
+```
+</div>
+
+<Button onClick={() => { openExample('GeminiTest')}}>Запустить пример</Button>
+
+-----
+
+# Ответ Gemini AI : да &laquo; давай ещё по одной &raquo; ...
+
+<div className='codemedium'>
+
+```javascript
+You are most welcome.
+
+It is a very powerful architectural pattern because it effectively
+turns your DOM tree into a live inheritance stack—allowing
+child elements to "subscribe" to data changes at their parent elements
+without any complex event listeners or state management libraries.
+
+For Self Reconstruct: 
+ The .spawn() method bridges the gap between the rigid
+ HTMLElement C++ layer and the flexible JavaScript prototype system,
+ giving you the "self-reconstruction" behavior you were looking.
+
+```
+</div>
+
+<Button onClick={() => { openExample('GeminiTest_Re_Re')}}>Запустить пример</Button>
+
+
+-----
+
+# Спросил KIMI K2.6: &laquo; умеете, ну &mdash; могёте &raquo;
+
+<div className='codemedium'>
+
+```javascript
+Purpose:
+  Useful above meta-programming, prototype-chain-based state machines,
+  component templating, and demonstrating advanced JS prototype
+  composition patterns.
+
+Technique:
+  When `new myElement` is called on an existing instance,
+  `Self` detects and  fixes the prototype chain within
+  `Object.setPrototypeOf(ogp(this), root)`, returning fresh `Self`.
+  This creates a chain where `new instance` always produces a clone
+  keeping intact identity `instanceof MyHTMLElement` to `constructor.name`.
+```
+</div>
+
+<Button onClick={() => { openExample('MyHTMLElementReconstructible')}}>Запустить пример</Button>
+
+-----
+
+# KIMI : Final Architecture
+
+<div className='codemedium'>
+
+```text
+seq (Self function, from new reconstructed)
+  → prototype: { constructor: MyHTMLElement }
+  → [[Prototype]]: reconstructed (another Self)
+    → [[Prototype]]: myElement (another Self)
+      → [[Prototype]]: proxy
+        → [[Prototype]]: MyHTMLElement.prototype
+          → [[Prototype]]: SelfReconstructibleHTMLElement.prototype
+            → [[Prototype]]: HTMLElement.prototype
+              → [[Prototype]]: Element.prototype
+                → [[Prototype]]: Node.prototype
+                  → [[Prototype]]: EventTarget.prototype
+                    → [[Prototype]]: Object.prototype
+                      → null
+```
+</div>
+
+-----
+
+# Как выглядит паттерн Self Reconstructor в JS
+
+<div className='codemedium'>
 
 ```javascript
 const SelfReConstructor = function () {
+    const main = this.constructor;
+    const isItSelf = main === SelfReConstructor;
     const Self = function () {
         if (new.target) {
-            const Constructor = isItSelf ? Cstr : main;
-            return new Constructor;
+            return new (isItSelf ?
+                SelfReConstructor : main);
         }
-        return Self;  // callable!
+        return Self;
     };
-    Object.setPrototypeOf(Self, root);
-    Self.prototype.constructor = root;
-    Self.value++;
+    Object.setPrototypeOf(Self, this);
+    Self.prototype.constructor = this;
     return Self;
 };
 ```
@@ -33,7 +220,7 @@ const SelfReConstructor = function () {
 
 -----
 
-# можно вот так
+# и, да, то есть потом можно вот так
 
 <div className='codemedium'>
 
@@ -54,7 +241,7 @@ item instanceof Object;             // true
 
 
 <div className="slide-callout">
-<h2 className="danger">item — одновременно и Тип и Интерфейс!</h2>
+<h2 className="danger"><code className="inlineCode">item</code> — одновременно и Тип и Интерфейс !</h2>
 </div>
 
 -----
@@ -71,7 +258,7 @@ console.log(re instanceof SelfReConstructor);   // true
 console.log(re instanceof Function);            // true
 console.log(re instanceof Object);              // true
 
-class MyInheritedItem extends item {
+class MyInheritedItem extends re {
     /* yes, it works */
 }
 
@@ -80,7 +267,7 @@ class MyInheritedItem extends item {
 </div>
 
 <div className="slide-callout">
-<h2 className="secondary">MyInheritedItem instanceof item</h2>
+<h2 className="secondary"><code className="inlineCode">MyInheritedItem instanceof item</code></h2>
 </div>
 
 -----
@@ -98,7 +285,7 @@ console.log(re instanceof SelfReConstructor);   // true
 console.log(re instanceof Function);            // true
 console.log(re instanceof Object);              // true
 
-class MyInheritedItem extends item {
+class MyInheritedItem extends re {
     /* yes, it works */
 }
 
@@ -107,7 +294,7 @@ class MyInheritedItem extends item {
 </div>
 
 <div className="slide-callout">
-<h2 className="secondary">MyInheritedItem instanceof item</h2>
+<h2 className="secondary"><code className="inlineCode">MyInheritedItem instanceof item</code></h2>
 </div>
 
 <Button onClick={() => { runExample('self_reconstruct')}}>Запустить пример</Button>
@@ -122,7 +309,9 @@ class MyInheritedItem extends item {
 <h3>• Склонировать с новыми аргументами</h3>
 <h3 className="secondary">• Undo / Redo: повторить создание, откатить изменения</h3>
 <br/>
-<h3>myItem.MyReConstructibleField — <br/> &nbsp; каждый объект знает, как себя пересоздать</h3>
+<h3><code className="inlineCode">new myItem</code> — <br/> &nbsp; каждый объект знает, как себя пересоздать</h3>
+<h3><code className="inlineCode">new myItem.MyReConstructibleField</code> — <br/> &nbsp; удобно для типизированных полей</h3>
+
 </Box>
 
 -----

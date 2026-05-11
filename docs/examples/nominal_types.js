@@ -23,9 +23,9 @@ Reflect.defineProperty(MyConstructor, 'name', {
 
 Object.freeze(MyConstructor.prototype.constructor);
 
-console.log(1, MyConstructor.name);     // Symbol(My Constructor)
+console.log('1. MyConstructor.name : ', MyConstructor.name);     // Symbol(My Constructor)
 delete MyConstructor.name;
-console.log(2, MyConstructor.name);     // Symbol(My Constructor)
+console.log('2. MyConstructor.name : ', MyConstructor.name);     // Symbol(My Constructor)
 
 // 2. making IoC store
 const ConstructorsIoC = new Map();

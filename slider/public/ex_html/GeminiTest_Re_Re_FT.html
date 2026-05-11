@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Recursive DOM Spawn Test</title>
+    <style>
+        /* Base style for all instances */
+        my-custom-element {
+            display: block;
+            padding: 20px;
+            margin: 15px;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.2rem;
+            background: rgba(0,0,0,0.02);
+        }
+
+        /* The ROOT element style (from your original CSS) */
+        #some {
+            border: 2px solid red;
+            min-height: 100px;
+        }
+    </style>
+</head>
+
+<body bgcolor="white">
+    <h3>DOM Recursion Test</h3>
+    
+    <!-- Container for the Root Element -->
+    <div id="some"></div>
+
+    <script>
+        const { HTMLElement } = window;
+
+        class MyHTMLElement extends HTMLElement {
+            
+            constructor() {
+                super();
+                this.addition = 'addition';
+            }
+
+            // THE RECONSTRUCTOR
+            // This replaces 'new myElement()'
+            spawn() {
+                const newInst = document.createElement('my-custom-element');
+                
+                // CHAIN LINKING:
+                // Set the new instance's prototype to be the CURRENT instance.
+                // This creates the stack: re2 -> re -> myElement -> Class...
+                Object.setPrototypeOf(newInst, this);
+                
+                return newInst;
+            }
+
+            communicate(msg) {
+                // Visual debugging of the prototype chain
+                // 'this.addition' will traverse up the chain until found
+                this.innerHTML = `
+                    <strong>[${msg}]</strong><br>
+                    Value: ${this.addition}<br>
+                    <small>Proto Depth: ${this._getDepth()}</small>
+                `;
+            }
+
+            // Helper to count how deep we are in the recursion
+            _getDepth() {
+                let depth = 0;
+                let p = Object.getPrototypeOf(this);
+                while(p && p !== MyHTMLElement.prototype) {
+                    depth++;
+                    p = Object.getPrototypeOf(p);
+                }
+                return depth;
+            }
+        }
+
+        // --- PROXY SETUP (Your original logic) ---
+        const protoProps = { protoAddition: 'protoAddition' };
+        Object.setPrototypeOf(protoProps, HTMLElement.prototype);
+        
+        const proxy = new Proxy(protoProps, {
+            get(target, prop, receiver) {
+                return Reflect.get(target, prop, receiver);
+            },
+            set(target, prop, value, receiver) {
+                return Reflect.set(target, prop, value, receiver);
+            }
+        });
+
+        Object.setPrototypeOf(MyHTMLElement.prototype, proxy);
+        customElements.define('my-custom-element', MyHTMLElement);
+
+
+        // --- EXECUTION SCENARIO ---
+
+        const container = document.getElementById('some');
+
+        // 1. ROOT ELEMENT
+        const myElement = document.createElement('my-custom-element');
+        container.appendChild(myElement);
+        myElement.communicate('ROOT: myElement');
+        console.log('Root created.');
+
+
+        // 2. LEVEL 1: Spawn from Root
+        // "const re = new myElement" -> BECOMES -> "myElement.spawn()"
+        const re = myElement.spawn();
+        
+        // Style: Blue Box
+        re.style.border = "2px dashed blue";
+        document.body.appendChild(re); // Mount to DOM
+        
+        re.communicate('LEVEL 1: re');
+        console.log('re inherits from myElement?', Object.getPrototypeOf(re) === myElement);
+
+
+        // 3. LEVEL 2: Spawn from re
+        // "const re2 = new re" -> BECOMES -> "re.spawn()"
+        const re2 = re.spawn();
+
+        // Style: Orange Box
+        re2.style.border = "2px dotted orange"; 
+        document.body.appendChild(re2); // Mount to DOM
+
+        // Verify State Inheritance (The "Stack" Effect)
+        // Change the middle link (re) to see if re2 picks it up
+        re.addition = "CHANGED_IN_LEVEL_1";
+        
+        re2.communicate('LEVEL 2: re2');
+        
+        console.log('re2 inherits from re?', Object.getPrototypeOf(re2) === re);
+        console.log('re2.addition:', re2.addition); // Should be "CHANGED_IN_LEVEL_1"
+        
+
+        /**
+         * Traverses the prototype chain of custom instances to build a flat state object.
+         * STOPS at the Class Prototype to avoid including native DOM properties.
+         */
+        function flattenState(element) {
+            const hierarchy = [];
+            let current = element;
+
+            // 1. Walk UP the chain (Child -> Parent -> Root)
+            // Stop when we hit the base class prototype (MyHTMLElement.prototype)
+            while (current && current !== MyHTMLElement.prototype && current !== HTMLElement.prototype) {
+                hierarchy.unshift(current); // Prepend to array (so Root ends up at index 0)
+                current = Object.getPrototypeOf(current);
+            }
+
+            // 2. Walk DOWN the hierarchy (Root -> Parent -> Child)
+            // Object.assign merges properties, allowing children to overwrite parents
+            const flatState = {};
+            
+            hierarchy.forEach(level => {
+                // specificKeys: Filter to only include your data properties if needed
+                // or just use Object.keys(level) to get all "own" enumerable props of that instance
+                Object.keys(level).forEach(key => {
+                    // Skip internal DOM implementation details if they leak through
+                    if (typeof level[key] !== 'function') {
+                        flatState[key] = level[key];
+                    }
+                });
+            });
+
+            return flatState;
+        }
+
+        // ... (Assuming re2 is created and mounted as in previous code) ...
+
+        console.log('\n--- Serialization Test ---');
+
+        // 1. Set unique data on every level to prove the merge works
+        myElement.rootData = "I am Root";
+        re.midData = "I am the Bridge";
+        re2.leafData = "I am the Leaf";
+
+        // 2. Set a conflict to test "Shadowing" (Child should win)
+        myElement.shared = "Root Value";
+        re2.shared = "Leaf Override"; 
+
+        // 3. Flatten!
+        const state = flattenState(re2);
+
+        console.log('Flatted State:', state);
+
+        /* 
+        Expected Output:
+        {
+        "addition": "addition",
+        "rootData": "I am Root",
+        "midData": "I am the Bridge",
+        "leafData": "I am the Leaf",
+        "shared": "Leaf Override"  <-- Proves Child won
+        }
+        */
+
+
+    </script>
+</body>
+</html>

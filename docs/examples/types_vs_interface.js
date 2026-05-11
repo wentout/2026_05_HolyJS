@@ -30,8 +30,8 @@ Interface.prototype.describe = function() {
 // POJO
 const myInstance = new Interface('MyInterface');
 
-console.log(someObject.describe());
-console.log(myInstance.describe());
+console.log('someObject.describe() : ', someObject.describe());
+console.log('myInstance.describe() : ', myInstance.describe());
 
 debugger;
 

@@ -44,7 +44,7 @@ try {
 }
 
 
-console.log(myGetSetTestingObject.testMonoField);
+console.log('myGetSetTestingObject.testMonoField : ', myGetSetTestingObject.testMonoField);
 myGetSetTestingObject.testMonoField = 123;
 
 try {
@@ -63,7 +63,7 @@ try {
 }
 
 
-console.log(myGetSetTestingObject.testMonoField);
+console.log('myGetSetTestingObject.testMonoField : ', myGetSetTestingObject.testMonoField);
 myGetSetTestingObjectSecond.testMonoFieldSecond = 12345;
 
 console.log('!!!', myGetSetTestingObject.testMonoField);

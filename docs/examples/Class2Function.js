@@ -114,11 +114,11 @@ debugger;
 console.log('some.base  : ', some.base);
 console.log('some.super : ', some.super);
 
-console.log('ForExtending → InTheMiddle', Reflect.getPrototypeOf(InTheMiddle) === ForExtending); // true
-console.log('ForExtending → InTheMiddle', Reflect.getPrototypeOf(InTheMiddle.prototype) === ForExtending.prototype); // true
-console.log('InTheMiddle → Some', Reflect.getPrototypeOf(Some) === InTheMiddle); // true
-console.log('InTheMiddle → Some', Reflect.getPrototypeOf(Some.prototype) === InTheMiddle.prototype); // true
+console.log('ForExtending → InTheMiddle : ', Reflect.getPrototypeOf(InTheMiddle) === ForExtending); // true
+console.log('ForExtending.prototype → InTheMiddle.prototype : ', Reflect.getPrototypeOf(InTheMiddle.prototype) === ForExtending.prototype); // true
+console.log('InTheMiddle → Some : ', Reflect.getPrototypeOf(Some) === InTheMiddle); // true
+console.log('InTheMiddle.prototype → Some.prototype : ', Reflect.getPrototypeOf(Some.prototype) === InTheMiddle.prototype); // true
 
-console.log('some instanceof Base', some instanceof Base);
+console.log('some instanceof Base : ', some instanceof Base);
 
 debugger;

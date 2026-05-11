@@ -25,18 +25,21 @@ debugger;
 
 // back to 2020
 console.log(
+	'instance.constructor === TheConstructor : ',
 	instance.constructor
 	===
 	TheConstructor
 ); // true
 
 console.log(
+	'instance.constructor.prototype === TheConstructor.prototype : ',
 	instance.constructor.prototype
 	===
 	TheConstructor.prototype
 ); // true
 
 console.log(
+	'Object.getPrototypeOf(instance) === TheConstructor.prototype : ',
 	Object.getPrototypeOf(instance)
 	===
 	TheConstructor.prototype
@@ -46,6 +49,7 @@ console.log(
 debugger;
 // ???
 console.log(
+	'instance.constructor.prototype.constructor === TheConstructor : ',
 	instance.constructor.prototype.constructor
 	===
 	TheConstructor
@@ -53,12 +57,14 @@ console.log(
 
 debugger;
 console.log(
+	'instance.constructor.prototype.constructor === TheConstructor.prototype.constructor : ',
 	instance.constructor.prototype.constructor
 	===
 	TheConstructor.prototype.constructor
 ); // true
 
 console.log(
+	'Object.getOwnPropertyDescriptor(TheConstructor.prototype, "constructor") : ',
 	Object
 		.getOwnPropertyDescriptor(
 			TheConstructor.prototype, 

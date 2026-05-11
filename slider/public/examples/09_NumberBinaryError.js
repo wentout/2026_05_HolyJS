@@ -11,10 +11,10 @@ a[Symbol.toPrimitive] = () => {
 	throw new Error('418: use subtract !');
 }
 
-console.log(a.subtract(10));    // 90
+console.log('a.subtract(10) : ', a.subtract(10));    // 90
 
 try {
-	console.log(a - 10);            // Error
+	console.log('a - 10 : ', a - 10);            // Error
 } catch (error) {
 	debugger;
 	console.error(error);

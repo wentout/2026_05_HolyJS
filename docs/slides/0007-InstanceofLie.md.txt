@@ -47,7 +47,6 @@ const baz = Object.create(foo.prototype);
 
 // Ложь:
 console.log(baz instanceof foo);  // true
-
 // baz создан от bar, где foo.prototype.__proto__ === bar
 ```
 
@@ -75,7 +74,6 @@ const baz = Object.create(foo.prototype);
 
 // Ложь:
 console.log(baz instanceof foo);  // true
-
 // baz создан от bar, где foo.prototype.__proto__ === bar
 ```
 
@@ -84,55 +82,108 @@ console.log(baz instanceof foo);  // true
 <Button onClick={() => { runExample('instanceof_lie')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="danger">даже если baz не создавался через new foo()</h2>
+<h2 className="danger">даже если <code class="inlineCode">baz</code> не создавался через <code class="inlineCode">new foo()</code></h2>
 </div>
 
 -----
 
-# instanceof не проверяет тип
+# факты: instanceof не проверяет тип
 
 <div className='codemedium'>
 
 ```javascript
-// instanceof
-
-// НЕ спрашивает: "ты экземпляр foo?"
+// instanceof НЕ спрашивает:
+"а ты чьих будешь то, уважаемый foo?"
 
 // instanceof отвечает на вопрос: 
+есть ли в у foo "крыша" в цепочке прототипов 
 
-//  "есть ли в цепочке прототипов
-//  прототип с конструктором foo?"
+//  любезно предоставленная конструктором foo?"
+велкаме to the MITM-attack
 
 ```
 
 </div>
 <div className="slide-callout">
-<h2 className="secondary">instanceof — это метод, Interface</h2>
-<h3 className="primary">и этот Interface можно переопределить</h3>
+<h2 className="secondary">видимо это был самый быстрый способ</h2>
+<h3 className="primary">проверить хоть что-то в 1995 году</h3>
 </div>
 
 -----
 
-# instanceof не проверяет тип
+# итого: instanceof &mdash; это traversal algorithm
+
+```mermaid
+graph LR
+    A[baz] -->|__proto__| B[foo.prototype]
+    B -->|__proto__| C[bar]
+    C -->|__proto__| D[Object.prototype]
+    D -->|__proto__| E[null]
+
+    B -.->|проверка: .constructor === foo ?| F{совпало!}
+    F -->|true| G[instanceof foo === true]
+```
+
+<div className="slide-callout">
+<h3 className="secondary">instanceof идёт по цепочке <code class="inlineCode">__proto__</code> и ищет совпадение <code class="inlineCode">.constructor</code></h3>
+<h3 className="secondary">если находит — возвращает <code class="inlineCode">true</code>,<br/> даже если объект создавался не через <code class="inlineCode">new</code></h3>
+<h3 className="primary">и таким образом <code class="inlineCode">instanceof</code> проверяет не факт создания,<br/> а лишь структуру цепочки прототипов</h3>
+</div>
+
+-----
+
+# но instanceof можно &laquo; лечить &raquo;
+
+<Box style={{margin: '3%', paddingLeft: '11%'}}>
+<h2 className="secondary">потому, что это в первую очередь Алгоритм</h2>
+<h3 className="primary">и лишь уже потом &laquo;какой конкретно&raquo;</h3>
+<h2 className="secondary">и так как <code class="inlineCode">instanceof</code> — это Интерфейс</h2>
+<h3 className="primary">то этот <code class="inlineCode">interface</code> можно переопределить</h3>
+<h3 className="primary">так как у него настраиваемая &laquo;точка входа&raquo;:</h3>
+</Box>
+
+
+-----
+
+# но instanceof можно &laquo; лечить &raquo;
+
+<Box style={{margin: '3%', paddingLeft: '11%'}}>
+<h2 className="secondary">потому, что это в первую очередь Алгоритм</h2>
+<h3 className="primary">и лишь уже потом &laquo;какой конкретно&raquo;</h3>
+<h2 className="secondary">и так как <code class="inlineCode">instanceof</code> — это Интерфейс</h2>
+<h3 className="primary">то этот <code class="inlineCode">interface</code> можно переопределить</h3>
+<h3 className="primary">так как у него настраиваемая &laquo;точка входа&raquo;:</h3>
+</Box>
+
+<div className='codebig'>
+
+```javascript
+    MySecureConstructor[ Symbol.hasInstance ]
+```
+</div>
+
+-----
+
+# переопределяем instanceof
 
 <div className='codemedium'>
 
 ```javascript
-// instanceof 
+// пример создания для функционального конструктора
+const MyFunctionCtor = function () {
+    // мы в конструкторе, поэтому тут мы
+    /* ... оставляем закладку ... */
+    /* ... известную только нам  ... */
+}
 
-// Это traversal algorithm, не type check !
-
-// baz → foo.prototype → bar → 
-//          ↑  has .constructor === foo ??? !
-
-//   → Object.prototype → null
+MyFunctionCtr [ Symbol.hasInstance ] = ( instance ) => {
+    // мы в проверке instanceof, поэтому
+    /* ... проверяем закладку ... */
+    /* ... известную только нам  ... */
+}
 
 ```
 
-</div>
-<div className="slide-callout">
-<h2 className="secondary">instanceof — это метод, Interface</h2>
-<h3 className="primary">и этот Interface можно переопределить</h3>
 </div>
 
 -----
@@ -144,32 +195,89 @@ console.log(baz instanceof foo);  // true
 
 ```javascript
 
-const MyFunctionCtor = function () {}
-MyFunctionCtr [ Symbol.hasInstance ] = ( instance ) => {
-    /* ... */
+class MyClassCtor { // и для классового
+    constructor [ Symbol.hasInstance ] ( instance ) {
+        // мы в конструкторе, поэтому тут мы
+        /* ... оставляем закладку ... */
+        /* ... известную только нам  ... */
+    }
+}
+MyClassCtor [ Symbol.hasInstance ] = ( instance ) => {
+    // мы в проверке instanceof, поэтому
+    /* ... проверяем закладку ... */
+    /* ... известную только нам  ... */
 }
 
-class MyClassCtor {
-    static [ Symbol.hasInstance ] ( instance ) {
-        /* ... */
 ```
 
-</div>
-<div className="slide-callout">
-<h2 className="danger">instanceof — это алгоритм !</h2>
 </div>
 
 -----
 
-# Зачем Symbol.hasInstance
+# Зачем задавать Symbol.hasInstance
 
-<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'}}>
 
-<h3><code className="inlineCode">instanceof</code> проверяет только, что <br/>
-<code>constructor.prototype.constructor</code> совпадает,
-<br/> — но не факт создания через оператор new.</h3>
+<h3>
+<code className="inlineCode">instanceof</code> проверяет только то, что <br/>
+<code className="inlineCode">constructor.prototype.constructor</code> совпадает,
+<br/> &nbsp; но не сам факт создания через оператор <code className="inlineCode">new</code>
+</h3>
 <br/>
-<h3 className="secondary">Symbol.hasInstance <br/>позволяет проверить: <br/>а было ли что-то добавлено <br/>именно во время конструирования?</h3>
+<h3 className="secondary">
+<code className="inlineCode">Symbol.hasInstance</code> <br/>
+&nbsp; позволяет проверить: <br/>
+&nbsp; а было ли что-то добавлено <br/>
+&nbsp; именно во время конструирования ?
+<br/>
+</h3>
 
 </Box>
+
+-----
+
+# Зачем задавать Symbol.hasInstance
+
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'}}>
+
+<h3>
+<code className="inlineCode">instanceof</code> проверяет только то, что <br/>
+<code className="inlineCode">constructor.prototype.constructor</code> совпадает,
+<br/> &nbsp; но не сам факт создания через оператор <code className="inlineCode">new</code>
+</h3>
+<br/>
+<h3 className="secondary">
+<code className="inlineCode">Symbol.hasInstance</code> <br/>
+&nbsp; позволяет проверить: <br/>
+&nbsp; а было ли что-то добавлено <br/>
+&nbsp; именно во время конструирования ?
+<br/>&nbsp; известное лишь лисе Алисе и коту Базилио
+<br/>
+</h3>
+
+</Box>
+
+-----
+
+# Зачем задавать Symbol.hasInstance
+
+<Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace'}}>
+
+<h3>
+<code className="inlineCode">instanceof</code> проверяет только то, что <br/>
+<code className="inlineCode">constructor.prototype.constructor</code> совпадает,
+<br/> &nbsp; но не сам факт создания через оператор <code className="inlineCode">new</code>
+</h3>
+<br/>
+<h3 className="secondary">
+<code className="inlineCode">Symbol.hasInstance</code> <br/>
+&nbsp; позволяет проверить: <br/>
+&nbsp; а было ли что-то добавлено <br/>
+&nbsp; именно во время конструирования ?
+<br/>&nbsp; известное лишь лисе Алисе и коту Базилио
+<br/>&nbsp; ну и, конечно же и тебе, мой &laquo;Юный Падаван&raquo;
+</h3>
+
+</Box>
+
 -----

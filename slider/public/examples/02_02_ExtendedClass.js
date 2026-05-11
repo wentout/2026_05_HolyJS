@@ -13,18 +13,18 @@ const instance = new TheClass;
 
 debugger;
 
-console.log(Object.getPrototypeOf(TheClass));
+console.log('Object.getPrototypeOf(TheClass) : ', Object.getPrototypeOf(TheClass));
 
 debugger;
 
-console.log(Object.getPrototypeOf(TheClass.prototype));
+console.log('Object.getPrototypeOf(TheClass.prototype) : ', Object.getPrototypeOf(TheClass.prototype));
 
 debugger;
 
-console.log(Object.getPrototypeOf(TheClass) === BaseClass);
+console.log('Object.getPrototypeOf(TheClass) === BaseClass : ', Object.getPrototypeOf(TheClass) === BaseClass);
 
 debugger;
 
-console.log(Object.getPrototypeOf(TheClass.prototype) === BaseClass.prototype);
+console.log('Object.getPrototypeOf(TheClass.prototype) === BaseClass.prototype : ', Object.getPrototypeOf(TheClass.prototype) === BaseClass.prototype);
 
 debugger;

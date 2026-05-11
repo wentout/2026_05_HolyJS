@@ -33,8 +33,8 @@ Object.defineProperty(Forkable.prototype, 'fork', {
 
 const instance = new Forkable();
 const forked = new instance.fork();
-console.log(instance === forked);			// false
-console.log(instance instanceof Forkable);	// true
-console.log(forked instanceof Forkable);	// true
+console.log('instance === forked : ', instance === forked);			// false
+console.log('instance instanceof Forkable : ', instance instanceof Forkable);	// true
+console.log('forked instanceof Forkable : ', forked instanceof Forkable);	// true
 
 debugger;

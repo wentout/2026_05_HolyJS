@@ -15,7 +15,7 @@ class Base {
 
 class Extended extends Base {
 	test () {
-		console.log("test");
+		console.log('test method called');
 	}
 }
 

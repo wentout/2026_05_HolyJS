@@ -109,6 +109,7 @@ Cstr.prototype.value = 0;
 
 console.log('\n something about construction : \n');
 
+debugger;
 const item = new Cstr();
 
 console.log('item instanceof Cstr     : ', item instanceof Cstr);        // true
@@ -130,18 +131,21 @@ console.log('ogp(item).value           : ', ogp(item).value, ' 0 → from proto 
 console.log('ogp(ogp(item)).value      : ', ogp(ogp(item)).value, ' 0 directly');      // 0 directly
 console.log('ogp(ogp(ogp(item))).value : ', ogp(ogp(ogp(item))).value, ' undefined');  // undefined
 
-console.log(ogp(ogp(ogp(item))));                            // [Function: Cstr]
-console.log(ogp(ogp(ogp(ogp(item)))));                       // [Function (anonymous)] Object
-console.log(ogp(ogp(ogp(ogp(ogp(item))))));                  // Object: null prototype
-console.log(ogp(ogp(ogp(ogp(ogp(ogp(item)))))));             // null
-
+console.log('ogp(ogp(ogp(item))) : ', ogp(ogp(ogp(item))));                            // [Function: Cstr]
+console.log('ogp(ogp(ogp(ogp(item)))) : ', ogp(ogp(ogp(ogp(item)))));                       // [Function (anonymous)] Object
+console.log('ogp(ogp(ogp(ogp(ogp(item))))) : ', ogp(ogp(ogp(ogp(ogp(item))))));                  // Object: null prototype
+console.log('ogp(ogp(ogp(ogp(ogp(ogp(item)))))) : ', ogp(ogp(ogp(ogp(ogp(ogp(item)))))));             // null
 
 new item; // newable
 item();   // callable
 
 console.log('\n\n and about re-construction : \n');
 
+
+debugger;
 const re = new item;
+
+
 console.log('re instanceof Cstr       : ', re instanceof Cstr);          // true
 console.log('re instanceof Object     : ', re instanceof Object);        // true
 console.log('re instanceof Function   : ', re instanceof Function);      // true
@@ -153,16 +157,19 @@ console.log('re.value   : ', re.value);   // 1
 new re; // newable
 re();   // callable
 
-debugger;
 
 console.log('item proto should be null    : ', ogp(ogp(ogp(ogp(ogp(ogp(item)))))));    // null
 console.log('re proto also should be null : ', ogp(ogp(ogp(ogp(ogp(ogp(re)))))));      // null
 
 console.log('\n\n and about class extention : \n');
 
-class ExtendedCstr extends Cstr { };
 
+// other piece
+debugger;
+class ExtendedCstr extends Cstr { };
 const entity = new ExtendedCstr();
+
+
 console.log('entity instanceof ExtendedCstr : ', entity instanceof ExtendedCstr);  // true
 console.log('entity instanceof Cstr         : ', entity instanceof Cstr);          // true
 console.log('entity instanceof Object       : ', entity instanceof Object);        // true
@@ -186,6 +193,7 @@ console.log('should be null   : ', ogp(ogp(ogp(ogp(ogp(ogp(ogp(entity))))))));  
 
 console.log('\n\n and sequential processing is just : \n');
 
+debugger;
 const past = new entity;
 console.log('sequential entity instanceof ExtendedCstr : ', past instanceof ExtendedCstr);     // true
 console.log('sequential entity instanceof Cstr         : ', past instanceof Cstr);             // true
@@ -203,11 +211,11 @@ console.log('should be null : ', ogp(ogp(ogp(ogp(ogp(ogp(ogp(past))))))));   // 
 
 console.log('\n\n and where values are stored : \n');
 
-console.log(past.value, ' 1 directly from past');           // 1 directly from past
-console.log(ogp(past).value, ' 0 → from proto chain');      // 0 → from proto chain
-console.log(ogp(ogp(past)).value, ' 0 → from proto chain'); // 0 → from proto chain
-console.log(ogp(ogp(ogp(past))).value, ' 0 directly');      // 0 directly
-console.log(ogp(ogp(ogp(ogp(past)))).value, ' undefined');  // undefined
+console.log('past.value : ', past.value, ' 1 directly from past');           // 1 directly from past
+console.log('ogp(past).value : ', ogp(past).value, ' 0 → from proto chain');      // 0 → from proto chain
+console.log('ogp(ogp(past)).value : ', ogp(ogp(past)).value, ' 0 → from proto chain'); // 0 → from proto chain
+console.log('ogp(ogp(ogp(past))).value : ', ogp(ogp(ogp(past))).value, ' 0 directly');      // 0 directly
+console.log('ogp(ogp(ogp(ogp(past)))).value : ', ogp(ogp(ogp(ogp(past)))).value, ' undefined');  // undefined
 
 
 console.log('\n\n so let explain how and why then : \n');
@@ -215,21 +223,20 @@ console.log('\n\n so let explain how and why then : \n');
 console.log('Object.hasOwnProperty.call(item, \'value\')      : ', ohp.call(item, 'value'));      // false
 console.log('Object.hasOwnProperty.call(ogp(item), \'value\') : ', ohp.call(ogp(item), 'value')); // true
 
-console.log(item.value, ' 1 → from proto chain');            // 1 → from proto chain
-console.log(ogp(item).value, ' 0 → from proto chain');       // 0 → from proto chain
-console.log(ogp(ogp(item)).value, ' 0 → from proto chain');  // 0 → from proto chain
-console.log(ogp(ogp(ogp(item))).value, ' undefined');        // undefined
+console.log('item.value : ', item.value, ' 1 → from proto chain');            // 1 → from proto chain
+console.log('ogp(item).value : ', ogp(item).value, ' 0 → from proto chain');       // 0 → from proto chain
+console.log('ogp(ogp(item)).value : ', ogp(ogp(item)).value, ' 0 → from proto chain');  // 0 → from proto chain
+console.log('ogp(ogp(ogp(item))).value : ', ogp(ogp(ogp(item))).value, ' undefined');        // undefined
 
-console.log(ogp(ogp(ogp(item))));                            // [Function: Cstr]
-console.log(ogp(ogp(ogp(ogp(item)))));                       // [Function (anonymous)] Object
-console.log(ogp(ogp(ogp(ogp(ogp(item))))));                  // Object: null prototype
-console.log(ogp(ogp(ogp(ogp(ogp(ogp(item)))))));             // null
-
-debugger;
+console.log('ogp(ogp(ogp(item))) : ', ogp(ogp(ogp(item))));                            // [Function: Cstr]
+console.log('ogp(ogp(ogp(ogp(item)))) : ', ogp(ogp(ogp(ogp(item)))));                       // [Function (anonymous)] Object
+console.log('ogp(ogp(ogp(ogp(ogp(item))))) : ', ogp(ogp(ogp(ogp(ogp(item))))));                  // Object: null prototype
+console.log('ogp(ogp(ogp(ogp(ogp(ogp(item)))))) : ', ogp(ogp(ogp(ogp(ogp(ogp(item)))))));             // null
 
 console.log('\n\n and let extend class from extended class : \n');
 
 
+debugger;
 class ExtendedExtendedCstr extends ExtendedCstr {
     constructor() {
         // console.log('ExtendedExtendedCstr constructor');
@@ -249,6 +256,7 @@ console.log('exExCstrCstr.constructor.name                  : ', exExCstrCstr.co
 
 console.log('\n\n let check if composed class based item works : \n');
 
+debugger;
 exExCstrCstr();                        // callable
 const exExExCstrCstr = new exExCstrCstr; // newable
 
@@ -262,18 +270,17 @@ console.log('exExExCstrCstr.constructor.name                : ', exExExCstrCstr.
 
 console.log('\n\n and let extend class from exExExCstrCstr : \n');
 
+
+debugger;
 class ItemExtendedCstr extends exExExCstrCstr {
     constructor() {
         // console.log('ItemExtendedCstr constructor');
-        debugger;
         super();
         // console.log('ItemExtendedCstr constructor', this.value);
         // console.log('ItemExtendedCstr constructor', this.constructor.name);
-        debugger;
     }
 };
 
-debugger;
 const itemItem = new ItemExtendedCstr();
 
 console.log('itemItem instanceof ItemExtendedCstr     : ', itemItem instanceof ItemExtendedCstr);      // true
@@ -286,8 +293,10 @@ console.log('itemItem.constructor.name                : ', itemItem.constructor.
 
 console.log('\n\n and let check if composed itemItem works : \n');
 
+debugger;
 itemItem();
 const postItemItem = new itemItem;
+
 console.log('HERE')
 console.log('postItemItem instanceof ItemExtendedCstr     : ', postItemItem instanceof ItemExtendedCstr);      // true
 console.log('postItemItem instanceof ExtendedExtendedCstr : ', postItemItem instanceof ExtendedExtendedCstr);  // true
@@ -299,8 +308,10 @@ console.log('postItemItem.constructor.name                : ', postItemItem.cons
 
 console.log('\n\n and let check composed postItemItem works : \n');
 
+debugger;
 postItemItem();
 const postPostItemItem = new postItemItem;
+
 console.log('THERE')
 console.log('postPostItemItem instanceof ItemExtendedCstr     : ', postPostItemItem instanceof ItemExtendedCstr);     // true
 console.log('postPostItemItem instanceof ExtendedExtendedCstr : ', postPostItemItem instanceof ExtendedExtendedCstr); // true
@@ -310,23 +321,25 @@ console.log('postPostItemItem instanceof Object               : ', postPostItemI
 console.log('postPostItemItem instanceof Function             : ', postPostItemItem instanceof Function);             // true
 console.log('postPostItemItem.constructor.name                : ', postPostItemItem.constructor.name);                // ItemExtendedCstr
 
-console.log(postPostItemItem.value, ' 1 directly from postPostItemItem');                                         // 1 directly from postPostItemItem
-console.log(ogp(postPostItemItem).value, ' 0 → from proto chain');                                                // 0 → from proto chain
-console.log(ogp(ogp(postPostItemItem)).value, ' 0 → from proto chain');                                           // 0 → from proto chain
-console.log(ogp(ogp(ogp(postPostItemItem))).value, ' 0 → from proto chain');                                      // 0 → from proto chain
-console.log(ogp(ogp(ogp(ogp(postPostItemItem)))).value, ' 0 → from proto chain');                                 // 0 → from proto chain
-console.log(ogp(ogp(ogp(ogp(ogp(postPostItemItem))))).value, ' 0 → from proto chain');                            // 0 → from proto chain
-console.log(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem)))))).value, ' 0 directly from proto chain');                // 0 directly from proto chain
-console.log(ogp(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem))))))).value, ' finally undefined');                     // undefined
+console.log('postPostItemItem.value : ', postPostItemItem.value, ' 1 directly from postPostItemItem');                                         // 1 directly from postPostItemItem
+console.log('ogp(postPostItemItem).value : ', ogp(postPostItemItem).value, ' 0 → from proto chain');                                                // 0 → from proto chain
+console.log('ogp(ogp(postPostItemItem)).value : ', ogp(ogp(postPostItemItem)).value, ' 0 → from proto chain');                                           // 0 → from proto chain
+console.log('ogp(ogp(ogp(postPostItemItem))).value : ', ogp(ogp(ogp(postPostItemItem))).value, ' 0 → from proto chain');                                      // 0 → from proto chain
+console.log('ogp(ogp(ogp(ogp(postPostItemItem)))).value : ', ogp(ogp(ogp(ogp(postPostItemItem)))).value, ' 0 → from proto chain');                                 // 0 → from proto chain
+console.log('ogp(ogp(ogp(ogp(ogp(postPostItemItem))))).value : ', ogp(ogp(ogp(ogp(ogp(postPostItemItem))))).value, ' 0 → from proto chain');                            // 0 → from proto chain
+console.log('ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem)))))).value : ', ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem)))))).value, ' 0 directly from proto chain');                // 0 directly from proto chain
+console.log('ogp(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem))))))).value : ', ogp(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem))))))).value, ' finally undefined');                     // undefined
 console.log('should be [Function (anonymous)] Object : ', ogp(ogp(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem)))))))));
 console.log('which value is undefined                : ', ogp(ogp(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem)))))))).value);
 console.log('and which proto ... prototype is null   : ', ogp(ogp(ogp(ogp(ogp(ogp(ogp(ogp(ogp(ogp(postPostItemItem)))))))))));
 
-debugger;
+// root, should not be instance of itself
+console.log('!(item instanceof item)                  : ', !(item instanceof item));                  // true, as should be
 
+debugger;
+// nested
 console.log('\n\n and yea, items are instancof items\n');
 
-console.log('item instanceof item                     : ', item instanceof item);                     // false, as should be
 console.log('re instanceof item                       : ', re instanceof item);                       // true
 console.log('past instanceof entity                   : ', past instanceof entity);                   // true
 console.log('exExExCstrCstr instanceof exExCstrCstr   : ', exExExCstrCstr instanceof exExCstrCstr);   // true

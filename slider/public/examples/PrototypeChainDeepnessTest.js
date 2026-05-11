@@ -21,7 +21,7 @@
 		
 		console.time("time");
 		
-		console.log('global.current:', global.current.idx_0);
+		console.log('global.current.idx_0 : ', global.current.idx_0);
 		
 		console.timeEnd("time");
 		
@@ -44,7 +44,7 @@
 		global.current = el;
 		global.m.push(el);
 		if (global.m.length < MAX_NUM) {
-			console.log(global.m.length, name, (Date.now() - global.start) / 1000);
+			console.log('chain length:', global.m.length, name, 'time:', (Date.now() - global.start) / 1000);
 			
 			// get rid of stack overflow
 			requestAnimationFrame(() => {

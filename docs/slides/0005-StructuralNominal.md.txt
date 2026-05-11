@@ -15,12 +15,13 @@
 <div className='codemedium'>
 
 ```typescript
-// Структурная: одинаковая структура = одинаковый тип
+// напомню основные концепции, типизация бывает
+// Структурная (обычная): одинаковая структура == одинаковый тип
 type Point  = { x: number; y: number };
 type Coord  = { x: number; y: number };
 // Point ≡ Coord  ✓  (структурно эквивалентны)
 
-// Номинальная: разные имена = разные типы
+// Номинальная (мудрёная): разные имена === разные типы
 interface IPoint { x: number; y: number; }
 interface ICoord { x: number; y: number; }
 // IPoint ≢ ICoord  ✗  (номинально различны)
@@ -38,15 +39,39 @@ interface ICoord { x: number; y: number; }
 
 <div className='codemedium'>
 ```javascript
+// в стилистике 1995, но сейчас так тоже можно
 var TheConstructor = function () {
+	this; // type of TheConstructor.prototype
+};
+var existingPOJO = { previous: true };
+Object.assign(
+    TheConstructor.prototype, existingPOJO
+);
+// typeof existingPOJO & typeof InstanceType<TheConstructor>
+var instance = new TheConstructor; 
+```
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary">для вывода типа instance<br/>нужно объединить существующие типы</h3>
+</div>
+
+-----
+
+# и мы хотим добавить Тип в Интерфейс
+
+<div className='codemedium'>
+```javascript
+// на "современный" лад почти ничем не отличается
+const TheConstructor = function () {
 	this; // type of TheConstructor.prototype
 };
 const existingPOJO = { previous: true };
 Object.assign(
     TheConstructor.prototype, existingPOJO
 );
-// typeof existingPOJO & typeof InstanceType<TheConstructors>
-var instance = new TheConstructor; 
+// typeof existingPOJO & typeof InstanceType<TheConstructor>
+const instance = new TheConstructor; 
 ```
 </div>
 
@@ -66,11 +91,12 @@ var instance = new TheConstructor;
 
 type A = { x: 1 };
 type B = { x: 2 };
+// пытаемся объяснить, что нам нужно
 type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
 
 // TypeScript intersection требует оба значения сразу
 // Но цепочки прототипов не сливаются — 
-//    они ПЕРЕОПРЕДЕЛЯЮТ
+//    они ПЕРЕОПРЕДЕЛЯЮТ ...
 ```
 
 </div>
@@ -86,26 +112,112 @@ type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
 <div className='codemedium'>
 
 ```typescript
-// Наивное пересечение по перекрывающимся ключам:
+// Наивное пересечение по перекрывающимся ключам :
 
 type A = { x: 1 };
 type B = { x: 2 };
+// но увидев это больше не пытаемся объяснить ...
 type AB = A & B;  // { x: never }  ← КОНФЛИКТ!
 
 // TypeScript intersection требует оба значения сразу.
 // Но цепочки прототипов не сливаются — 
-//    они ПЕРЕОПРЕДЕЛЯЮТ.
+//    они ПЕРЕОПРЕДЕЛЯЮТ !!!
 ```
 
 </div>
 
 <div className="slide-callout">
-<h3 className="danger">И Это НЕ то, как работает наследование!</h3>
+<h3 className="danger">Потому, что Наследование совсем работает Иначе !</h3>
 </div>
 
 -----
 
 # Паттерн Proto: Pick + Exclude
+
+<div className='codemedium'>
+
+```typescript
+// Корректно моделирует наследование цепочки:
+export type Proto<P extends object, T extends object>
+ = T & Pick<P, Exclude<keyof P, keyof T>>;
+// Родитель: x == 1, Потомок переопределяет на x == 2
+type Parent = { x: 1; y: 'a' };
+type Child  = { x: 2 };
+type Result = Proto<Parent, Child>;
+// Result = { x: 2 } & Pick<Parent, 'y'>
+// Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
+```
+</div>
+
+<div className="slide-callout">
+<h2 style={{color: 'gray'}}>где <code class="inlineCode">P</code> - это <code class="inlineCode">prototype</code>,
+ a <code class="inlineCode">T</code> - actual <code class="inlineCode">type</code></h2>
+</div>
+
+-----
+
+# interface НЕ МОЖЕТ это выразить
+
+<div className='codemedium'>
+
+```typescript
+interface Parent {
+    x: 1;
+}
+// Interface 'Child' incorrectly extends interface 'Parent'.
+//  Types of property 'x' are incompatible.
+//    Type '2' is not assignable to type '1'.
+interface Child extends Parent {
+    x: 2;  // Ошибка: x уже объявлен в Parent
+} // т.к. interface extends - это "номинальная" проверка
+```
+
+</div>
+
+<div className="slide-callout">
+<h3 className="secondary"><code class="inlineCode">interface extends</code> заставляет потомка быть совместимым с родителем</h3>
+</div>
+
+-----
+
+# interface НЕ МОЖЕТ это выразить
+
+<div className='codemedium'>
+
+```typescript
+// Interface требует совместимости:
+interface Child extends Parent {
+    // Ошибка: x уже объявлен в Parent
+    x: 2;
+}
+// Но type с паттерном Proto МОЖЕТ:
+type Child = Proto<Parent, { x: 2 }>;
+// ✓  { x: 2; ... }
+// type & Pick/Exclude = структурное переопределение
+
+```
+
+</div>
+
+<div className="slide-callout">
+<h2 className="secondary">тип позволяет исключить свойства из потомка</h2>
+<h3 className="secondary"><code class="inlineCode">interface extends</code> заставляет их быть совместимыми</h3>
+</div>
+
+-----
+
+# подробно про это я рассказывал в 2023
+
+<Box>
+<center>
+<img src="./content/download.png" style={{width: '78%', border: '1px solid white'}} />
+</center>
+</Box>
+
+
+-----
+
+# Почему тип МОЖЕТ это выразить
 
 <div className='codemedium'>
 
@@ -124,59 +236,13 @@ type Result = Proto<Parent, Child>;
 
 </div>
 
------
-
-# Почему interface НЕ МОЖЕТ это выразить
-
-<div className='codemedium'>
-
-```typescript
-// Interface требует совместимости:
-interface Child extends Parent {
-    x: 2;  // Ошибка: x уже объявлен в Parent
-}
-
-// Но type с паттерном Proto МОЖЕТ:
-type Child = Proto<Parent, { x: 2 }>;
-// ✓  { x: 2; ... }
-// interface extends = номинальная проверка
-// type & Pick/Exclude = структурное переопределение
-```
-
-</div>
-
 <div className="slide-callout">
-<h3 className="secondary">interface extends заставляет потомка быть совместимым с родителем</h3>
+<h3 className="primary">Потому, что <code class="inlineCode">type</code> может создать ПЕРЕОПРЕДЕЛЕНИЕ</h3>
 </div>
 
 -----
 
-# Почему interface НЕ МОЖЕТ это выразить
-
-<div className='codemedium'>
-
-```typescript
-// Interface требует совместимости:
-interface Child extends Parent {
-    x: 2;  // Ошибка: x уже объявлен в Parent
-}
-
-// Но type с паттерном Proto МОЖЕТ:
-type Child = Proto<Parent, { x: 2 }>;
-// ✓  { x: 2; ... }
-// interface extends = номинальная проверка
-// type & Pick/Exclude = структурное переопределение
-```
-
-</div>
-
-<div className="slide-callout">
-<h3 className="primary">Но цепочки прототипов — про ПЕРЕОПРЕДЕЛЕНИЕ, не совместимость</h3>
-</div>
-
------
-
-# Почему interface НЕ МОЖЕТ это выразить
+# Почему тип МОЖЕТ это выразить
 
 <div className='codemedium'>
 
@@ -196,13 +262,14 @@ instance.x;  // ближайшее побеждает!
 </div>
 
 <div className="slide-callout">
-<h2 className="primary">type может через : Pick + Exclude + &</h2>
+<h2 className="primary"><code class="inlineCode">type</code> &laquo; может в это &raquo;
+ через : <code class="inlineCode">Pick + Exclude + &</code></h2>
 </div>
 
 
 -----
 
-# Поэтому лишь : Pick + Exclude
+# В общем &laquo; такой себе &raquo; Proto-Chain
 
 <div className='codemedium'>
 
@@ -219,6 +286,10 @@ type Result = Proto<Parent, Child>;
 // Result = { x: 2; y: 'a' }  ← Потомок ПОБЕЖДАЕТ!
 ```
 
+</div>
+
+<div className="slide-callout">
+<h3 className="primary">как закат солнца &laquo; вручную &raquo; через педальный привод</h3>
 </div>
 
 -----

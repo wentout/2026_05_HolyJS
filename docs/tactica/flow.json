@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-05-10T18:45:10.392Z",
+  "generatedAt": "2026-05-11T13:10:30.130Z",
   "flow": {
     "window.keypress.Listener": [
       {
@@ -201,7 +201,7 @@
         "context": "new expression"
       },
       {
-        "location": "/code/talks/2026_05_HolyJS/slider/src/components/MDX.tsx:56:45",
+        "location": "/code/talks/2026_05_HolyJS/slider/src/components/MDX.tsx:65:45",
         "kind": "passAsArg",
         "code": "React.createElement(TypeFlow, { typeGraph, usages, ...props })",
         "targetType": "Date",

@@ -2,8 +2,8 @@
 debugger;
 
 const MonotonicWrapper = function () {
-	console.log('here', this);
-	console.log(this.constructor.name);
+	console.log('here : ', this);
+	console.log('this.constructor.name : ', this.constructor.name);
 	debugger;
 };
 
@@ -18,23 +18,23 @@ debugger;
 
 MonotonicWrapper.prototype.anotherValue = 321;
 
-console.log('check assitnment');
-console.log(instance1.someValue);
-console.log(instance2.someValue);
+console.log('check assignment');
+console.log('instance1.someValue : ', instance1.someValue);
+console.log('instance2.someValue : ', instance2.someValue);
 
 debugger;
 
 instance1.someValue = 321;
 
-console.log('check RE-assitnment');
-console.log(instance1.someValue);
-console.log(instance2.someValue);
+console.log('check RE-assignment');
+console.log('instance1.someValue : ', instance1.someValue);
+console.log('instance2.someValue : ', instance2.someValue);
 
 debugger;
 
 console.log('check initial value');
 console.log(
-
+	'Object.getPrototypeOf(instance1).someValue : ',
 	Object.getPrototypeOf // !!!
 		(instance1).someValue
 );
@@ -42,7 +42,7 @@ console.log(
 debugger;
 
 console.log('check monotonous field added');
-console.log(instance1.anotherValue);
-console.log(instance2.anotherValue);
+console.log('instance1.anotherValue : ', instance1.anotherValue);
+console.log('instance2.anotherValue : ', instance2.anotherValue);
 
 debugger;

@@ -39,15 +39,15 @@ class Source {
 const source = new Source(data);
 const destination = new Destination(source);
 
-console.log('source', source);
-console.log('destination', destination);
+console.log('source : ', source);
+console.log('destination : ', destination);
 
-console.log('source props', Object.getOwnPropertyDescriptors(source));
-console.log('destination props', Object.getOwnPropertyDescriptors(destination));
+console.log('source props : ', Object.getOwnPropertyDescriptors(source));
+console.log('destination props : ', Object.getOwnPropertyDescriptors(destination));
 
 try {
 	console.log('\nsource.linked reading error ↓↓↓ ');
-	console.log(source.linked);
+	console.log('source.linked : ', source.linked);
 } catch (error) {
 	// process._rawDebug(error); // better use this for node.js
 	console.error(error);
@@ -56,15 +56,15 @@ try {
 console.log('\n\n--------\n\n')
 
 console.log('source.thisDataLinkedForExample ↓↓↓ ');
-console.log(source.thisDataLinkedForExample);
+console.log('source.thisDataLinkedForExample : ', source.thisDataLinkedForExample);
 
 console.log('wow: destination.link ↓↓↓ ');
-console.log(destination.link, ' : is 5');
+console.log('destination.link : ', destination.link, ' : is 5');
 
 data.linked = 7;
 
 console.log('wow: destination.link ↓↓↓ ');
-console.log(destination.link, ' : is 7');
+console.log('destination.link : ', destination.link, ' : is 7');
 
 console.log('source.thisDataLinkedForExample ↓↓↓ ');
-console.log(source.thisDataLinkedForExample);
+console.log('source.thisDataLinkedForExample : ', source.thisDataLinkedForExample);

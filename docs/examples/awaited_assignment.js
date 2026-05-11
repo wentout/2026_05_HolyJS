@@ -23,6 +23,7 @@ Object.defineProperty( myObj, 'field', {
 	}
 } );
 
+debugger;
 
 ( async () => {
 	console.log( '--- initial awaiting for getter ---', );
@@ -39,4 +40,6 @@ Object.defineProperty( myObj, 'field', {
 
 	console.log( 'reading assigned value after change : ', await myObj.field );
 	console.log( 'real value when changes indeed made : ', field );
+
+	debugger;
 } )();

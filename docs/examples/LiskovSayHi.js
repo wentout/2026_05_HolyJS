@@ -20,7 +20,7 @@ NextConstructor.prototype.constructor = NextConstructor;
 
 var b = new NextConstructor;
 
-console.log('**', b.extract());
+console.log('b.extract() : ', b.extract());
 
 // ----
 
@@ -42,8 +42,8 @@ NextConstructor.prototype.sayHi = function() {
 
 var next = new NextConstructor;
 
-console.log('**', next.extract());
-console.log('***', root.sayHi());
+console.log('next.extract() : ', next.extract());
+console.log('root.sayHi() : ', root.sayHi());
 
 
 // ----
@@ -66,8 +66,8 @@ var next = new NextConstructor;
 
 Object.setPrototypeOf(NextConstructor.prototype, root);
 
-console.log('**', next.extract());
-console.log('***', root.sayHi);
+console.log('next.extract() : ', next.extract());
+console.log('root.sayHi : ', root.sayHi);
 
 // ----
 
@@ -89,6 +89,6 @@ var next = new NextConstructor;
 
 Object.setPrototypeOf(NextConstructor.prototype, root);
 
-console.log(next.extract('sayHi'));
+console.log('next.extract("sayHi") : ', next.extract('sayHi'));
 
 debugger;

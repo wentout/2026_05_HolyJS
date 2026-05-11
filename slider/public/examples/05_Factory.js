@@ -17,7 +17,7 @@ var next2 = new Constructor_2(3);
 
 debugger; 
 
-console.log(next2 instanceof Constructor_1);
+console.log('next2 instanceof Constructor_1 : ', next2 instanceof Constructor_1);
 
 debugger; 
 
@@ -41,6 +41,6 @@ const third = new Third(3);
 
 debugger; 
 
-console.log(third instanceof Third);
+console.log('third instanceof Third : ', third instanceof Third);
 
 debugger; 

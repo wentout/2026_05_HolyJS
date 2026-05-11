@@ -2,7 +2,7 @@
 <h1 className="slide-title">const не так прост</h1>
 
 <div className="slide-subtitle">
-<h2>или почему <code className="inlineCode">const &#123; prop &#125; = obj</code><br/> не делает то, что вы думаете</h2>
+<h2>или почему <code className="inlineCode">const &#123; prop &#125; = obj</code><br/> делает не то, что вы думаете</h2>
 </div>
 
 <h1 className="borderline">3</h1>
@@ -11,12 +11,11 @@
 
 # const &mdash; это про привязку, не про значение
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 let toBeProp = 5;
 const myObject = {};
-
 Object.defineProperty(myObject, 'prop', {
     get () {
         return { [Symbol.toPrimitive] () {
@@ -25,7 +24,6 @@ Object.defineProperty(myObject, 'prop', {
         }};
     }
 });
-
 const { prop } = myObject;  // prop — НЕ число!
 ```
 
@@ -39,12 +37,11 @@ const { prop } = myObject;  // prop — НЕ число!
 
 # const &mdash; это про привязку, не про значение
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 let toBeProp = 5;
 const myObject = {};
-
 Object.defineProperty(myObject, 'prop', {
     get () {
         return { [Symbol.toPrimitive] () {
@@ -53,7 +50,6 @@ Object.defineProperty(myObject, 'prop', {
         }};
     }
 });
-
 const { prop } = myObject;  // prop — НЕ число!
 ```
 
@@ -104,9 +100,11 @@ console.log(prop + 0);   // 7 ?!?!?!?
 <Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 
 <h3>В Момент, когда const <br/>вдруг меняет значение — вы понимаете:<br/> изменился не const, 
-а тот контекст,<br/> где значение было создано.</h3>
-<h3 className="secondary">Getter + деструктуризация =
-<br/> вы читаете живые данные, а не &laquo;снимок&raquo;.</h3>
+<br/>а тот контекст <code className="inlineCode">[[ scope ]]</code>,<br/> где значение было создано</h3>
+
+<h3 className="secondary"><code className="inlineCode">getter</code> и деструктуризация
+<br/> дают живые данные
+<br/> вы читаете обновления, <br/>а не храните состояние &laquo;слепка&raquo;</h3>
 
 </Box>
 

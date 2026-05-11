@@ -11,11 +11,11 @@ const instance = new TheClass;
 
 debugger;
 // class
-console.log(Object.getOwnPropertyDescriptor(TheClass, 'prototype'));
+console.log('Object.getOwnPropertyDescriptor(TheClass, "prototype") : ', Object.getOwnPropertyDescriptor(TheClass, 'prototype'));
 
 debugger;
 // function
-console.log(Object.getOwnPropertyDescriptor(function () {}, 'prototype'));
+console.log('Object.getOwnPropertyDescriptor(function(){}, "prototype") : ', Object.getOwnPropertyDescriptor(function () {}, 'prototype'));
 
 debugger;
 // async function

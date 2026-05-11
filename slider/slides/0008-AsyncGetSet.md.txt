@@ -103,10 +103,10 @@ await ( myObj.field = 321 );
 // ...
     async set (value) { field = value; }
 });
-// вообще и так написать, конечно можно
-// и Хотелось бы "Сюрприз", но увы ... :
-const addition = await ( myObj.field = 321 );
-// но увы и тут ↑ ничего не произойдёт ...
+// и ещё и так написать тоже можно
+// и Хотелось бы другой "Сюрприз", но увы ... :
+const creep = ( await (myObj.field = 321));
+// но увы ↑ сюда ответ тоже не придёт ...
 
 ```
 </div>
@@ -157,7 +157,7 @@ console.log(await myObj.field);        // 321 (через 1 сек)
 <div>
 <h3> Асинхронный getter :</h3>
 <h3>
-  — обогащение данных: fetch конфига<br/>
+  — обогащение данных: <code className="inlineCode">fetch</code> конфига<br/>
   — общение с асинхронными протоколами<br/>
   — ленивые вычисления
 </h3>
@@ -169,7 +169,7 @@ console.log(await myObj.field);        // 321 (через 1 сек)
  </h3>
 
 <h3 className="secondary">Но нужно решить: 
-ждать предыдущий set или перезаписывать?
+ждать предыдущий <code className="inlineCode">set</code> или перезаписывать?
 <br/> Иначе — race condition. Берегите A.C.I.D.</h3> 
 </div>
 

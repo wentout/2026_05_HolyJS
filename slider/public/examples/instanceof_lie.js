@@ -14,5 +14,5 @@ Object
 
 const baz = Object.create(foo.prototype);
 
-console.log(baz instanceof foo);
+console.log('baz instanceof foo : ', baz instanceof foo);
 debugger;

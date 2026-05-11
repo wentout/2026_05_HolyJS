@@ -187,7 +187,7 @@ class Main {
 		};
 
 		const snowflakesConfigWhite = Object.assign({}, snowflakesConfig, {
-			color : 'white'
+			color : 'violet'
 		});
 		// const snowflakesConfigRed = Object.assign({}, snowflakesConfig, {
 		// 	color: 'red'

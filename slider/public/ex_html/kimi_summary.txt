@@ -1,0 +1,26 @@
+Self-Reconstructible HTMLElement with Proxy Interception
+
+Technique:
+  A constructor function returns a nested `Self` function that is both
+  `new`-able and callable. When `new myElement` is called on an existing
+  instance, `Self` detects it is inside an extended class constructor,
+  fixes the prototype chain with `Object.setPrototypeOf(ogp(this), root)`,
+  and returns a fresh `Self`. This creates a chain of function-objects
+  where `new instance` always produces a clone that preserves the class
+  identity (`instanceof MyHTMLElement`, `constructor.name`).
+
+Proxy Integration:
+  Because `Self` instances are functions, not real DOM elements, a Proxy
+  intercepts property access. DOM accessors and methods (`innerText`,
+  `innerHTML`, `appendChild`, etc.) are detected by walking
+  `HTMLElement.prototype` descriptors and forwarded to a backing real
+  `<div>` stored on `instance._element`. Custom properties (`addition`,
+  `protoAddition`) are resolved through the prototype chain and logged.
+
+Purpose:
+  Enables runtime cloning of component instances via `new instance` while
+  keeping all prototype-based features (proxy logging, custom methods,
+  DOM forwarding) intact across arbitrarily deep reconstruction chains.
+  Useful for meta-programming, prototype-chain-based state machines,
+  component templating, and demonstrating advanced JS prototype
+  composition patterns.

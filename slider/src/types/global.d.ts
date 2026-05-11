@@ -4,6 +4,7 @@ declare global {
 	interface Window {
 		$?: typeof import('jquery');
 		runExample?: (name: string) => void;
+		openExample?: (name: string) => void;
 		keypress?: {
 			simple_combo: (keys: string, callback: () => void) => void;
 		};

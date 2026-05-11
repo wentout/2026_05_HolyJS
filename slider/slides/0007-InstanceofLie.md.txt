@@ -82,7 +82,7 @@ console.log(baz instanceof foo);  // true
 <Button onClick={() => { runExample('instanceof_lie')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="danger">даже если baz не создавался через new foo()</h2>
+<h2 className="danger">даже если <code class="inlineCode">baz</code> не создавался через <code class="inlineCode">new foo()</code></h2>
 </div>
 
 -----
@@ -125,9 +125,9 @@ graph LR
 ```
 
 <div className="slide-callout">
-<h3 className="secondary">instanceof идёт по цепочке __proto__ и ищет совпадение .constructor</h3>
-<h3 className="secondary">если находит — возвращает true,<br/> даже если объект создавался не через new</h3>
-<h3 className="primary">и таким образом instanceof проверяет не факт создания,<br/> а лишь структуру цепочки прототипов</h3>
+<h3 className="secondary">instanceof идёт по цепочке <code class="inlineCode">__proto__</code> и ищет совпадение <code class="inlineCode">.constructor</code></h3>
+<h3 className="secondary">если находит — возвращает <code class="inlineCode">true</code>,<br/> даже если объект создавался не через <code class="inlineCode">new</code></h3>
+<h3 className="primary">и таким образом <code class="inlineCode">instanceof</code> проверяет не факт создания,<br/> а лишь структуру цепочки прототипов</h3>
 </div>
 
 -----
@@ -137,8 +137,8 @@ graph LR
 <Box style={{margin: '3%', paddingLeft: '11%'}}>
 <h2 className="secondary">потому, что это в первую очередь Алгоритм</h2>
 <h3 className="primary">и лишь уже потом &laquo;какой конкретно&raquo;</h3>
-<h2 className="secondary">и так как instanceof — это Интерфейс</h2>
-<h3 className="primary">то этот interface можно переопределить</h3>
+<h2 className="secondary">и так как <code class="inlineCode">instanceof</code> — это Интерфейс</h2>
+<h3 className="primary">то этот <code class="inlineCode">interface</code> можно переопределить</h3>
 <h3 className="primary">так как у него настраиваемая &laquo;точка входа&raquo;:</h3>
 </Box>
 
@@ -150,8 +150,8 @@ graph LR
 <Box style={{margin: '3%', paddingLeft: '11%'}}>
 <h2 className="secondary">потому, что это в первую очередь Алгоритм</h2>
 <h3 className="primary">и лишь уже потом &laquo;какой конкретно&raquo;</h3>
-<h2 className="secondary">и так как instanceof — это Интерфейс</h2>
-<h3 className="primary">то этот interface можно переопределить</h3>
+<h2 className="secondary">и так как <code class="inlineCode">instanceof</code> — это Интерфейс</h2>
+<h3 className="primary">то этот <code class="inlineCode">interface</code> можно переопределить</h3>
 <h3 className="primary">так как у него настраиваемая &laquo;точка входа&raquo;:</h3>
 </Box>
 

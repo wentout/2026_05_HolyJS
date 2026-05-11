@@ -56,8 +56,6 @@ console.log(myInstance.describe());  // тот же результат!
 
 </div>
 
-<Button onClick={() => { runExample('types_vs_interface')}}>Запустить пример</Button>
-
 <div className="slide-callout">
 <h2 className="secondary">POJO + setPrototypeOf === new Constructor</h2>
 </div>
@@ -87,7 +85,7 @@ console.log(myInstance.describe());  // тот же результат!
 <Button onClick={() => { runExample('types_vs_interface')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h3 className="primary">Type + Interface === Instance с поведением</h3>
+<h2 className="primary">Type + Interface === Instance с поведением</h2>
 </div>
 
 -----

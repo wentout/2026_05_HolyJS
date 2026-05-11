@@ -12,11 +12,11 @@ const myItem = new MyPromise((resolve, reject) => {
     resolve(123);
 });
 
-console.log('myItem instanceof Promise', myItem instanceof Promise);
+console.log('myItem instanceof Promise : ', myItem instanceof Promise);
 
 (async () => {
-    console.log(await myItem);
-    console.log(await new MyPromise((resolve) => {
+    console.log('await myItem : ', await myItem);
+    console.log('await new MyPromise : ', await new MyPromise((resolve) => {
         resolve(321);
     }));
 })();

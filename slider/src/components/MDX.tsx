@@ -43,7 +43,7 @@ MDX.prototype.View = function () {
 	
 	const Chart = chart(me);
 
-	const Code = function (props: { className?: string; children?: React.ReactNode }) {
+	const Code = function (props: { className: string; children: string }) {
 		const className = props.className || '';
 		if (className.includes('language-mermaid')) {
 			return <Mermaid>{props.children}</Mermaid>;

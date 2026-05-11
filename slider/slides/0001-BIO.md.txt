@@ -1,18 +1,18 @@
 
 -----
 
-# Absolute Incompetence (BIO)
+# <code className="inlineCode">Absolute Incompetence ( BIO )</code> 
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
 <div>
-<Box sx={{textAlign: 'left', fontSize: '5vh', lineHeight: '9vh' }}>
+<Box sx={{textAlign: 'left', fontSize: '4vh', lineHeight: '9vh' }}>
 
-* из Ростова-на-Дону
-* 45 годиков
-* из них 25 пишет на JS
+* Витя из Ростова-на-Дону
+* ему 45 годиков
+* из них 25 он пишет на JS
 * пришёл рассказать ...
-* понять и простить
+* просит понять и простить
 
 </Box>
 </div>
@@ -27,12 +27,18 @@
 
 -----
 
-# Ростовский логотип JavaScript
+# ростовские сообщества с логотипами
 
-<div className="slide-visual">
-<img src="./content/RND.JS.png" style={{marginLeft: '-22vw', marginTop: '3vh', width: '35vw', borderRadius: '3vh'}} />
+<div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
+
+<div>
+<img src="./content/RND.JS.png" style={{width: '35vw', borderRadius: '3vh'}} />
 </div>
 
+<div>
+<img src="./content/ChillHouse.jpg" style={{width: '35vw', borderRadius: '3vh'}} />
+</div>
+</div>
 -----
 
 <div className="slide-interstitial">
@@ -74,7 +80,7 @@
 
 -----
 
-# Вася запретил
+# ПК Holy : Вася запретил ...
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
@@ -93,7 +99,7 @@
 
 -----
 
-# Вася запретил
+# ПК Holy : Вася запретил ...
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
@@ -116,7 +122,7 @@
 
 -----
 
-# Вася запретил
+# ПК Holy : Вася запретил ...
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
@@ -140,7 +146,7 @@
 
 -----
 
-# Вася запретил
+# ПК Holy : Вася запретил ...
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
@@ -165,7 +171,7 @@
 
 -----
 
-# Вася запретил
+# ПК Holy : Вася запретил ...
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
@@ -190,7 +196,32 @@
 
 -----
 
-# Вася запретил
+# но я был неудержим ...
+
+<div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
+
+<div>
+<Box sx={{textAlign: 'left', fontSize: '5.7vh' }}>
+
+* <del>хотеть</del>
+* <del>называть</del>
+* <del>создавать</del>
+* <del>показывать</del>
+
+</Box>
+</div>
+
+<div>
+<Box sx={{textAlign: 'center'}}>
+<img src="./content/DaBestSeriously.png" style={{width: '29vw', marginTop: '5vh', borderRadius: '2vh'}} />
+</Box>
+</div>
+
+</div>
+
+-----
+
+# но я был неудержим ...
 
 <div style={{display: 'grid', gridTemplateColumns: '1.0fr 1.0fr', gap: '3vw', margin: '8vh 0 0 5vh', width: '92%'}}>
 
@@ -208,7 +239,7 @@
 
 <div>
 <Box sx={{textAlign: 'center'}}>
-<img src="./content/DaBest.png" style={{width: '29vw', marginTop: '5vh', borderRadius: '2vh'}} />
+<img src="./content/Valik.png" style={{width: '29vw', marginTop: '5vh', borderRadius: '2vh'}} />
 </Box>
 </div>
 

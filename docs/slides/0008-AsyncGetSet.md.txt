@@ -2,7 +2,7 @@
 <h1 className="slide-title">async get ~ set</h1>
 
 <div className="slide-subtitle">
-<h2>когда присваивание &ndash;<br/> не то, чем кажется</h2>
+<h2>когда присваивание<br/> не то, чем кажется</h2>
 </div>
 
 <h1 className="borderline">6</h1>
@@ -30,7 +30,91 @@ Object.defineProperty(myObj, 'field', {
 
 -----
 
-# Присваивание вернуло Promise!
+# Пристально запустим &laquo; неглядя &raquo;!
+
+<div className='codesmall'>
+
+```javascript
+const myObj = {};
+let field = 123;
+Object.defineProperty(myObj, 'field', {
+    async get () {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(field), 1000));
+        });
+    },
+    async set (value) { field = value; }
+});
+
+// Сюрприз:
+const addition = myObj.field = 321;
+// ↑ что здесь происходит вообще ???
+
+console.log('addition:', addition);    // Promise { ... }
+console.log(await myObj.field);        // 321 (через 1 сек)
+```
+
+</div>
+
+
+-----
+
+# Присваивание НЕ вернуло Promise!
+
+<div className='codebig'>
+
+```javascript
+// ...
+    async set (value) { field = value; }
+});
+// к сожалению ответа на этот вопрос
+// мы никогда не узнаем
+myObj.field = 321;
+// если бы мы знали, но мы не знаем
+
+```
+</div>
+
+-----
+
+# Присваивание НЕ вернуло Promise!
+
+<div className='codebig'>
+
+```javascript
+// ...
+    async set (value) { field = value; }
+});
+// вообще так написать, конечно можно
+// и Хотелось бы "Сюрприз", но увы ... :
+await ( myObj.field = 321 );
+// ↑ что здесь происходит вообще ???
+
+```
+</div>
+
+-----
+
+# Присваивание НЕ вернуло Promise!
+
+<div className='codebig'>
+
+```javascript
+// ...
+    async set (value) { field = value; }
+});
+// и ещё и так написать тоже можно
+// и Хотелось бы другой "Сюрприз", но увы ... :
+const creep = ( await (myObj.field = 321));
+// но увы ↑ сюда ответ тоже не придёт ...
+
+```
+</div>
+
+
+-----
+
+# Но посмотреть, конечно, можно ...
 
 <div className='codesmall'>
 
@@ -59,20 +143,34 @@ console.log(await myObj.field);        // 321 (через 1 сек)
 <Button onClick={() => { runExample('awaited_assignment')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h2 className="danger">Увы, Assignment вернул 321 </h2>
 <h3>Интерфейс [ get / set ] скрывает асинхронность</h3>
+<h2 className="danger">хотя assignment, увы, не await'-ится </h2>
 </div>
 
 -----
 
-# Где это применяется
+
+# Где это может применяться
 
 <Box sx={{marginTop: '7vh', marginLeft: '15vw', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace', fontSize:'3vh'}}>
 
 <div>
-<h3> Асинхронный getter — обогащение данных (fetch конфига).</h3>
-<h3> Асинхронный setter — валидация перед записью.</h3>
-<h3 className="secondary">Но нужно решить: ждать предыдущий set или перезаписывать?<br/> Иначе — race condition.</h3>
+<h3> Асинхронный getter :</h3>
+<h3>
+  — обогащение данных: <code className="inlineCode">fetch</code> конфига<br/>
+  — общение с асинхронными протоколами<br/>
+  — ленивые вычисления
+</h3>
+<h3> Асинхронный setter : </h3>
+<h3>
+ — валидация перед записью<br/>
+ — Buffers || UDP<br/>
+ — Atomic / Notify
+ </h3>
+
+<h3 className="secondary">Но нужно решить: 
+ждать предыдущий <code className="inlineCode">set</code> или перезаписывать?
+<br/> Иначе — race condition. Берегите A.C.I.D.</h3> 
 </div>
 
 </Box>

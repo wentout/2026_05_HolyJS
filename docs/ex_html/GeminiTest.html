@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Custom Element Reconstruction Test</title>
+    <style>
+        #some {
+            margin-top: 30vh;
+            text-align: center;
+            border: 1px solid red;
+            min-height: 100px;
+            font-size: 7vh;
+        }
+        
+        my-custom-element {
+            text-align: center;
+            border: 1px solid blue;
+            min-height: 100px;
+            font-size: 7vh;
+
+        }
+    </style>
+</head>
+
+<body bgcolor="white">
+    <div id="some"></div>
+
+    <script>
+        const { HTMLElement } = window;
+
+        class MyHTMLElement extends HTMLElement {
+
+            constructor() {
+                super();
+                // Initialize instance properties here
+                this.addition = 'addition';
+            }
+
+            // The Spawn Method: Our "Reconstructor" replacement
+            spawn() {
+                // 1. Create the new instance via the registry (required for DOM)
+                const newInst = document.createElement('my-custom-element');
+
+                // 2. Chain it! 
+                // We set the new instance's prototype to THIS instance.
+                // This mirrors: Object.setPrototypeOf(Self, root) from your gist.
+                Object.setPrototypeOf(newInst, this);
+
+                return newInst;
+            }
+
+            communicate(value) {
+                // Access properties potentially deep in the prototype chain
+                // 'this.protoAddition' comes from the proxy on HTMLElement
+                // 'this.addition' comes from the instance (or inherited from parent instance)
+                this.innerHTML = `${this.protoAddition || 'missing'} + ${this.addition} + ${value}`;
+            }
+        }
+
+        // --- Prototype & Proxy Setup (Mirrors your original setup) ---
+        
+        const protoProps = {
+            protoAddition: 'protoAddition',
+        };
+        
+        // Link protoProps to the native HTMLElement prototype
+        Object.setPrototypeOf(protoProps, HTMLElement.prototype);
+
+        // Create the Proxy to intercept property access
+        const proxy = new Proxy(protoProps, {
+            get(target, prop, receiver) {
+                const result = Reflect.get(target, prop, receiver);
+                // Log interesting gets (filtering out noise)
+                if (typeof prop === 'string' && !['constructor', 'symbol', 'inspect', 'toJSON'].includes(prop)) {
+                //    console.log('get:', prop, result);
+                }
+                return result;
+            },
+            set(target, prop, value, receiver) {
+                const result = Reflect.set(target, prop, value, receiver);
+                console.log('set:', prop, result, value);
+                return result;
+            },
+        });
+
+        // Inject the proxy into MyHTMLElement's chain
+        Object.setPrototypeOf(MyHTMLElement.prototype, proxy);
+
+
+        // --- Execution Logic ---
+
+        // 1. Define the custom element
+        customElements.define('my-custom-element', MyHTMLElement);
+
+        // 2. Create the "Root" element
+        const myElement = document.createElement('my-custom-element');
+
+        console.log('--- Initial Check ---');
+        console.log('myElement instanceof MyHTMLElement:', myElement instanceof MyHTMLElement); // true
+
+        console.log('\n--- Render Root Element ---');
+        myElement.innerText = "123 (Root)";          
+        const renderBox = document.getElementById('some');
+        renderBox.appendChild(myElement);
+        
+        // Test communication on root
+        myElement.communicate('root message');
+
+
+        console.log('\n--- Reconstruct (Spawn) ---');
+
+        // 3. Create the "Reconstructed" element using .spawn()
+        // This is the valid alternative to 'new myElement()'
+        const re = myElement.spawn();
+
+        console.log('re instanceof MyHTMLElement:', re instanceof MyHTMLElement); // true
+        
+        // Verify the prototype chain linkage
+        console.log('re inherits directly from myElement:', Object.getPrototypeOf(re) === myElement); // true
+
+        console.log('\n--- Chain Test ---');
+        // 'addition' is owned by myElement. 're' sees it via the prototype chain.
+        console.log('re.addition (inherited):', re.addition); 
+
+        // 4. Modify the Parent (myElement) to see if Child (re) updates
+        console.log('Modifying parent "addition" property...');
+        myElement.addition = 'CHANGED_PARENT_VALUE';
+        
+        console.log('re.addition (after parent update):', re.addition); // Should see "CHANGED_PARENT_VALUE"
+
+        // 5. Render the Reconstructed Element
+        console.log('\n--- Render Reconstructed Element ---');
+        document.body.appendChild(re);
+        
+        // Verify methods work on the clone
+        re.communicate('clone message');
+        
+        // Visual separation
+        re.style.border = "1px dashed blue";
+        re.style.marginTop = "10px";
+        re.style.display = "block";
+        
+    </script>
+</body>
+</html>

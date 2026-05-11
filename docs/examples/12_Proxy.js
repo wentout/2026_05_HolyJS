@@ -9,7 +9,7 @@ console.log('\n --- construct proxy --- \n');
 const MyConstructor = new Proxy(MyFn, {
 	get (target, propName, receiver) {
 		debugger;
-		console.log('.get: ', propName);
+		console.log('.get propName : ', propName);
 		return Reflect.get(target, propName, receiver);
 	},
 	construct (target, argumentsList, newTarget) {
