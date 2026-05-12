@@ -16,6 +16,9 @@
   <div className="star-wars-crawl">
     <div className="crawl-content">
       <p className="crawl-line crawl-big">Типы или Интерфейсы ?</p>
+	  <br/>
+	  <br/>
+	  <br/>
       <p className="crawl-line">на тех самых ненужОнных просторах</p>
       <p className="crawl-line">ихни-их заблокированных интернетов</p>
       <p className="crawl-line">в сообществах TypeScript 'изёров</p>
@@ -61,7 +64,7 @@
 <Box sx={{marginTop: '5vh'}}>
 <center>
 <h1 style={{marginLeft: '-12%', fontSize: '7vh'}}>... просто, есть ощущение  ...</h1>
-<h1 style={{fontSize: '9vh', color: 'teal'}}>нужно показать снова</h1>
+<h1 style={{fontSize: '9vh', color: 'teal', marginLeft: '-8vw'}}>нужно показать снова</h1>
 </center>
 </Box>
 
