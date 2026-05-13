@@ -30,7 +30,7 @@
       <p className="crawl-line crawl-big"> Интерфейсы</p>
       <p className="crawl-line"><br/></p>
       <p className="crawl-line">
-	  <img src="./content/in_fear.webp" style={{width: '75%', marginLeft: '7%', borderRadius: '25%'}} />
+	  <img src="./content/in_fear.webp" style={{width: '75%', marginLeft: '7%', borderRadius: '7%'}} />
 	  </p>
       <p className="crawl-line"><br/>если бы мы знали</p>
       <p className="crawl-line"><br/>что такое &laquo; лучше &raquo; ...</p>
