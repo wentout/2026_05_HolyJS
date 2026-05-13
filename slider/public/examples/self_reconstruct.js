@@ -6,28 +6,14 @@ const ogp = Object.getPrototypeOf;
 const ohp = Object.prototype.hasOwnProperty;
 
 const Cstr = function () {
-    // console.log(this.value);
+    ole.log(this.value);
     const root = this;
     const main = this.constructor;
     const isItSelf = main === Cstr;
-    // console.log('this constructor : ', isItSelf, main.name);
-    // const hasOwnConstructor = ohp.call(ogp(this), 'constructor');
-    // console.log('has own constructor prop : ', hasOwnConstructor);
     const Self = function () {
-        // console.log('self called');
         if (new.target) {
-            // console.log('newable')
             const isSelfInside = this.constructor === Self;
             const isCstrInside = this.constructor === Cstr;
-            // console.log(
-            //     'and self inside : ',
-            //     isItSelf,
-            //     hasOwnConstructor,
-            //     this instanceof Cstr,
-            //     isSelfInside,
-            //     isCstrInside,
-            //     root.constructor.name
-            // );
             // so, all three checks are not necessary to identify
             // that we are inside of extended class constructor
             // if (!isItSelf && !isSelfInside && !isCstrInside) {
@@ -51,7 +37,6 @@ const Cstr = function () {
             const result = new Constructor;
             return result;
         }
-        // console.log('callable');
 
         // here we are returning the same item
         return Self;
@@ -239,9 +224,7 @@ console.log('\n\n and let extend class from extended class : \n');
 debugger;
 class ExtendedExtendedCstr extends ExtendedCstr {
     constructor() {
-        // console.log('ExtendedExtendedCstr constructor');
         super();
-        // console.log('ExtendedExtendedCstr constructor', this.value);
     }
 }
 
@@ -274,10 +257,8 @@ console.log('\n\n and let extend class from exExExCstrCstr : \n');
 debugger;
 class ItemExtendedCstr extends exExExCstrCstr {
     constructor() {
-        // console.log('ItemExtendedCstr constructor');
+        ole.log('ItemExtendedCstr constructor');
         super();
-        // console.log('ItemExtendedCstr constructor', this.value);
-        // console.log('ItemExtendedCstr constructor', this.constructor.name);
     }
 };
 

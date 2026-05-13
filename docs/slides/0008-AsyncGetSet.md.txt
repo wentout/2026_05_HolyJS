@@ -32,7 +32,7 @@ Object.defineProperty(myObj, 'field', {
 
 # Пристально запустим &laquo; неглядя &raquo;!
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 const myObj = {};
@@ -45,11 +45,9 @@ Object.defineProperty(myObj, 'field', {
     },
     async set (value) { field = value; }
 });
-
 // Сюрприз:
 const addition = myObj.field = 321;
 // ↑ что здесь происходит вообще ???
-
 console.log('addition:', addition);    // Promise { ... }
 console.log(await myObj.field);        // 321 (через 1 сек)
 ```
@@ -116,7 +114,7 @@ const creep = ( await (myObj.field = 321));
 
 # Но посмотреть, конечно, можно ...
 
-<div className='codesmall'>
+<div className='codemedium'>
 
 ```javascript
 const myObj = {};
@@ -129,11 +127,9 @@ Object.defineProperty(myObj, 'field', {
     },
     async set (value) { field = value; }
 });
-
 // Сюрприз:
 const addition = myObj.field = 321;
 // ↑ что здесь происходит вообще ???
-
 console.log('addition:', addition);    // Promise { ... }
 console.log(await myObj.field);        // 321 (через 1 сек)
 ```
@@ -143,7 +139,6 @@ console.log(await myObj.field);        // 321 (через 1 сек)
 <Button onClick={() => { runExample('awaited_assignment')}}>Запустить пример</Button>
 
 <div className="slide-callout">
-<h3>Интерфейс [ get / set ] скрывает асинхронность</h3>
 <h2 className="danger">хотя assignment, увы, не await'-ится </h2>
 </div>
 
