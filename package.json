@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cd ./slider && npm run dev",
-    "build": "cd ./slider && npm run build",
+    "jekyl": "touch /code/talks/2026_05_HolyJS/docs/.nojekyll",
+    "build": "cd ./slider && npm run build && cd .. && npm run jekyl",
     "lint": "cd ./slider && npm run lint",
     "preview": "cd ./slider && npm run preview"
   },
