@@ -257,7 +257,7 @@ console.log('\n\n and let extend class from exExExCstrCstr : \n');
 debugger;
 class ItemExtendedCstr extends exExExCstrCstr {
     constructor() {
-        ole.log('ItemExtendedCstr constructor');
+        console.log('ItemExtendedCstr constructor');
         super();
     }
 };
